@@ -25,6 +25,32 @@
    "handle": "patch-init"
   },
   {
+   "board": "daisy-seed3-desktop",
+   "vendor": "electrosmith",
+   "url": "https://daisy.audio/products/seed-3-desktop-dev-kit",
+   "handle": "seed-3-desktop-dev-kit"
+  },
+  {
+   "board": "daisy-seed3-eurorack",
+   "vendor": "electrosmith",
+   "url": "https://daisy.audio/products/seed-3-eurorack-dev-kit",
+   "handle": "seed-3-eurorack-dev-kit"
+  },
+  {
+   "board": "daisy-seed3-pedal",
+   "vendor": "electrosmith",
+   "url": "https://daisy.audio/products/seed3-development-kit-pedal",
+   "handle": "seed3-development-kit-pedal"
+  },
+  {
+   "board": "daisy-patch-sm",
+   "vendor": "electrosmith",
+   "url": "https://daisy.audio/products/patch-submodule",
+   "handle": "patch-submodule",
+   "variant": "65MB",
+   "variant_label": "65MB"
+  },
+  {
    "board": "daisy-pod",
    "vendor": "reverb",
    "url": "https://reverb.com/marketplace?query=daisy%20pod",

@@ -6,9 +6,9 @@ Static site, no paid services. Data → JSON → static HTML.
 ## Layout
 ```
 config.json                 site settings, sponsor slot, affiliate IDs (empty), newsletter form action (empty), checker UA/rate limit, FX for filters
-data/boards.json            17 boards; every spec = {"v": value, "src": official URL}; unknowns omitted
+data/boards.json            21 boards; every spec = {"v": value, "src": official URL}; unknowns omitted
 data/vendors.json           12 vendors + how each is read (shopify / woocommerce / jsonld / sparkfun / reverb / pjrc / probe)
-data/listings.json          30 board↔vendor product links
+data/listings.json          34 board↔vendor product links
 data/stock.json             latest snapshot (written by checker)
 data/history.json           append-only price/stock points (price-change detection + charts)
 data/changes.json           restocks / sold-outs / price moves since previous run (feed this to alert emails later)

@@ -83,8 +83,16 @@ def p_shopify(lst, vendor):
     variants = []
     for v in d["variants"]:
         variants.append({"title": v.get("title"), "price": v["price"] / 100.0, "available": bool(v.get("available"))})
-    avail = [v for v in variants if v["available"]]
-    pick = min(avail or variants, key=lambda v: v["price"])
+    # Optional listing["variant"] pins one Shopify option (e.g. Patch Submodule "65MB")
+    # so a later cheaper option on the same product is not reported in its place.
+    pool = variants
+    want = (lst.get("variant") or "").strip().lower()
+    if want:
+        pool = [v for v in variants if (v.get("title") or "").strip().lower() == want]
+        if not pool:
+            raise ValueError(f"variant {lst['variant']!r} not on {lst['handle']}")
+    avail = [v for v in pool if v["available"]]
+    pick = min(avail or pool, key=lambda v: v["price"])
     return {"title": d["title"], "in_stock": bool(avail), "price": pick["price"],
             "variants": variants if len(variants) > 1 else None, "source": "shopify .js"}
 

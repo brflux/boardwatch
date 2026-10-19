@@ -51,6 +51,10 @@ const W = {
  "daisy-seed3":       {euro:2,pedal:3,install:1,cpp:3,patch:3,beginner:1,out:1,inout:3,quality:3,easy:1},
  "daisy-seed2-dfm":   {euro:1,pedal:2,cpp:3,patch:2,inout:3,quality:3},
  "daisy-pod":         {pedal:3,install:1,cpp:3,patch:3,beginner:2,inout:3,quality:2,easy:3},
+ "daisy-seed3-desktop": {pedal:3,euro:1,cpp:3,patch:3,beginner:2,inout:3,quality:3,easy:2},
+ "daisy-seed3-eurorack":{euro:5,cpp:3,patch:3,inout:3,quality:3},
+ "daisy-seed3-pedal":   {pedal:5,cpp:3,patch:3,inout:3,quality:3},
+ "daisy-patch-sm":      {euro:4,cpp:3,patch:3,inout:3,quality:2},
  "daisy-patch-init":  {euro:5,cpp:2,patch:3,inout:2,quality:2,easy:1},
  "teensy-41":         {install:3,pedal:2,euro:1,cpp:3,beginner:2,control:3,out:1,inout:1,easy:2,quality:1},
  "teensy-40":         {install:3,pedal:1,cpp:3,beginner:2,control:3,easy:2},
@@ -70,7 +74,8 @@ const WHY = {euro:"made for Eurorack",pedal:"great for pedals and desktop boxes"
  wireless:"Wi-Fi / Bluetooth built in",cpp:"strong Arduino / C++ support",patch:"runs Pure Data / Max patches",linux:"Linux audio: SuperCollider, Csound, Pd",
  python:"Python-friendly",beginner:"beginner friendly",out:"good stereo output",inout:"stereo in + out",many:"many audio channels",control:"plenty of I/O for sensors and motors",
  quality:"high audio quality / low latency",easy:"easy for students"};
-const NOTE = {"teensy-41":"Add the Teensy Audio Adaptor for audio in/out.","teensy-40":"Add the Teensy Audio Adaptor for audio in/out.",
+const NOTE = {"daisy-patch-sm":"Needs a carrier board. patch.Init() is the ready-made Eurorack breakout.",
+ "teensy-41":"Add the Teensy Audio Adaptor for audio in/out.","teensy-40":"Add the Teensy Audio Adaptor for audio in/out.",
  "teensy-audio-adaptor":"Add-on: needs a Teensy 4.0 or 4.1.","pico-audio-pack":"Add-on: needs a Raspberry Pi Pico / Pico 2.","pico-2":"Add an I2S DAC like the Pico Audio Pack for sound.",
  "hifiberry-dac-adc":"Needs a Raspberry Pi.","rpi-codec-zero":"Needs a Raspberry Pi.","bela-gem-stereo":"Board-only needs a PocketBeagle 2; starter kit includes one.","bela-gem-multi":"Board-only needs a PocketBeagle 2; starter kit includes one.",
  "bela-cape":"Needs a BeagleBone Black.","esp32-s3-devkitc-1":"Add an I2S DAC or codec for audio."};

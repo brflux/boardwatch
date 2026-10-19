@@ -66,6 +66,186 @@
    }
   },
   {
+   "id": "daisy-seed3-desktop",
+   "name": "Daisy Seed3 Desktop Dev Kit",
+   "family": "Daisy",
+   "maker": "Electro-Smith",
+   "kind": "Dev kit",
+   "blurb": "Seed3 prototyping platform for synths, samplers, and effects: line-level stereo I/O, DIN MIDI, CV/gate, and a headphone output.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "clock": {
+     "v": "480 MHz",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ram": {
+     "v": "65 MB",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "flash": {
+     "v": "8 MB",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "audio": {
+     "v": "32-bit / 192 kHz",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ch_in": {
+     "v": "2 (line level)",
+     "src": "https://docs.daisy.audio/product/Seed3-Desktop-Dev-Kit/"
+    },
+    "ch_out": {
+     "v": "2 (line level) + 3.5 mm headphone",
+     "src": "https://docs.daisy.audio/product/Seed3-Desktop-Dev-Kit/"
+    },
+    "io": {
+     "v": "DIN MIDI I/O, USB-C, microSD, 8 pots, 16 tactile switches, 2 toggles, 2 CV in, 2 gate in, 2 CV out",
+     "src": "https://docs.daisy.audio/product/Seed3-Desktop-Dev-Kit/"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Arduino",
+      "Max/MSP gen~ (Oopsy)",
+      "Pure Data (Plugdata, community)",
+      "Rust (community)"
+     ],
+     "src": "https://docs.daisy.audio/software/"
+    },
+    "msrp": {
+     "v": "$349.99",
+     "src": "https://daisy.audio/products/seed-3-desktop-dev-kit"
+    },
+    "notes": {
+     "v": "Includes one Seed3, a desktop dev board, and a USB-C cable",
+     "src": "https://daisy.audio/products/seed-3-desktop-dev-kit"
+    }
+   }
+  },
+  {
+   "id": "daisy-seed3-eurorack",
+   "name": "Daisy Seed3 Eurorack Dev Kit",
+   "family": "Daisy",
+   "maker": "Electro-Smith",
+   "kind": "Dev kit",
+   "blurb": "3U, 28HP Eurorack development board for the Seed3, with stereo audio, MIDI, CV, and gate.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "clock": {
+     "v": "480 MHz",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ram": {
+     "v": "65 MB",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "flash": {
+     "v": "8 MB",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "audio": {
+     "v": "32-bit / 192 kHz",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ch_in": {
+     "v": "2 (stereo, AC-coupled)",
+     "src": "https://docs.daisy.audio/product/Seed3-Euro-Dev-Kit/"
+    },
+    "ch_out": {
+     "v": "2 (stereo, AC-coupled)",
+     "src": "https://docs.daisy.audio/product/Seed3-Euro-Dev-Kit/"
+    },
+    "io": {
+     "v": "MIDI I/O, 4 CV in, 2 gate in, 2 CV out, 8 pots, 2 toggle switches, 2 tactile switches, microSD",
+     "src": "https://docs.daisy.audio/product/Seed3-Euro-Dev-Kit/"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Arduino",
+      "Max/MSP gen~ (Oopsy)",
+      "Pure Data (Plugdata, community)",
+      "Rust (community)"
+     ],
+     "src": "https://docs.daisy.audio/software/"
+    },
+    "msrp": {
+     "v": "$299.99",
+     "src": "https://daisy.audio/products/seed-3-eurorack-dev-kit"
+    },
+    "notes": {
+     "v": "3U Eurorack, 28HP",
+     "src": "https://docs.daisy.audio/product/Seed3-Euro-Dev-Kit/"
+    }
+   }
+  },
+  {
+   "id": "daisy-seed3-pedal",
+   "name": "Daisy Seed3 Pedal Dev Kit",
+   "family": "Daisy",
+   "maker": "Electro-Smith",
+   "kind": "Dev kit",
+   "blurb": "Single-board Seed3 pedal prototype with stereo audio, DIN MIDI, an expression input, and a 9V barrel jack.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "clock": {
+     "v": "480 MHz",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ram": {
+     "v": "65 MB",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "flash": {
+     "v": "8 MB",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "audio": {
+     "v": "32-bit / 192 kHz",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ch_in": {
+     "v": "2 (stereo)",
+     "src": "https://docs.daisy.audio/product/Seed3-Pedal-Dev-Kit/"
+    },
+    "ch_out": {
+     "v": "2 (stereo)",
+     "src": "https://docs.daisy.audio/product/Seed3-Pedal-Dev-Kit/"
+    },
+    "io": {
+     "v": "DIN MIDI I/O, expression input, USB-C, SD card, 6 pots, 2 footswitches, 2 tactile switches, 3 toggles, 1 RGB LED, 1 red LED, 9V DC barrel jack",
+     "src": "https://docs.daisy.audio/product/Seed3-Pedal-Dev-Kit/"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Arduino",
+      "Max/MSP gen~ (Oopsy)",
+      "Pure Data (Plugdata, community)",
+      "Rust (community)"
+     ],
+     "src": "https://docs.daisy.audio/software/"
+    },
+    "msrp": {
+     "v": "$199.99",
+     "src": "https://daisy.audio/products/seed3-development-kit-pedal"
+    },
+    "notes": {
+     "v": "Includes one Seed3, a 9V center-negative supply, and 2 footswitches",
+     "src": "https://daisy.audio/products/seed3-development-kit-pedal"
+    }
+   }
+  },
+  {
    "id": "daisy-seed2-dfm",
    "name": "Daisy Seed2 DFM",
    "family": "Daisy",
@@ -181,6 +361,62 @@
     "date": "2026-11-01",
     "new": "$99.00",
     "src": "https://daisy.audio/blogs/seeds-n-circuits/an-update-on-pricing"
+   }
+  },
+  {
+   "id": "daisy-patch-sm",
+   "name": "Daisy Patch Submodule",
+   "family": "Daisy",
+   "maker": "Electro-Smith",
+   "kind": "DSP module",
+   "blurb": "Eurorack DSP submodule with stereo audio plus CV, gate, and GPIO. Design a carrier board around it.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "clock": {
+     "v": "480 MHz",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "ram": {
+     "v": "64 MB",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "audio": {
+     "v": "24-bit / 96 kHz",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "ch_in": {
+     "v": "2 (stereo)",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "ch_out": {
+     "v": "2 (stereo)",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "io": {
+     "v": "12× 16-bit ADC (bipolar CV or potentiometer), 2× 12-bit CV out, 2 gate in, 2 gate out, 12 GPIO",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Arduino",
+      "Max/MSP gen~ (Oopsy)",
+      "Pure Data (Plugdata, community)",
+      "Rust (community)"
+     ],
+     "src": "https://docs.daisy.audio/software/"
+    },
+    "msrp": {
+     "v": "$39.99 (65MB)",
+     "src": "https://daisy.audio/products/patch-submodule"
+    },
+    "notes": {
+     "v": "Sold as the 65MB option (SKU PSM-65MB)",
+     "src": "https://daisy.audio/products/patch-submodule"
+    }
    }
   },
   {
