@@ -1,4 +1,41 @@
 {
- "run_at": "2026-10-19T13:45:22+00:00",
- "changes": []
+ "run_at": "2026-10-19T16:28:50+00:00",
+ "changes": [
+  {
+   "board": "daisy-seed2-dfm",
+   "vendor": "electrosmith",
+   "vendor_name": "Electro-Smith (official)",
+   "url": "https://daisy.audio/products/daisy-seed2-dfm",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-10-19T16:28:51+00:00",
+   "title": "Seed2 DFM",
+   "in_stock": false,
+   "price": 29.99,
+   "source": "shopify .js",
+   "status": "out_of_stock",
+   "ok": true,
+   "changed": "sold_out"
+  },
+  {
+   "board": "daisy-seed3-pedal",
+   "vendor": "electrosmith",
+   "vendor_name": "Electro-Smith (official)",
+   "url": "https://daisy.audio/products/seed3-development-kit-pedal",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-10-19T16:29:06+00:00",
+   "title": "Seed3 Pedal Dev Kit",
+   "in_stock": false,
+   "price": 199.99,
+   "source": "shopify .js",
+   "status": "out_of_stock",
+   "ok": true,
+   "changed": "sold_out"
+  }
+ ]
 }
