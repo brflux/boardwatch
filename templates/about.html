@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}About BoardWatch{% endblock %}
+{% block main %}
+<section class="panel prose">
+  <div class="screws" aria-hidden="true"></div>
+  <p class="mono kicker">ABOUT</p>
+  <h1>Built by a sound art educator</h1>
+  <p>Hi, I'm {{ site.owner }}. I teach sound art at a university and build kinetic sound sculptures out of Arduinos, servos and stepper motors. Every semester I hit the same problem: the board in the syllabus is sold out, a price changed, or a shop stopped carrying it.</p>
+  <p>BoardWatch is the tool I wanted. It's one page that tells you which audio-capable dev boards you can buy today, where, and for how much, plus honest specs and a quick picker to help students (and you) choose.</p>
+  <h2 id="method">How we check</h2>
+  <ul>
+    <li>A small script reads each shop's <b>public, structured product data</b> (Shopify product JSON, WooCommerce Store API, schema.org JSON-LD, Reverb's public API) and only falls back to the visible page when there's nothing else.</li>
+    <li>It obeys <b>robots.txt</b>, waits at least 3 seconds between requests to the same shop, and identifies itself with a clear user-agent.</li>
+    <li>If a shop blocks automated checks, we <b>don't work around it</b>. We mark it "not checked". Right now that's: {% for n, e in bad_vendors %}{{ n }}{% if not loop.last %}, {% endif %}{% endfor %}.</li>
+    <li>Specs come only from official maker pages, and each one links to its source. If we couldn't confirm a spec, we leave it blank.</li>
+    <li>Currently tracking: {{ ok_vendors|join(', ') }}.</li>
+  </ul>
+  <h2 id="sponsor">Sponsor BoardWatch</h2>
+  <p>BoardWatch is free and doesn't track you. One sponsor slot sits on the home and board pages, and it's a good fit for audio hardware makers, PCB fabs, synth DIY shops and courses. Sponsorship never changes stock data or ordering.</p>
+  <p><a class="btn" href="{{ cfg.sponsor.url }}">Ask about the sponsor slot</a></p>
+  <h2>Affiliate links</h2>
+  <p>Some vendor links may become affiliate links, which means BoardWatch earns a small commission at no extra cost to you. They're never used to rank boards.</p>
+</section>
+{% endblock %}

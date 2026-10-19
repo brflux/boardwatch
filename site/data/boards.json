@@ -1,0 +1,768 @@
+{
+ "_note": "Specs only from official maker pages; 'src' = URL where each value was read. Missing fields = unknown (intentionally blank).",
+ "boards": [
+  {
+   "id": "daisy-seed3",
+   "name": "Daisy Seed3",
+   "family": "Daisy",
+   "maker": "Electro-Smith",
+   "kind": "DSP module",
+   "blurb": "Next-gen Daisy module: pin-compatible with the original Seed, new 32-bit/192 kHz codec, USB-C.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "clock": {
+     "v": "480 MHz",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ram": {
+     "v": "65 MB SDRAM",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "flash": {
+     "v": "8 MB external flash",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "codec": {
+     "v": "New audio codec (part not named on official page)",
+     "src": "https://daisy.audio/products/seed3"
+    },
+    "audio": {
+     "v": "32-bit / 192 kHz",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ch_in": {
+     "v": "2 (stereo)",
+     "src": "https://daisy.audio/products/seed3"
+    },
+    "ch_out": {
+     "v": "2 (stereo)",
+     "src": "https://daisy.audio/products/seed3"
+    },
+    "io": {
+     "v": "31 GPIO, 12× 16-bit ADC, 2× 12-bit DAC",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Arduino",
+      "Max/MSP gen~",
+      "Pure Data"
+     ],
+     "src": "https://daisy.audio/products/seed3"
+    },
+    "msrp": {
+     "v": "$29.99",
+     "src": "https://daisy.audio/products/seed3"
+    }
+   },
+   "price_change": {
+    "date": "2026-11-01",
+    "new": "$34.99 (65MB); new 1MB variant $29.99",
+    "src": "https://daisy.audio/blogs/seeds-n-circuits/an-update-on-pricing"
+   }
+  },
+  {
+   "id": "daisy-seed2-dfm",
+   "name": "Daisy Seed2 DFM",
+   "family": "Daisy",
+   "maker": "Electro-Smith",
+   "kind": "DSP module",
+   "blurb": "SMT, low-profile Daisy for production. Differential audio I/O, software-compatible with the original Seed.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7",
+     "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
+    },
+    "clock": {
+     "v": "480 MHz",
+     "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
+    },
+    "ram": {
+     "v": "64 MB",
+     "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
+    },
+    "flash": {
+     "v": "8 MB",
+     "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
+    },
+    "audio": {
+     "v": "24-bit / 96 kHz",
+     "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
+    },
+    "ch_in": {
+     "v": "2 (stereo)",
+     "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
+    },
+    "ch_out": {
+     "v": "2 (stereo, differential)",
+     "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
+    },
+    "io": {
+     "v": "33 GPIO, 14× 16-bit ADC, 2× 12-bit DAC",
+     "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Arduino",
+      "Max/MSP gen~ (Oopsy)",
+      "Pure Data (Plugdata, community)",
+      "Rust (community)"
+     ],
+     "src": "https://docs.daisy.audio/software/"
+    },
+    "msrp": {
+     "v": "$29.99",
+     "src": "https://daisy.audio/products/daisy-seed2-dfm"
+    }
+   },
+   "price_change": {
+    "date": "2026-11-01",
+    "new": "$34.99 (65MB); new 1MB variant $29.99",
+    "src": "https://daisy.audio/blogs/seeds-n-circuits/an-update-on-pricing"
+   }
+  },
+  {
+   "id": "daisy-pod",
+   "name": "Daisy Pod",
+   "family": "Daisy",
+   "maker": "Electro-Smith",
+   "kind": "Dev kit / breakout",
+   "blurb": "USB-powered breakout for the Seed with knobs, buttons, encoder, MIDI in and a headphone amp. Ships with Seed3 installed.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7 (Seed3 installed)",
+     "src": "https://daisy.audio/products/pod"
+    },
+    "clock": {
+     "v": "480 MHz (via Seed3)",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ram": {
+     "v": "65 MB SDRAM (via Seed3)",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "audio": {
+     "v": "32-bit / 192 kHz (via Seed3)",
+     "src": "https://docs.daisy.audio/hardware/Seed3/"
+    },
+    "ch_in": {
+     "v": "2 (3.5 mm stereo line in)",
+     "src": "https://docs.daisy.audio/product/Daisy-Pod/"
+    },
+    "ch_out": {
+     "v": "2 (3.5 mm stereo line out) + headphone out",
+     "src": "https://docs.daisy.audio/product/Daisy-Pod/"
+    },
+    "io": {
+     "v": "2 pots, 2 buttons, 2 RGB LEDs, 1 encoder, TRS MIDI in, SD card",
+     "src": "https://docs.daisy.audio/product/Daisy-Pod/"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Arduino",
+      "Max/MSP gen~ (Oopsy)",
+      "Pure Data (Plugdata, community)",
+      "Rust (community)"
+     ],
+     "src": "https://docs.daisy.audio/software/"
+    },
+    "msrp": {
+     "v": "$79.99",
+     "src": "https://daisy.audio/products/pod"
+    }
+   },
+   "price_change": {
+    "date": "2026-11-01",
+    "new": "$99.00",
+    "src": "https://daisy.audio/blogs/seeds-n-circuits/an-update-on-pricing"
+   }
+  },
+  {
+   "id": "daisy-patch-init",
+   "name": "Daisy patch.Init()",
+   "family": "Daisy",
+   "maker": "Electro-Smith",
+   "kind": "Eurorack module",
+   "blurb": "Open-source programmable Eurorack module built on the Daisy Patch Submodule.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7 (Patch Submodule)",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "clock": {
+     "v": "480 MHz",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "ram": {
+     "v": "64 MB",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "audio": {
+     "v": "24-bit / 96 kHz",
+     "src": "https://docs.daisy.audio/hardware/PatchSM/"
+    },
+    "ch_in": {
+     "v": "2 (stereo)",
+     "src": "https://docs.daisy.audio/product/Daisy-Patch-Init/"
+    },
+    "ch_out": {
+     "v": "2 (stereo)",
+     "src": "https://docs.daisy.audio/product/Daisy-Patch-Init/"
+    },
+    "io": {
+     "v": "4 CV in, 1 CV out, 2 gate in, 2 gate out, 4 knobs, button, toggle, SD",
+     "src": "https://docs.daisy.audio/product/Daisy-Patch-Init/"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Arduino",
+      "Max/MSP gen~ (Oopsy)",
+      "Pure Data (Plugdata, community)",
+      "Rust (community)"
+     ],
+     "src": "https://docs.daisy.audio/software/"
+    },
+    "msrp": {
+     "v": "$249.99",
+     "src": "https://daisy.audio/products/patch-init"
+    }
+   }
+  },
+  {
+   "id": "teensy-41",
+   "name": "Teensy 4.1",
+   "family": "Teensy",
+   "maker": "PJRC (made by SparkFun)",
+   "kind": "Microcontroller",
+   "blurb": "600 MHz Cortex-M7 with 8 MB flash, SD socket, Ethernet PHY and PSRAM pads. Pair with the Audio Adaptor for codec I/O.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7 with FPU",
+     "src": "https://www.pjrc.com/store/teensy41.html"
+    },
+    "clock": {
+     "v": "600 MHz",
+     "src": "https://www.pjrc.com/store/teensy41.html"
+    },
+    "ram": {
+     "v": "1024K RAM (512K tightly coupled)",
+     "src": "https://www.pjrc.com/store/teensy41.html"
+    },
+    "flash": {
+     "v": "7936K usable (8 MB chip)",
+     "src": "https://www.pjrc.com/store/teensy41.html"
+    },
+    "codec": {
+     "v": "None onboard (use Audio Adaptor)",
+     "src": "https://www.pjrc.com/store/teensy41.html"
+    },
+    "io": {
+     "v": "55 I/O, 18 analog in, 2× I2S/TDM, 1× S/PDIF",
+     "src": "https://www.pjrc.com/store/teensy41.html"
+    },
+    "toolchains": {
+     "v": [
+      "Arduino (Teensyduino)",
+      "C/C++ (Makefile)"
+     ],
+     "src": "https://www.pjrc.com/store/teensy41.html"
+    },
+    "notes": {
+     "v": "SparkFun is now manufacturing Teensy products (per PJRC store page)",
+     "src": "https://www.pjrc.com/store/teensy41.html"
+    }
+   }
+  },
+  {
+   "id": "teensy-40",
+   "name": "Teensy 4.0",
+   "family": "Teensy",
+   "maker": "PJRC (made by SparkFun)",
+   "kind": "Microcontroller",
+   "blurb": "Same 600 MHz Cortex-M7 as the 4.1 in a smaller footprint with less flash and fewer pins.",
+   "specs": {
+    "cpu": {
+     "v": "ARM Cortex-M7 with FPU",
+     "src": "https://www.pjrc.com/store/teensy40.html"
+    },
+    "clock": {
+     "v": "600 MHz",
+     "src": "https://www.pjrc.com/store/teensy40.html"
+    },
+    "ram": {
+     "v": "1024K RAM (512K tightly coupled)",
+     "src": "https://www.pjrc.com/store/teensy40.html"
+    },
+    "flash": {
+     "v": "1984K",
+     "src": "https://www.pjrc.com/store/teensy40.html"
+    },
+    "codec": {
+     "v": "None onboard (use Audio Adaptor)",
+     "src": "https://www.pjrc.com/store/teensy40.html"
+    },
+    "io": {
+     "v": "40 I/O, 14 analog in, 2× I2S/TDM, 1× S/PDIF",
+     "src": "https://www.pjrc.com/store/teensy40.html"
+    },
+    "toolchains": {
+     "v": [
+      "Arduino (Teensyduino)",
+      "C/C++ (Makefile)"
+     ],
+     "src": "https://www.pjrc.com/store/teensy40.html"
+    }
+   }
+  },
+  {
+   "id": "teensy-audio-adaptor",
+   "name": "Teensy Audio Adaptor (Rev D)",
+   "family": "Teensy",
+   "maker": "PJRC (made by SparkFun)",
+   "kind": "Audio add-on",
+   "blurb": "SGTL5000 codec board for Teensy 4.x: stereo headphone + line out, stereo line in or mono mic.",
+   "specs": {
+    "codec": {
+     "v": "SGTL5000",
+     "src": "https://www.pjrc.com/store/teensy3_audio.html"
+    },
+    "audio": {
+     "v": "16-bit / 44.1 kHz",
+     "src": "https://www.pjrc.com/store/teensy3_audio.html"
+    },
+    "ch_in": {
+     "v": "2 (line in) or 1 (mic)",
+     "src": "https://www.pjrc.com/store/teensy3_audio.html"
+    },
+    "ch_out": {
+     "v": "2 (headphone + line out)",
+     "src": "https://www.pjrc.com/store/teensy3_audio.html"
+    },
+    "io": {
+     "v": "Optional volume pot, micro SD, pads for 2nd board (quad-channel)",
+     "src": "https://www.pjrc.com/store/teensy3_audio.html"
+    },
+    "toolchains": {
+     "v": [
+      "Arduino (Teensy Audio Library)"
+     ],
+     "src": "https://www.pjrc.com/store/teensy3_audio.html"
+    },
+    "host": {
+     "v": "Teensy 4.0 / 4.1",
+     "src": "https://www.pjrc.com/store/teensy3_audio.html"
+    }
+   }
+  },
+  {
+   "id": "bela-gem-stereo",
+   "name": "Bela Gem Stereo",
+   "family": "Bela",
+   "maker": "Bela",
+   "kind": "Audio cape (Linux)",
+   "blurb": "Bela's current-gen stereo board for PocketBeagle 2. Browser IDE, low-latency audio + sensors.",
+   "specs": {
+    "host": {
+     "v": "PocketBeagle 2 (included in Starter Kit)",
+     "src": "https://shop.bela.io/products/bela-gem-stereo"
+    },
+    "audio": {
+     "v": "24-bit / 96 kHz",
+     "src": "https://shop.bela.io/products/bela-gem-stereo"
+    },
+    "ch_in": {
+     "v": "2",
+     "src": "https://shop.bela.io/products/bela-gem-stereo"
+    },
+    "ch_out": {
+     "v": "2 + headphone",
+     "src": "https://shop.bela.io/products/bela-gem-stereo"
+    },
+    "io": {
+     "v": "8 analog in (16-bit / 24 kHz), 16 GPIO, USB host + device, Qwiic",
+     "src": "https://shop.bela.io/products/bela-gem-stereo"
+    },
+    "latency": {
+     "v": "Low-latency real-time processing (Bela environment)",
+     "src": "https://shop.bela.io/products/bela-gem-stereo"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Pure Data",
+      "SuperCollider",
+      "Bela browser IDE"
+     ],
+     "src": "https://shop.bela.io/products/bela-gem-stereo"
+    },
+    "msrp": {
+     "v": "$75 board / $149 starter kit",
+     "src": "https://shop.bela.io/products/bela-gem-stereo"
+    }
+   }
+  },
+  {
+   "id": "bela-gem-multi",
+   "name": "Bela Gem Multi",
+   "family": "Bela",
+   "maker": "Bela",
+   "kind": "Audio cape (Linux)",
+   "blurb": "10-in/10-out Bela for spatial audio and installations; 8 outputs optionally DC-coupled for CV.",
+   "specs": {
+    "host": {
+     "v": "PocketBeagle 2 (included in Starter Kit)",
+     "src": "https://shop.bela.io/products/bela-gem-multi"
+    },
+    "audio": {
+     "v": "24-bit / 96 kHz",
+     "src": "https://shop.bela.io/products/bela-gem-multi"
+    },
+    "ch_in": {
+     "v": "10",
+     "src": "https://shop.bela.io/products/bela-gem-multi"
+    },
+    "ch_out": {
+     "v": "10 (8 optionally DC-coupled)",
+     "src": "https://shop.bela.io/products/bela-gem-multi"
+    },
+    "io": {
+     "v": "8 analog in (16-bit / 24 kHz), 16 GPIO, USB host + device, Qwiic",
+     "src": "https://shop.bela.io/products/bela-gem-multi"
+    },
+    "latency": {
+     "v": "Low-latency real-time processing (Bela environment)",
+     "src": "https://shop.bela.io/products/bela-gem-multi"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Pure Data",
+      "SuperCollider",
+      "Bela browser IDE"
+     ],
+     "src": "https://shop.bela.io/products/bela-gem-multi"
+    },
+    "msrp": {
+     "v": "$175 board / $249 starter kit",
+     "src": "https://shop.bela.io/products/bela-gem-multi"
+    }
+   }
+  },
+  {
+   "id": "bela-cape",
+   "name": "Bela (original Cape)",
+   "family": "Bela",
+   "maker": "Bela",
+   "kind": "Audio cape (Linux)",
+   "blurb": "The original Bela cape for BeagleBone Black. Still produced in small batches.",
+   "specs": {
+    "host": {
+     "v": "BeagleBone Black (not included)",
+     "src": "https://shop.bela.io/products/bela-cape"
+    },
+    "ch_in": {
+     "v": "2",
+     "src": "https://shop.bela.io/products/bela-cape"
+    },
+    "ch_out": {
+     "v": "2 + 2 speaker amps",
+     "src": "https://shop.bela.io/products/bela-cape"
+    },
+    "io": {
+     "v": "8× 16-bit analog in, 8× 16-bit analog out, 16 digital I/O",
+     "src": "https://shop.bela.io/products/bela-cape"
+    },
+    "latency": {
+     "v": "Low-latency audio and sensor processing",
+     "src": "https://bela.io/products/legacy-hardware/"
+    },
+    "toolchains": {
+     "v": [
+      "C++",
+      "Pure Data",
+      "SuperCollider",
+      "Csound",
+      "Bela browser IDE"
+     ],
+     "src": "https://shop.bela.io/products/bela-cape"
+    },
+    "msrp": {
+     "v": "$119",
+     "src": "https://shop.bela.io/products/bela-cape"
+    }
+   }
+  },
+  {
+   "id": "bela-mini",
+   "name": "Bela Mini",
+   "family": "Bela",
+   "maker": "Bela",
+   "kind": "Audio cape (Linux)",
+   "discontinued": true,
+   "blurb": "Compact Bela for the original PocketBeagle. End-of-life (still supported); Bela Gem Stereo is the successor.",
+   "specs": {
+    "host": {
+     "v": "PocketBeagle (original)",
+     "src": "https://bela.io/products/legacy-hardware/"
+    },
+    "ch_in": {
+     "v": "2",
+     "src": "https://bela.io/products/legacy-hardware/"
+    },
+    "ch_out": {
+     "v": "2",
+     "src": "https://bela.io/products/legacy-hardware/"
+    },
+    "io": {
+     "v": "8× 16-bit analog in, 16 digital I/O",
+     "src": "https://bela.io/products/legacy-hardware/"
+    },
+    "notes": {
+     "v": "End-of-life: supported but no longer manufactured",
+     "src": "https://bela.io/products/legacy-hardware/"
+    }
+   }
+  },
+  {
+   "id": "esp32-s3-devkitc-1",
+   "name": "ESP32-S3-DevKitC-1",
+   "family": "ESP32",
+   "maker": "Espressif",
+   "kind": "Microcontroller (Wi-Fi/BLE)",
+   "blurb": "Cheap dual-core Wi-Fi/BLE board with I2S. Add an I2S DAC/codec for audio.",
+   "specs": {
+    "cpu": {
+     "v": "Dual-core Xtensa LX7",
+     "src": "https://www.espressif.com/en/products/socs/esp32-s3"
+    },
+    "clock": {
+     "v": "240 MHz",
+     "src": "https://www.espressif.com/en/products/socs/esp32-s3"
+    },
+    "ram": {
+     "v": "512 KB internal SRAM (+ PSRAM on some module variants)",
+     "src": "https://www.espressif.com/en/products/socs/esp32-s3"
+    },
+    "codec": {
+     "v": "None onboard (I2S peripheral)",
+     "src": "https://www.espressif.com/en/products/socs/esp32-s3"
+    },
+    "io": {
+     "v": "45 programmable GPIO on SoC; I2S, SPI, I2C, ADC, 14 touch pins",
+     "src": "https://www.espressif.com/en/products/socs/esp32-s3"
+    },
+    "toolchains": {
+     "v": [
+      "ESP-IDF (C/C++)"
+     ],
+     "src": "https://www.espressif.com/en/products/socs/esp32-s3"
+    },
+    "notes": {
+     "v": "Ships with ESP32-S3-WROOM-1, -1U or -2 module",
+     "src": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/index.html"
+    }
+   }
+  },
+  {
+   "id": "esp32-a1s-audio-kit",
+   "name": "ESP32-A1S Audio Kit (v2.2)",
+   "family": "ESP32",
+   "maker": "Ai-Thinker",
+   "kind": "Audio dev board (Wi-Fi/BT)",
+   "blurb": "ESP32 + ES8388 codec, mic and headphone amps, SD slot, battery charging. Popular cheap Bluetooth audio playground.",
+   "specs": {
+    "cpu": {
+     "v": "Dual-core Xtensa LX6 (ESP32)",
+     "src": "https://vdoc.ai-thinker.com/_media/esp32-a1s_v2.3_specification.pdf"
+    },
+    "clock": {
+     "v": "240 MHz",
+     "src": "https://vdoc.ai-thinker.com/_media/esp32-a1s_v2.3_specification.pdf"
+    },
+    "ram": {
+     "v": "520 KB SRAM + 64 Mb PSRAM",
+     "src": "https://vdoc.ai-thinker.com/_media/esp32-a1s_v2.3_specification.pdf"
+    },
+    "flash": {
+     "v": "4 MB SPI flash",
+     "src": "https://component.aithinker.com/_media/esp32-a1s/esp32-audio-kit_v2.2%E8%A7%84%E6%A0%BC%E4%B9%A6.pdf"
+    },
+    "codec": {
+     "v": "ES8388",
+     "src": "https://vdoc.ai-thinker.com/_media/esp32-a1s_v2.3_specification.pdf"
+    },
+    "ch_in": {
+     "v": "2",
+     "src": "https://vdoc.ai-thinker.com/_media/esp32-a1s_v2.3_specification.pdf"
+    },
+    "ch_out": {
+     "v": "2 (+ headphone, 3 W speaker outs)",
+     "src": "https://component.aithinker.com/_media/esp32-a1s/esp32-audio-kit_v2.2%E8%A7%84%E6%A0%BC%E4%B9%A6.pdf"
+    },
+    "notes": {
+     "v": "Ai-Thinker notes the older AC101-codec version is being phased out",
+     "src": "https://vdoc.ai-thinker.com/%E9%9F%B3%E9%A2%91%E5%BC%80%E5%8F%91%E6%9D%BF_esp32-audio-kit"
+    }
+   }
+  },
+  {
+   "id": "pico-2",
+   "name": "Raspberry Pi Pico 2",
+   "family": "RP2350",
+   "maker": "Raspberry Pi",
+   "kind": "Microcontroller",
+   "blurb": "$5 RP2350 board: dual Cortex-M33 or RISC-V cores and PIO, perfect for I2S DACs and servo/stepper control.",
+   "specs": {
+    "cpu": {
+     "v": "Dual Arm Cortex-M33 or dual Hazard3 RISC-V",
+     "src": "https://www.raspberrypi.com/products/raspberry-pi-pico-2/"
+    },
+    "clock": {
+     "v": "150 MHz",
+     "src": "https://www.raspberrypi.com/products/raspberry-pi-pico-2/"
+    },
+    "ram": {
+     "v": "520 KB SRAM",
+     "src": "https://www.raspberrypi.com/products/raspberry-pi-pico-2/"
+    },
+    "flash": {
+     "v": "4 MB QSPI",
+     "src": "https://www.raspberrypi.com/products/raspberry-pi-pico-2/"
+    },
+    "codec": {
+     "v": "None onboard (I2S via PIO)",
+     "src": "https://www.raspberrypi.com/products/raspberry-pi-pico-2/"
+    },
+    "io": {
+     "v": "3 ADC, 16 PWM channels, 12 PIO state machines, 2 UART/SPI/I2C",
+     "src": "https://www.raspberrypi.com/products/raspberry-pi-pico-2/"
+    },
+    "toolchains": {
+     "v": [
+      "C/C++ SDK",
+      "MicroPython"
+     ],
+     "src": "https://www.raspberrypi.com/products/raspberry-pi-pico-2/"
+    },
+    "msrp": {
+     "v": "from $5",
+     "src": "https://www.raspberrypi.com/products/raspberry-pi-pico-2/"
+    },
+    "notes": {
+     "v": "In production until at least January 2040",
+     "src": "https://www.raspberrypi.com/products/raspberry-pi-pico-2/"
+    }
+   }
+  },
+  {
+   "id": "pico-audio-pack",
+   "name": "Pimoroni Pico Audio Pack",
+   "family": "RP2350",
+   "maker": "Pimoroni",
+   "kind": "Audio add-on",
+   "blurb": "PCM5100A I2S DAC with line out and amplified headphone out for Pico / Pico 2.",
+   "specs": {
+    "host": {
+     "v": "Raspberry Pi Pico (header pins needed)",
+     "src": "https://shop.pimoroni.com/products/pico-audio-pack"
+    },
+    "codec": {
+     "v": "PCM5100A DAC + PAM8908JER headphone amp",
+     "src": "https://shop.pimoroni.com/products/pico-audio-pack"
+    },
+    "audio": {
+     "v": "up to 32-bit / 384 kHz output",
+     "src": "https://shop.pimoroni.com/products/pico-audio-pack"
+    },
+    "ch_in": {
+     "v": "0",
+     "src": "https://shop.pimoroni.com/products/pico-audio-pack"
+    },
+    "ch_out": {
+     "v": "2 (line out + headphone)",
+     "src": "https://shop.pimoroni.com/products/pico-audio-pack"
+    },
+    "toolchains": {
+     "v": [
+      "C/C++",
+      "CircuitPython",
+      "MicroPython",
+      "Rust (community examples)"
+     ],
+     "src": "https://shop.pimoroni.com/products/pico-audio-pack"
+    }
+   }
+  },
+  {
+   "id": "hifiberry-dac-adc",
+   "name": "HiFiBerry DAC+ ADC",
+   "family": "Pi HAT",
+   "maker": "HiFiBerry",
+   "kind": "Raspberry Pi audio HAT",
+   "blurb": "Raspberry Pi HAT with DAC output and analogue input, both up to 192 kHz. Linux = Pd, SuperCollider, etc.",
+   "specs": {
+    "host": {
+     "v": "Any Raspberry Pi with 40-pin GPIO",
+     "src": "https://www.hifiberry.com/shop/boards/dacplus-adc/"
+    },
+    "audio": {
+     "v": "up to 192 kHz in and out",
+     "src": "https://www.hifiberry.com/shop/boards/dacplus-adc/"
+    },
+    "msrp": {
+     "v": "$49.90",
+     "src": "https://www.hifiberry.com/shop/boards/dacplus-adc/"
+    },
+    "notes": {
+     "v": "Audio input needs Raspberry Pi kernel 4.18+",
+     "src": "https://www.hifiberry.com/shop/boards/dacplus-adc/"
+    }
+   }
+  },
+  {
+   "id": "rpi-codec-zero",
+   "name": "Raspberry Pi Codec Zero",
+   "family": "Pi HAT",
+   "maker": "Raspberry Pi",
+   "kind": "Raspberry Pi audio HAT",
+   "blurb": "Pi Zero-sized I/O HAT (formerly IQaudio Codec Zero) with DA7212 codec, MEMS mic, speaker driver.",
+   "specs": {
+    "host": {
+     "v": "Any Raspberry Pi with 40-pin GPIO",
+     "src": "https://www.raspberrypi.com/products/codec-zero/"
+    },
+    "codec": {
+     "v": "Dialog DA7212",
+     "src": "https://www.raspberrypi.com/products/codec-zero/"
+    },
+    "audio": {
+     "v": "24-bit / 96 kHz",
+     "src": "https://www.raspberrypi.com/products/codec-zero/"
+    },
+    "ch_in": {
+     "v": "Stereo AUX in, MEMS mic, ext. mono mic",
+     "src": "https://www.raspberrypi.com/products/codec-zero/"
+    },
+    "ch_out": {
+     "v": "Stereo AUX out, 1.2 W mono speaker",
+     "src": "https://www.raspberrypi.com/products/codec-zero/"
+    },
+    "io": {
+     "v": "2 LEDs, 1 button",
+     "src": "https://www.raspberrypi.com/products/codec-zero/"
+    },
+    "notes": {
+     "v": "In production until at least January 2028",
+     "src": "https://www.raspberrypi.com/products/codec-zero/"
+    }
+   }
+  }
+ ]
+}

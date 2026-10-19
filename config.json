@@ -1,0 +1,54 @@
+{
+ "site": {
+  "title": "BoardWatch",
+  "tagline": "Live stock & prices for audio dev boards",
+  "base_url": "/",
+  "owner": "Brett",
+  "contact_email": ""
+ },
+ "newsletter": {
+  "provider": null,
+  "form_action": "",
+  "note": "Placeholder: connect Buttondown / Kit / Beehiiv and paste the form action URL here."
+ },
+ "sponsor": {
+  "enabled": true,
+  "name": null,
+  "url": "mailto:?subject=Sponsor%20BoardWatch",
+  "blurb": "Reach makers who build synths, sound sculptures and audio gear."
+ },
+ "affiliates": {
+  "_note": "No real IDs yet. Fill 'param' + 'id' (query-string style) or 'template' with {url}. Empty id = plain link.",
+  "sparkfun": {
+   "param": "",
+   "id": ""
+  },
+  "adafruit": {
+   "param": "",
+   "id": ""
+  },
+  "reverb": {
+   "template": "",
+   "id": ""
+  },
+  "sweetwater": {
+   "template": "",
+   "id": ""
+  },
+  "amazon": {
+   "param": "tag",
+   "id": ""
+  }
+ },
+ "checker": {
+  "user_agent": "BoardWatchBot/0.1 (audio dev-board stock tracker; polite: 1 req per 3s per host; contact URL TBD)",
+  "min_delay_s": 3.0,
+  "timeout_s": 25
+ },
+ "fx_to_usd": {
+  "_note": "Approximate, only used for the price filter/sort. Displayed prices stay in vendor currency.",
+  "USD": 1.0,
+  "GBP": 1.33,
+  "EUR": 1.16
+ }
+}

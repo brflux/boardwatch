@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="hero panel">
+  <div class="screws" aria-hidden="true"></div>
+  <div class="hero-text">
+    <p class="mono kicker">CH-1 · LIVE STOCK MONITOR</p>
+    <h1>Which audio dev boards can you actually buy right now?</h1>
+    <p class="lede">BoardWatch checks official shops and maker-friendly stores for Daisy, Teensy, Bela, ESP32, RP2350 and Raspberry Pi audio HATs, then lists stock and price in one table.</p>
+    <div class="meters">
+      <div class="meter"><span class="led led-on"></span><b>{{ counts['in'] }}</b> listings in stock</div>
+      <div class="meter"><span class="led led-off"></span><b>{{ counts['out'] }}</b> sold out / backorder</div>
+      <div class="meter mono small">checked {{ checked_ct }}</div>
+    </div>
+  </div>
+  <svg class="scope" viewBox="0 0 300 120" aria-hidden="true"><defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#3b4a3a" stroke-width=".6"/></pattern></defs><rect width="300" height="120" fill="url(#g)"/><path class="trace" d="M0 60 Q 18 10 37 60 T 75 60 T 112 60 T 150 60 Q 160 20 170 60 L 180 95 L 190 25 L 200 60 T 237 60 T 275 60 T 300 60"/></svg>
+</section>
+
+<section class="news" aria-label="Supply news">
+  <h2 class="mono">// SUPPLY NEWS</h2>
+  <ul>
+    <li><span class="tag tag-warn">PRICE</span> Daisy <b>Seed2 DFM, Seed3 &amp; Pod prices go up on Nov 1, 2026</b> (Pod → $99, 65MB Seeds → $34.99; 1MB Seed variants return at $29.99). <a href="https://daisy.audio/blogs/seeds-n-circuits/an-update-on-pricing" rel="noopener">Electro-Smith post</a></li>
+    <li><span class="tag tag-warn">SUPPLY</span> The memory-chip shortage hit the SDRAM used on every Daisy. Electro-Smith says a big shipment lands in October, with steady supply through 2027. <a href="https://community.daisy.audio/t/memory-market-update/9689" rel="noopener">Daisy forum, Sep 1</a></li>
+    <li><span class="tag">TEENSY</span> Adafruit discontinued Teensy; SparkFun now manufactures Teensy and PJRC's store points buyers there. <a href="https://blog.adafruit.com/2026/01/12/discontinuing-the-teensy-at-adafruit/" rel="noopener">Adafruit blog</a></li>
+  </ul>
+</section>
+
+{% include "_sponsor.html" %}
+
+<section class="panel table-panel" id="stock">
+  <div class="screws" aria-hidden="true"></div>
+  <div class="table-head">
+    <h2>Live stock</h2>
+    <form class="filters" id="filters" onsubmit="return false">
+      <label class="toggle"><input type="checkbox" id="f-instock"> <span>In stock only</span></label>
+      <label><span class="sr">Board family</span>
+        <select id="f-family"><option value="">All families</option>{% for f in families %}<option>{{ f }}</option>{% endfor %}</select></label>
+      <label><span class="sr">Vendor</span>
+        <select id="f-vendor"><option value="">All vendors</option>{% for v, n in vendor_list %}<option value="{{ v }}">{{ n }}</option>{% endfor %}</select></label>
+      <label class="range">Max <output id="f-price-out">any</output>
+        <input type="range" id="f-price" min="5" max="260" step="5" value="260" aria-label="Maximum price (approx. USD)"></label>
+      <label class="toggle"><input type="checkbox" id="f-used" checked> <span>Show used market</span></label>
+    </form>
+  </div>
+  <div class="table-wrap">
+  <table class="stock" id="stock-table">
+    <thead><tr><th>Board</th><th>Status</th><th class="num">Price</th><th>Vendor</th><th class="hide-sm">Checked</th></tr></thead>
+    <tbody>
+    {% for r in rows %}
+      <tr data-family="{{ r.b.family }}" data-vendor="{{ r.vendor }}" data-status="{{ r.status }}" data-instock="{{ 1 if r.in_stock else 0 }}" data-usd="{{ '%.2f'|format(r.usd) if r.usd is not none else '' }}" data-used="{{ 1 if r.used_market else 0 }}">
+        <td><a class="board-link" href="boards/{{ r.b.id }}.html">{{ r.b.name }}</a>
+          <span class="fam mono">{{ r.b.family }}{% if r.variant_label %} · {{ r.variant_label }}{% endif %}</span>
+          {% if r.b.price_change %}<span class="tag tag-warn small" title="Price change {{ r.b.price_change.date }}">↑ Nov 1</span>{% endif %}</td>
+        <td><span class="status st-{{ r.status }}{% if r.used_market %} st-used{% endif %}"><span class="led"></span>{{ r.status_label }}</span>{% if r.changed %} <span class="tag tag-new">{{ r.changed|replace('_',' ') }}</span>{% endif %}</td>
+        <td class="num mono">{{ r.price_fmt }}{% if r.price_note %}<span class="dim small" title="{{ r.price_note }}">*</span>{% endif %}{% if r.used_market and r.price is not none %}<span class="dim small"> from</span>{% endif %}</td>
+        <td>{% if r.status in ('blocked','error') %}<span class="dim">{{ r.vendor_name }}</span>{% else %}<a href="{{ r.link }}" rel="noopener nofollow" target="_blank">{{ r.vendor_name }} ↗</a>{% endif %}</td>
+        <td class="hide-sm mono small dim">{{ r.checked_short }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p class="empty" id="empty-msg" hidden>No listings match those filters. Turn a knob back.</p>
+  </div>
+  <p class="small dim">* Pimoroni prices are ex VAT; Thonk prices are as listed by the store API (may exclude VAT). The price filter converts GBP roughly to USD. Not checked: {% for n, e in bad_vendors %}{{ n }} ({{ e }}){% if not loop.last %}, {% endif %}{% endfor %}.</p>
+</section>
+
+<section class="cards">
+  <a class="card panel" href="picker.html"><span class="mono kicker">5 QUESTIONS</span><h3>Pick my board →</h3><p>Eurorack, pedal, installation or kinetic sculpture? Answer 5 questions and get a match.</p></a>
+  <a class="card panel" href="compare.html"><span class="mono kicker">SPEC SHEET</span><h3>Compare specs →</h3><p>CPU, RAM, codec, channels and toolchains side by side, with every spec linked to its official source.</p></a>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Compare audio dev boards · BoardWatch{% endblock %}
+{% block main %}
+<section class="panel">
+  <div class="screws" aria-hidden="true"></div>
+  <p class="mono kicker">SPEC SHEET</p>
+  <h1>Compare boards</h1>
+  <p class="lede">Every value links to the official page it came from. Blank = not stated officially.</p>
+  <form class="filters" onsubmit="return false">
+    <label><span class="sr">Family</span><select id="c-family"><option value="">All families</option>{% for f in families %}<option>{{ f }}</option>{% endfor %}</select></label>
+    <label class="toggle"><input type="checkbox" id="c-instock"> <span>In stock only</span></label>
+  </form>
+  <div class="table-wrap compare-wrap">
+  <table class="compare" id="compare">
+    <thead><tr><th class="sticky">Board</th><th>Stock</th>{% for k, label in fields %}<th>{{ label }}</th>{% endfor %}</tr></thead>
+    <tbody>
+    {% for b in boards %}
+    <tr data-family="{{ b.family }}" data-instock="{{ 1 if b.in_stock_any else 0 }}">
+      <th class="sticky"><a href="boards/{{ b.id }}.html">{{ b.name }}</a><span class="fam mono">{{ b.family }}</span></th>
+      <td>{% if b.discontinued %}<span class="status st-out_of_stock"><span class="led"></span>EOL</span>{% elif b.in_stock_any %}<span class="status st-in_stock"><span class="led"></span>{{ b.best.price_fmt if b.best else 'Yes' }}</span>{% else %}<span class="status st-out_of_stock"><span class="led"></span>Out</span>{% endif %}</td>
+      {% for k, label in fields %}{% set s = b.specs.get(k) %}
+      <td>{% if s %}{% if s.v is string %}{{ s.v }}{% else %}{{ s.v|join(', ') }}{% endif %} <a class="src" href="{{ s.src }}" rel="noopener" title="{{ s.src }}">src</a>{% endif %}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+{% endblock %}

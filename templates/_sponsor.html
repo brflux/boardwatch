@@ -1,0 +1,8 @@
+<aside class="sponsor" aria-label="Sponsor">
+  <span class="sponsor-tag mono">SPONSOR</span>
+  {% if cfg.sponsor.name %}
+    <a href="{{ cfg.sponsor.url }}" rel="sponsored noopener">{{ cfg.sponsor.name }}</a> — {{ cfg.sponsor.blurb }}
+  {% else %}
+    <strong>Sponsor BoardWatch.</strong> {{ cfg.sponsor.blurb }} <a href="{{ root }}about.html#sponsor">This slot is open →</a>
+  {% endif %}
+</aside>

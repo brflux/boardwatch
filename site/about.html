@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About BoardWatch</title>
+<meta name="description" content="Live stock and price tracker for audio dev boards: Daisy, Teensy, Bela, ESP32, RP2350 and Raspberry Pi audio HATs.">
+<link rel="stylesheet" href="static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='%23e8892b'/><path d='M4 16q4-9 8 0t8 0 8 0' stroke='%231a1712' stroke-width='3' fill='none'/></svg>">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="index.html" aria-label="BoardWatch home">
+    <span class="led led-on" aria-hidden="true"></span><span class="logo-word">Board<span>Watch</span></span>
+  </a>
+  <nav class="nav">
+    <a href="index.html" >Stock</a>
+    <a href="compare.html" >Compare</a>
+    <a href="picker.html" >Pick my board</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a class="nav-alert" href="#alerts">Get alerts</a>
+  </nav>
+</header>
+<main>
+
+<section class="panel prose">
+  <div class="screws" aria-hidden="true"></div>
+  <p class="mono kicker">ABOUT</p>
+  <h1>Built by a sound art educator</h1>
+  <p>Hi, I'm Brett. I teach sound art at a university and build kinetic sound sculptures out of Arduinos, servos and stepper motors. Every semester I hit the same problem: the board in the syllabus is sold out, a price changed, or a shop stopped carrying it.</p>
+  <p>BoardWatch is the tool I wanted. It's one page that tells you which audio-capable dev boards you can buy today, where, and for how much, plus honest specs and a quick picker to help students (and you) choose.</p>
+  <h2 id="method">How we check</h2>
+  <ul>
+    <li>A small script reads each shop's <b>public, structured product data</b> (Shopify product JSON, WooCommerce Store API, schema.org JSON-LD, Reverb's public API) and only falls back to the visible page when there's nothing else.</li>
+    <li>It obeys <b>robots.txt</b>, waits at least 3 seconds between requests to the same shop, and identifies itself with a clear user-agent.</li>
+    <li>If a shop blocks automated checks, we <b>don't work around it</b>. We mark it "not checked". Right now that's: DigiKey, Mouser, Sweetwater.</li>
+    <li>Specs come only from official maker pages, and each one links to its source. If we couldn't confirm a spec, we leave it blank.</li>
+    <li>Currently tracking: Electro-Smith (official), Reverb (used market), SparkFun (Teensy manufacturer), PJRC (Teensy designer), Bela Shop (official), Thonk, Adafruit, Pimoroni, HiFiBerry (official).</li>
+  </ul>
+  <h2 id="sponsor">Sponsor BoardWatch</h2>
+  <p>BoardWatch is free and doesn't track you. One sponsor slot sits on the home and board pages, and it's a good fit for audio hardware makers, PCB fabs, synth DIY shops and courses. Sponsorship never changes stock data or ordering.</p>
+  <p><a class="btn" href="mailto:?subject=Sponsor%20BoardWatch">Ask about the sponsor slot</a></p>
+  <h2>Affiliate links</h2>
+  <p>Some vendor links may become affiliate links, which means BoardWatch earns a small commission at no extra cost to you. They're never used to rank boards.</p>
+</section>
+
+</main>
+<section class="panel newsletter" id="alerts">
+  <div class="screws" aria-hidden="true"></div>
+  <h2><span class="led led-amber" aria-hidden="true"></span> Restock &amp; price alerts</h2>
+  <p>One short email when a Daisy, Teensy or Bela board comes back in stock or changes price. No spam, unsubscribe anytime.</p>
+  <form class="signup" data-placeholder="1">
+    <label class="sr" for="nl-email">Email address</label>
+    <input id="nl-email" name="email" type="email" placeholder="you@studio.edu" required autocomplete="email">
+    <select name="interest" aria-label="Board family">
+      <option value="all">All boards</option>
+      <option value="Bela">Bela</option><option value="Daisy">Daisy</option><option value="ESP32">ESP32</option><option value="Pi HAT">Pi HAT</option><option value="RP2350">RP2350</option><option value="Teensy">Teensy</option>
+    </select>
+    <button type="submit">Patch me in</button>
+  </form>
+  <p class="form-msg small" role="status" aria-live="polite"></p>
+  <p class="small dim">Signup isn't connected yet. Alerts are coming soon.</p>
+</section>
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <p class="mono small">Last check: <time>Oct 18, 2026 9:04 PM CT</time> (2026-10-19 02:04 UTC)</p>
+      <p class="small">Prices &amp; stock are read from each shop's public product data and can be wrong or stale. Always confirm on the vendor's page. Some links may become affiliate links; that never changes what we list.</p>
+    </div>
+    <div class="small">
+      <p><a href="about.html">About BoardWatch</a> · <a href="about.html#method">How we check</a> · <a href="about.html#sponsor">Sponsor</a></p>
+      <p class="mono">© 2026 BoardWatch · built by a sound art educator</p>
+    </div>
+  </div>
+</footer>
+<script src="static/app.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}{{ b.name }} stock, price &amp; specs · BoardWatch{% endblock %}
+{% block desc %}{{ b.name }}: live stock and price across vendors, specs with official sources, price history.{% endblock %}
+{% block main %}
+<nav class="crumbs mono small"><a href="../index.html">Stock</a> / {{ b.family }} / {{ b.name }}</nav>
+<section class="panel board-hero">
+  <div class="screws" aria-hidden="true"></div>
+  <p class="mono kicker">{{ b.maker }} · {{ b.kind }}</p>
+  <h1>{{ b.name }}</h1>
+  <p class="lede">{{ b.blurb }}</p>
+  <div class="meters">
+    {% if b.discontinued %}<div class="meter"><span class="led led-off"></span>End-of-life</div>
+    {% elif b.in_stock_any %}<div class="meter"><span class="led led-on"></span>In stock somewhere</div>
+    {% else %}<div class="meter"><span class="led led-off"></span>Not in stock at tracked shops</div>{% endif %}
+    {% if b.best %}<div class="meter">Best price: <b class="mono">{{ b.best.price_fmt }}</b> at {{ b.best.vendor_name }}</div>{% endif %}
+  </div>
+  {% if b.price_change %}<p class="notice"><span class="tag tag-warn">PRICE CHANGE</span> From {{ b.price_change.date }}: {{ b.price_change.new }}. <a href="{{ b.price_change.src }}" rel="noopener">Source</a></p>{% endif %}
+</section>
+
+<section class="panel">
+  <div class="screws" aria-hidden="true"></div>
+  <h2>Where to buy</h2>
+  {% if b.offers %}
+  <div class="table-wrap"><table class="stock">
+    <thead><tr><th>Vendor</th><th>Status</th><th class="num">Price</th><th class="hide-sm">Via</th></tr></thead>
+    <tbody>{% for o in b.offers %}
+      <tr><td>{% if o.status in ('blocked','error') %}<span class="dim">{{ o.vendor_name }}</span>{% else %}<a href="{{ o.link }}" rel="noopener nofollow" target="_blank">{{ o.vendor_name }} ↗</a>{% endif %}{% if o.variant_label %}<span class="fam mono">{{ o.variant_label }}</span>{% endif %}</td>
+      <td><span class="status st-{{ o.status }}{% if o.used_market %} st-used{% endif %}"><span class="led"></span>{{ o.status_label }}</span>{% if o.error %}<span class="fam small">{{ o.error }}</span>{% endif %}{% if o.availability_raw and o.status=='redirect' %}<span class="fam small">{{ o.availability_raw }}</span>{% endif %}</td>
+      <td class="num mono">{{ o.price_fmt }}{% if o.price_note %}<span class="dim small" title="{{ o.price_note }}">*</span>{% endif %}</td>
+      <td class="hide-sm small dim">{{ o.source or '—' }}</td></tr>
+    {% endfor %}</tbody></table></div>
+  {% else %}<p class="dim">No tracked vendor for this board yet{% if b.id == 'esp32-a1s-audio-kit' %}. It's mostly sold on marketplaces like AliExpress and Amazon, which we don't scrape{% endif %}.</p>{% endif %}
+  {% if b.variants %}{% endif %}
+  {% for o in b.offers if o.variants %}
+    <details class="small"><summary>{{ o.vendor_name }} variants</summary><ul>{% for v in o.variants %}<li>{{ v.title }}: {{ v.price|money(o.currency) }} · {{ 'in stock' if v.available else 'sold out' }}</li>{% endfor %}</ul></details>
+  {% endfor %}
+</section>
+
+<section class="panel">
+  <div class="screws" aria-hidden="true"></div>
+  <h2>Price history</h2>
+  <div id="history" class="history" data-points='{{ hist_json }}'></div>
+  <p class="small dim">One dot per check. History grows each time the checker runs.</p>
+</section>
+
+<section class="panel">
+  <div class="screws" aria-hidden="true"></div>
+  <h2>Specs</h2>
+  <table class="specs">
+    {% for label, s in b.spec_rows %}
+    <tr><th>{{ label }}</th><td>{% if s %}{% if s.v is string %}{{ s.v }}{% else %}{{ s.v|join(', ') }}{% endif %} <a class="src" href="{{ s.src }}" rel="noopener" title="Source: {{ s.src }}">src</a>{% else %}<span class="dim">—</span>{% endif %}</td></tr>
+    {% endfor %}
+  </table>
+  <p class="small dim">Specs come only from official maker pages. Blank means we couldn't confirm it there, so we didn't guess.</p>
+</section>
+{% include "_sponsor.html" %}
+{% endblock %}

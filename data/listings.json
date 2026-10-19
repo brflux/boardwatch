@@ -1,0 +1,220 @@
+{
+ "listings": [
+  {
+   "board": "daisy-seed3",
+   "vendor": "electrosmith",
+   "url": "https://daisy.audio/products/seed3",
+   "handle": "seed3"
+  },
+  {
+   "board": "daisy-seed2-dfm",
+   "vendor": "electrosmith",
+   "url": "https://daisy.audio/products/daisy-seed2-dfm",
+   "handle": "daisy-seed2-dfm"
+  },
+  {
+   "board": "daisy-pod",
+   "vendor": "electrosmith",
+   "url": "https://daisy.audio/products/pod",
+   "handle": "pod"
+  },
+  {
+   "board": "daisy-patch-init",
+   "vendor": "electrosmith",
+   "url": "https://daisy.audio/products/patch-init",
+   "handle": "patch-init"
+  },
+  {
+   "board": "daisy-pod",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=daisy%20pod",
+   "query": "electrosmith daisy pod",
+   "must": [
+    "daisy",
+    "pod"
+   ],
+   "exclude": [
+    "case",
+    "panel",
+    "faceplate",
+    "pcb only"
+   ]
+  },
+  {
+   "board": "daisy-patch-init",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=patch.init",
+   "query": "patch.init",
+   "must": [
+    "patch",
+    "init"
+   ],
+   "exclude": [
+    "case",
+    "panel",
+    "faceplate",
+    "pcb only"
+   ]
+  },
+  {
+   "board": "teensy-41",
+   "vendor": "sparkfun",
+   "url": "https://www.sparkfun.com/teensy-4-1.html"
+  },
+  {
+   "board": "teensy-40",
+   "vendor": "sparkfun",
+   "url": "https://www.sparkfun.com/teensy-4-0.html"
+  },
+  {
+   "board": "teensy-audio-adaptor",
+   "vendor": "sparkfun",
+   "url": "https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html"
+  },
+  {
+   "board": "teensy-41",
+   "vendor": "pjrc",
+   "url": "https://www.pjrc.com/store/teensy41.html"
+  },
+  {
+   "board": "teensy-40",
+   "vendor": "pjrc",
+   "url": "https://www.pjrc.com/store/teensy40.html"
+  },
+  {
+   "board": "teensy-audio-adaptor",
+   "vendor": "pjrc",
+   "url": "https://www.pjrc.com/store/teensy3_audio.html"
+  },
+  {
+   "board": "teensy-41",
+   "vendor": "digikey",
+   "url": "https://www.digikey.com/en/products/detail/sparkfun-electronics/DEV-16771/12395897"
+  },
+  {
+   "board": "teensy-41",
+   "vendor": "mouser",
+   "url": "https://www.mouser.com/ProductDetail/SparkFun/DEV-16771"
+  },
+  {
+   "board": "daisy-pod",
+   "vendor": "sweetwater",
+   "url": "https://www.sweetwater.com/store/detail/DaisyPod--electro-smith-daisy-pod"
+  },
+  {
+   "board": "bela-gem-stereo",
+   "vendor": "bela",
+   "url": "https://shop.bela.io/products/bela-gem-stereo",
+   "handle": "bela-gem-stereo"
+  },
+  {
+   "board": "bela-gem-multi",
+   "vendor": "bela",
+   "url": "https://shop.bela.io/products/bela-gem-multi",
+   "handle": "bela-gem-multi"
+  },
+  {
+   "board": "bela-cape",
+   "vendor": "bela",
+   "url": "https://shop.bela.io/products/bela-cape",
+   "handle": "bela-cape"
+  },
+  {
+   "board": "bela-gem-stereo",
+   "vendor": "thonk",
+   "url": "https://www.thonk.co.uk/shop/board-only-bela-gem-stereo/",
+   "product_id": 576520,
+   "variant_label": "Board only"
+  },
+  {
+   "board": "bela-gem-multi",
+   "vendor": "thonk",
+   "url": "https://www.thonk.co.uk/shop/board-only-bela-gem-multi/",
+   "product_id": 576524,
+   "variant_label": "Board only"
+  },
+  {
+   "board": "bela-mini",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=bela%20mini",
+   "query": "bela mini",
+   "must": [
+    "bela",
+    "mini"
+   ],
+   "exclude": [
+    "case",
+    "panel",
+    "faceplate",
+    "pcb only"
+   ]
+  },
+  {
+   "board": "esp32-s3-devkitc-1",
+   "vendor": "adafruit",
+   "url": "https://www.adafruit.com/product/5312",
+   "variant_label": "N8 (8MB flash)"
+  },
+  {
+   "board": "esp32-s3-devkitc-1",
+   "vendor": "adafruit",
+   "url": "https://www.adafruit.com/product/5336",
+   "variant_label": "N8R8 (8MB flash + 8MB PSRAM)"
+  },
+  {
+   "board": "pico-2",
+   "vendor": "adafruit",
+   "url": "https://www.adafruit.com/product/6006"
+  },
+  {
+   "board": "pico-2",
+   "vendor": "sparkfun",
+   "url": "https://www.sparkfun.com/raspberry-pi-pico-2.html"
+  },
+  {
+   "board": "pico-2",
+   "vendor": "pimoroni",
+   "url": "https://shop.pimoroni.com/products/raspberry-pi-pico-2",
+   "handle": "raspberry-pi-pico-2"
+  },
+  {
+   "board": "pico-audio-pack",
+   "vendor": "pimoroni",
+   "url": "https://shop.pimoroni.com/products/pico-audio-pack",
+   "handle": "pico-audio-pack"
+  },
+  {
+   "board": "rpi-codec-zero",
+   "vendor": "pimoroni",
+   "url": "https://shop.pimoroni.com/products/iqaudio-codec-zero",
+   "handle": "iqaudio-codec-zero"
+  },
+  {
+   "board": "hifiberry-dac-adc",
+   "vendor": "hifiberry",
+   "url": "https://www.hifiberry.com/shop/boards/dacplus-adc/"
+  },
+  {
+   "board": "teensy-41",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=teensy%204.1",
+   "query": "teensy 4.1",
+   "must": [
+    "teensy",
+    "4.1"
+   ],
+   "exclude": [
+    "ornament",
+    "o_c",
+    "o&c",
+    "module",
+    "eurorack",
+    "case",
+    "panel",
+    "faceplate",
+    "pcb only",
+    "kit"
+   ]
+  }
+ ]
+}

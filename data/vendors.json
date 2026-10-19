@@ -1,0 +1,17 @@
+{
+ "_note": "method = how the checker reads stock. Blocked vendors are kept here so the report lists them; they are attempted once (single polite request) and recorded as blocked, never worked around.",
+ "vendors": {
+  "electrosmith": {"name": "Electro-Smith (official)", "home": "https://daisy.audio", "method": "shopify", "region": "US", "currency": "USD"},
+  "bela":         {"name": "Bela Shop (official)", "home": "https://shop.bela.io", "method": "shopify", "region": "UK/EU", "currency": "USD"},
+  "pimoroni":     {"name": "Pimoroni", "home": "https://shop.pimoroni.com", "method": "shopify", "region": "UK", "currency": "GBP", "price_note": "ex VAT"},
+  "thonk":        {"name": "Thonk", "home": "https://www.thonk.co.uk", "method": "woocommerce", "region": "UK", "currency": "GBP", "price_note": "as listed by store API (may exclude VAT)"},
+  "sparkfun":     {"name": "SparkFun (Teensy manufacturer)", "home": "https://www.sparkfun.com", "method": "sparkfun", "region": "US", "currency": "USD"},
+  "adafruit":     {"name": "Adafruit", "home": "https://www.adafruit.com", "method": "jsonld", "region": "US", "currency": "USD"},
+  "hifiberry":    {"name": "HiFiBerry (official)", "home": "https://www.hifiberry.com", "method": "jsonld", "region": "EU/US", "currency": "USD"},
+  "reverb":       {"name": "Reverb (used market)", "home": "https://reverb.com", "method": "reverb", "region": "Global", "currency": "USD", "used": true},
+  "pjrc":         {"name": "PJRC (Teensy designer)", "home": "https://www.pjrc.com", "method": "pjrc", "region": "US", "currency": "USD"},
+  "digikey":      {"name": "DigiKey", "home": "https://www.digikey.com", "method": "probe", "region": "US", "currency": "USD"},
+  "mouser":       {"name": "Mouser", "home": "https://www.mouser.com", "method": "probe", "region": "US", "currency": "USD"},
+  "sweetwater":   {"name": "Sweetwater", "home": "https://www.sweetwater.com", "method": "probe", "region": "US", "currency": "USD"}
+ }
+}

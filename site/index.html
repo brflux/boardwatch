@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BoardWatch · Live stock &amp; prices for audio dev boards</title>
+<meta name="description" content="Live stock and price tracker for audio dev boards: Daisy, Teensy, Bela, ESP32, RP2350 and Raspberry Pi audio HATs.">
+<link rel="stylesheet" href="static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='%23e8892b'/><path d='M4 16q4-9 8 0t8 0 8 0' stroke='%231a1712' stroke-width='3' fill='none'/></svg>">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="index.html" aria-label="BoardWatch home">
+    <span class="led led-on" aria-hidden="true"></span><span class="logo-word">Board<span>Watch</span></span>
+  </a>
+  <nav class="nav">
+    <a href="index.html" aria-current="page">Stock</a>
+    <a href="compare.html" >Compare</a>
+    <a href="picker.html" >Pick my board</a>
+    <a href="about.html" >About</a>
+    <a class="nav-alert" href="#alerts">Get alerts</a>
+  </nav>
+</header>
+<main>
+
+<section class="hero panel">
+  <div class="screws" aria-hidden="true"></div>
+  <div class="hero-text">
+    <p class="mono kicker">CH-1 · LIVE STOCK MONITOR</p>
+    <h1>Which audio dev boards can you actually buy right now?</h1>
+    <p class="lede">BoardWatch checks official shops and maker-friendly stores for Daisy, Teensy, Bela, ESP32, RP2350 and Raspberry Pi audio HATs, then lists stock and price in one table.</p>
+    <div class="meters">
+      <div class="meter"><span class="led led-on"></span><b>12</b> listings in stock</div>
+      <div class="meter"><span class="led led-off"></span><b>8</b> sold out / backorder</div>
+      <div class="meter mono small">checked Oct 18, 2026 9:04 PM CT</div>
+    </div>
+  </div>
+  <svg class="scope" viewBox="0 0 300 120" aria-hidden="true"><defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#3b4a3a" stroke-width=".6"/></pattern></defs><rect width="300" height="120" fill="url(#g)"/><path class="trace" d="M0 60 Q 18 10 37 60 T 75 60 T 112 60 T 150 60 Q 160 20 170 60 L 180 95 L 190 25 L 200 60 T 237 60 T 275 60 T 300 60"/></svg>
+</section>
+
+<section class="news" aria-label="Supply news">
+  <h2 class="mono">// SUPPLY NEWS</h2>
+  <ul>
+    <li><span class="tag tag-warn">PRICE</span> Daisy <b>Seed2 DFM, Seed3 &amp; Pod prices go up on Nov 1, 2026</b> (Pod → $99, 65MB Seeds → $34.99; 1MB Seed variants return at $29.99). <a href="https://daisy.audio/blogs/seeds-n-circuits/an-update-on-pricing" rel="noopener">Electro-Smith post</a></li>
+    <li><span class="tag tag-warn">SUPPLY</span> The memory-chip shortage hit the SDRAM used on every Daisy. Electro-Smith says a big shipment lands in October, with steady supply through 2027. <a href="https://community.daisy.audio/t/memory-market-update/9689" rel="noopener">Daisy forum, Sep 1</a></li>
+    <li><span class="tag">TEENSY</span> Adafruit discontinued Teensy; SparkFun now manufactures Teensy and PJRC's store points buyers there. <a href="https://blog.adafruit.com/2026/01/12/discontinuing-the-teensy-at-adafruit/" rel="noopener">Adafruit blog</a></li>
+  </ul>
+</section>
+
+<aside class="sponsor" aria-label="Sponsor">
+  <span class="sponsor-tag mono">SPONSOR</span>
+  
+    <strong>Sponsor BoardWatch.</strong> Reach makers who build synths, sound sculptures and audio gear. <a href="about.html#sponsor">This slot is open →</a>
+  
+</aside>
+
+<section class="panel table-panel" id="stock">
+  <div class="screws" aria-hidden="true"></div>
+  <div class="table-head">
+    <h2>Live stock</h2>
+    <form class="filters" id="filters" onsubmit="return false">
+      <label class="toggle"><input type="checkbox" id="f-instock"> <span>In stock only</span></label>
+      <label><span class="sr">Board family</span>
+        <select id="f-family"><option value="">All families</option><option>Bela</option><option>Daisy</option><option>ESP32</option><option>Pi HAT</option><option>RP2350</option><option>Teensy</option></select></label>
+      <label><span class="sr">Vendor</span>
+        <select id="f-vendor"><option value="">All vendors</option><option value="adafruit">Adafruit</option><option value="bela">Bela Shop (official)</option><option value="digikey">DigiKey</option><option value="electrosmith">Electro-Smith (official)</option><option value="hifiberry">HiFiBerry (official)</option><option value="mouser">Mouser</option><option value="pjrc">PJRC (Teensy designer)</option><option value="pimoroni">Pimoroni</option><option value="reverb">Reverb (used market)</option><option value="sparkfun">SparkFun (Teensy manufacturer)</option><option value="sweetwater">Sweetwater</option><option value="thonk">Thonk</option></select></label>
+      <label class="range">Max <output id="f-price-out">any</output>
+        <input type="range" id="f-price" min="5" max="260" step="5" value="260" aria-label="Maximum price (approx. USD)"></label>
+      <label class="toggle"><input type="checkbox" id="f-used" checked> <span>Show used market</span></label>
+    </form>
+  </div>
+  <div class="table-wrap">
+  <table class="stock" id="stock-table">
+    <thead><tr><th>Board</th><th>Status</th><th class="num">Price</th><th>Vendor</th><th class="hide-sm">Checked</th></tr></thead>
+    <tbody>
+    
+      <tr data-family="Bela" data-vendor="bela" data-status="in_stock" data-instock="1" data-usd="119.00" data-used="0">
+        <td><a class="board-link" href="boards/bela-cape.html">Bela (original Cape)</a>
+          <span class="fam mono">Bela</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">$119.00</td>
+        <td><a href="https://shop.bela.io/products/bela-cape" rel="noopener nofollow" target="_blank">Bela Shop (official) ↗</a></td>
+        <td class="hide-sm mono small dim">9:05 PM CT</td>
+      </tr>
+    
+      <tr data-family="Bela" data-vendor="thonk" data-status="in_stock" data-instock="1" data-usd="156.94" data-used="0">
+        <td><a class="board-link" href="boards/bela-gem-multi.html">Bela Gem Multi</a>
+          <span class="fam mono">Bela · Board only</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">£118.00<span class="dim small" title="as listed by store API (may exclude VAT)">*</span></td>
+        <td><a href="https://www.thonk.co.uk/shop/board-only-bela-gem-multi/" rel="noopener nofollow" target="_blank">Thonk ↗</a></td>
+        <td class="hide-sm mono small dim">9:05 PM CT</td>
+      </tr>
+    
+      <tr data-family="Bela" data-vendor="bela" data-status="in_stock" data-instock="1" data-usd="175.00" data-used="0">
+        <td><a class="board-link" href="boards/bela-gem-multi.html">Bela Gem Multi</a>
+          <span class="fam mono">Bela</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">$175.00</td>
+        <td><a href="https://shop.bela.io/products/bela-gem-multi" rel="noopener nofollow" target="_blank">Bela Shop (official) ↗</a></td>
+        <td class="hide-sm mono small dim">9:05 PM CT</td>
+      </tr>
+    
+      <tr data-family="Bela" data-vendor="thonk" data-status="in_stock" data-instock="1" data-usd="69.16" data-used="0">
+        <td><a class="board-link" href="boards/bela-gem-stereo.html">Bela Gem Stereo</a>
+          <span class="fam mono">Bela · Board only</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">£52.00<span class="dim small" title="as listed by store API (may exclude VAT)">*</span></td>
+        <td><a href="https://www.thonk.co.uk/shop/board-only-bela-gem-stereo/" rel="noopener nofollow" target="_blank">Thonk ↗</a></td>
+        <td class="hide-sm mono small dim">9:05 PM CT</td>
+      </tr>
+    
+      <tr data-family="Bela" data-vendor="bela" data-status="in_stock" data-instock="1" data-usd="75.00" data-used="0">
+        <td><a class="board-link" href="boards/bela-gem-stereo.html">Bela Gem Stereo</a>
+          <span class="fam mono">Bela</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">$75.00</td>
+        <td><a href="https://shop.bela.io/products/bela-gem-stereo" rel="noopener nofollow" target="_blank">Bela Shop (official) ↗</a></td>
+        <td class="hide-sm mono small dim">9:05 PM CT</td>
+      </tr>
+    
+      <tr data-family="Bela" data-vendor="reverb" data-status="out_of_stock" data-instock="0" data-usd="" data-used="1">
+        <td><a class="board-link" href="boards/bela-mini.html">Bela Mini</a>
+          <span class="fam mono">Bela</span>
+          </td>
+        <td><span class="status st-out_of_stock st-used"><span class="led"></span>No listings</span></td>
+        <td class="num mono">—</td>
+        <td><a href="https://reverb.com/marketplace?query=bela%20mini" rel="noopener nofollow" target="_blank">Reverb (used market) ↗</a></td>
+        <td class="hide-sm mono small dim">9:05 PM CT</td>
+      </tr>
+    
+      <tr data-family="Daisy" data-vendor="electrosmith" data-status="out_of_stock" data-instock="0" data-usd="79.99" data-used="0">
+        <td><a class="board-link" href="boards/daisy-pod.html">Daisy Pod</a>
+          <span class="fam mono">Daisy</span>
+          <span class="tag tag-warn small" title="Price change 2026-11-01">↑ Nov 1</span></td>
+        <td><span class="status st-out_of_stock"><span class="led"></span>Sold out</span></td>
+        <td class="num mono">$79.99</td>
+        <td><a href="https://daisy.audio/products/pod" rel="noopener nofollow" target="_blank">Electro-Smith (official) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Daisy" data-vendor="reverb" data-status="out_of_stock" data-instock="0" data-usd="" data-used="1">
+        <td><a class="board-link" href="boards/daisy-pod.html">Daisy Pod</a>
+          <span class="fam mono">Daisy</span>
+          <span class="tag tag-warn small" title="Price change 2026-11-01">↑ Nov 1</span></td>
+        <td><span class="status st-out_of_stock st-used"><span class="led"></span>No listings</span></td>
+        <td class="num mono">—</td>
+        <td><a href="https://reverb.com/marketplace?query=daisy%20pod" rel="noopener nofollow" target="_blank">Reverb (used market) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Daisy" data-vendor="sweetwater" data-status="blocked" data-instock="0" data-usd="" data-used="0">
+        <td><a class="board-link" href="boards/daisy-pod.html">Daisy Pod</a>
+          <span class="fam mono">Daisy</span>
+          <span class="tag tag-warn small" title="Price change 2026-11-01">↑ Nov 1</span></td>
+        <td><span class="status st-blocked"><span class="led"></span>Not checked (blocked)</span></td>
+        <td class="num mono">—</td>
+        <td><span class="dim">Sweetwater</span></td>
+        <td class="hide-sm mono small dim">9:05 PM CT</td>
+      </tr>
+    
+      <tr data-family="Daisy" data-vendor="electrosmith" data-status="in_stock" data-instock="1" data-usd="29.99" data-used="0">
+        <td><a class="board-link" href="boards/daisy-seed2-dfm.html">Daisy Seed2 DFM</a>
+          <span class="fam mono">Daisy</span>
+          <span class="tag tag-warn small" title="Price change 2026-11-01">↑ Nov 1</span></td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">$29.99</td>
+        <td><a href="https://daisy.audio/products/daisy-seed2-dfm" rel="noopener nofollow" target="_blank">Electro-Smith (official) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Daisy" data-vendor="electrosmith" data-status="out_of_stock" data-instock="0" data-usd="29.99" data-used="0">
+        <td><a class="board-link" href="boards/daisy-seed3.html">Daisy Seed3</a>
+          <span class="fam mono">Daisy</span>
+          <span class="tag tag-warn small" title="Price change 2026-11-01">↑ Nov 1</span></td>
+        <td><span class="status st-out_of_stock"><span class="led"></span>Sold out</span></td>
+        <td class="num mono">$29.99</td>
+        <td><a href="https://daisy.audio/products/seed3" rel="noopener nofollow" target="_blank">Electro-Smith (official) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Daisy" data-vendor="electrosmith" data-status="out_of_stock" data-instock="0" data-usd="249.99" data-used="0">
+        <td><a class="board-link" href="boards/daisy-patch-init.html">Daisy patch.Init()</a>
+          <span class="fam mono">Daisy</span>
+          </td>
+        <td><span class="status st-out_of_stock"><span class="led"></span>Sold out</span></td>
+        <td class="num mono">$249.99</td>
+        <td><a href="https://daisy.audio/products/patch-init" rel="noopener nofollow" target="_blank">Electro-Smith (official) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Daisy" data-vendor="reverb" data-status="out_of_stock" data-instock="0" data-usd="" data-used="1">
+        <td><a class="board-link" href="boards/daisy-patch-init.html">Daisy patch.Init()</a>
+          <span class="fam mono">Daisy</span>
+          </td>
+        <td><span class="status st-out_of_stock st-used"><span class="led"></span>No listings</span></td>
+        <td class="num mono">—</td>
+        <td><a href="https://reverb.com/marketplace?query=patch.init" rel="noopener nofollow" target="_blank">Reverb (used market) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="ESP32" data-vendor="adafruit" data-status="out_of_stock" data-instock="0" data-usd="15.95" data-used="0">
+        <td><a class="board-link" href="boards/esp32-s3-devkitc-1.html">ESP32-S3-DevKitC-1</a>
+          <span class="fam mono">ESP32 · N8 (8MB flash)</span>
+          </td>
+        <td><span class="status st-out_of_stock"><span class="led"></span>Sold out</span></td>
+        <td class="num mono">$15.95</td>
+        <td><a href="https://www.adafruit.com/product/5312" rel="noopener nofollow" target="_blank">Adafruit ↗</a></td>
+        <td class="hide-sm mono small dim">9:05 PM CT</td>
+      </tr>
+    
+      <tr data-family="ESP32" data-vendor="adafruit" data-status="out_of_stock" data-instock="0" data-usd="19.95" data-used="0">
+        <td><a class="board-link" href="boards/esp32-s3-devkitc-1.html">ESP32-S3-DevKitC-1</a>
+          <span class="fam mono">ESP32 · N8R8 (8MB flash + 8MB PSRAM)</span>
+          </td>
+        <td><span class="status st-out_of_stock"><span class="led"></span>Sold out</span></td>
+        <td class="num mono">$19.95</td>
+        <td><a href="https://www.adafruit.com/product/5336" rel="noopener nofollow" target="_blank">Adafruit ↗</a></td>
+        <td class="hide-sm mono small dim">9:05 PM CT</td>
+      </tr>
+    
+      <tr data-family="Pi HAT" data-vendor="hifiberry" data-status="in_stock" data-instock="1" data-usd="49.90" data-used="0">
+        <td><a class="board-link" href="boards/hifiberry-dac-adc.html">HiFiBerry DAC+ ADC</a>
+          <span class="fam mono">Pi HAT</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">$49.90</td>
+        <td><a href="https://www.hifiberry.com/shop/boards/dacplus-adc/" rel="noopener nofollow" target="_blank">HiFiBerry (official) ↗</a></td>
+        <td class="hide-sm mono small dim">9:06 PM CT</td>
+      </tr>
+    
+      <tr data-family="Pi HAT" data-vendor="pimoroni" data-status="out_of_stock" data-instock="0" data-usd="25.27" data-used="0">
+        <td><a class="board-link" href="boards/rpi-codec-zero.html">Raspberry Pi Codec Zero</a>
+          <span class="fam mono">Pi HAT</span>
+          </td>
+        <td><span class="status st-out_of_stock"><span class="led"></span>Sold out</span></td>
+        <td class="num mono">£19.00<span class="dim small" title="ex VAT">*</span></td>
+        <td><a href="https://shop.pimoroni.com/products/iqaudio-codec-zero" rel="noopener nofollow" target="_blank">Pimoroni ↗</a></td>
+        <td class="hide-sm mono small dim">9:06 PM CT</td>
+      </tr>
+    
+      <tr data-family="RP2350" data-vendor="pimoroni" data-status="out_of_stock" data-instock="0" data-usd="13.30" data-used="0">
+        <td><a class="board-link" href="boards/pico-audio-pack.html">Pimoroni Pico Audio Pack</a>
+          <span class="fam mono">RP2350</span>
+          </td>
+        <td><span class="status st-out_of_stock"><span class="led"></span>Sold out</span></td>
+        <td class="num mono">£10.00<span class="dim small" title="ex VAT">*</span></td>
+        <td><a href="https://shop.pimoroni.com/products/pico-audio-pack" rel="noopener nofollow" target="_blank">Pimoroni ↗</a></td>
+        <td class="hide-sm mono small dim">9:06 PM CT</td>
+      </tr>
+    
+      <tr data-family="RP2350" data-vendor="pimoroni" data-status="in_stock" data-instock="1" data-usd="5.32" data-used="0">
+        <td><a class="board-link" href="boards/pico-2.html">Raspberry Pi Pico 2</a>
+          <span class="fam mono">RP2350</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">£4.00<span class="dim small" title="ex VAT">*</span></td>
+        <td><a href="https://shop.pimoroni.com/products/raspberry-pi-pico-2" rel="noopener nofollow" target="_blank">Pimoroni ↗</a></td>
+        <td class="hide-sm mono small dim">9:06 PM CT</td>
+      </tr>
+    
+      <tr data-family="RP2350" data-vendor="sparkfun" data-status="in_stock" data-instock="1" data-usd="5.75" data-used="0">
+        <td><a class="board-link" href="boards/pico-2.html">Raspberry Pi Pico 2</a>
+          <span class="fam mono">RP2350</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">$5.75</td>
+        <td><a href="https://www.sparkfun.com/raspberry-pi-pico-2.html" rel="noopener nofollow" target="_blank">SparkFun (Teensy manufacturer) ↗</a></td>
+        <td class="hide-sm mono small dim">9:06 PM CT</td>
+      </tr>
+    
+      <tr data-family="RP2350" data-vendor="adafruit" data-status="out_of_stock" data-instock="0" data-usd="6.25" data-used="0">
+        <td><a class="board-link" href="boards/pico-2.html">Raspberry Pi Pico 2</a>
+          <span class="fam mono">RP2350</span>
+          </td>
+        <td><span class="status st-out_of_stock"><span class="led"></span>Sold out</span></td>
+        <td class="num mono">$6.25</td>
+        <td><a href="https://www.adafruit.com/product/6006" rel="noopener nofollow" target="_blank">Adafruit ↗</a></td>
+        <td class="hide-sm mono small dim">9:06 PM CT</td>
+      </tr>
+    
+      <tr data-family="Teensy" data-vendor="sparkfun" data-status="in_stock" data-instock="1" data-usd="23.80" data-used="0">
+        <td><a class="board-link" href="boards/teensy-40.html">Teensy 4.0</a>
+          <span class="fam mono">Teensy</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">$23.80</td>
+        <td><a href="https://www.sparkfun.com/teensy-4-0.html" rel="noopener nofollow" target="_blank">SparkFun (Teensy manufacturer) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Teensy" data-vendor="pjrc" data-status="redirect" data-instock="0" data-usd="" data-used="0">
+        <td><a class="board-link" href="boards/teensy-40.html">Teensy 4.0</a>
+          <span class="fam mono">Teensy</span>
+          </td>
+        <td><span class="status st-redirect"><span class="led"></span>Sold via SparkFun</span></td>
+        <td class="num mono">—</td>
+        <td><a href="https://www.pjrc.com/store/teensy40.html" rel="noopener nofollow" target="_blank">PJRC (Teensy designer) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Teensy" data-vendor="sparkfun" data-status="in_stock" data-instock="1" data-usd="31.50" data-used="0">
+        <td><a class="board-link" href="boards/teensy-41.html">Teensy 4.1</a>
+          <span class="fam mono">Teensy</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">$31.50</td>
+        <td><a href="https://www.sparkfun.com/teensy-4-1.html" rel="noopener nofollow" target="_blank">SparkFun (Teensy manufacturer) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Teensy" data-vendor="reverb" data-status="out_of_stock" data-instock="0" data-usd="" data-used="1">
+        <td><a class="board-link" href="boards/teensy-41.html">Teensy 4.1</a>
+          <span class="fam mono">Teensy</span>
+          </td>
+        <td><span class="status st-out_of_stock st-used"><span class="led"></span>No listings</span></td>
+        <td class="num mono">—</td>
+        <td><a href="https://reverb.com/marketplace?query=teensy%204.1" rel="noopener nofollow" target="_blank">Reverb (used market) ↗</a></td>
+        <td class="hide-sm mono small dim">9:06 PM CT</td>
+      </tr>
+    
+      <tr data-family="Teensy" data-vendor="pjrc" data-status="redirect" data-instock="0" data-usd="" data-used="0">
+        <td><a class="board-link" href="boards/teensy-41.html">Teensy 4.1</a>
+          <span class="fam mono">Teensy</span>
+          </td>
+        <td><span class="status st-redirect"><span class="led"></span>Sold via SparkFun</span></td>
+        <td class="num mono">—</td>
+        <td><a href="https://www.pjrc.com/store/teensy41.html" rel="noopener nofollow" target="_blank">PJRC (Teensy designer) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Teensy" data-vendor="digikey" data-status="blocked" data-instock="0" data-usd="" data-used="0">
+        <td><a class="board-link" href="boards/teensy-41.html">Teensy 4.1</a>
+          <span class="fam mono">Teensy</span>
+          </td>
+        <td><span class="status st-blocked"><span class="led"></span>Not checked (blocked)</span></td>
+        <td class="num mono">—</td>
+        <td><span class="dim">DigiKey</span></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Teensy" data-vendor="mouser" data-status="blocked" data-instock="0" data-usd="" data-used="0">
+        <td><a class="board-link" href="boards/teensy-41.html">Teensy 4.1</a>
+          <span class="fam mono">Teensy</span>
+          </td>
+        <td><span class="status st-blocked"><span class="led"></span>Not checked (blocked)</span></td>
+        <td class="num mono">—</td>
+        <td><span class="dim">Mouser</span></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Teensy" data-vendor="sparkfun" data-status="in_stock" data-instock="1" data-usd="9.80" data-used="0">
+        <td><a class="board-link" href="boards/teensy-audio-adaptor.html">Teensy Audio Adaptor (Rev D)</a>
+          <span class="fam mono">Teensy</span>
+          </td>
+        <td><span class="status st-in_stock"><span class="led"></span>In stock</span></td>
+        <td class="num mono">$9.80</td>
+        <td><a href="https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html" rel="noopener nofollow" target="_blank">SparkFun (Teensy manufacturer) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+      <tr data-family="Teensy" data-vendor="pjrc" data-status="redirect" data-instock="0" data-usd="" data-used="0">
+        <td><a class="board-link" href="boards/teensy-audio-adaptor.html">Teensy Audio Adaptor (Rev D)</a>
+          <span class="fam mono">Teensy</span>
+          </td>
+        <td><span class="status st-redirect"><span class="led"></span>Sold via SparkFun</span></td>
+        <td class="num mono">—</td>
+        <td><a href="https://www.pjrc.com/store/teensy3_audio.html" rel="noopener nofollow" target="_blank">PJRC (Teensy designer) ↗</a></td>
+        <td class="hide-sm mono small dim">9:04 PM CT</td>
+      </tr>
+    
+    </tbody>
+  </table>
+  <p class="empty" id="empty-msg" hidden>No listings match those filters. Turn a knob back.</p>
+  </div>
+  <p class="small dim">* Pimoroni prices are ex VAT; Thonk prices are as listed by the store API (may exclude VAT). The price filter converts GBP roughly to USD. Not checked: DigiKey (HTTP 403 (bot protection)), Mouser (timed out (likely bot protection / tarpit)), Sweetwater (HTTP 403 (bot protection)).</p>
+</section>
+
+<section class="cards">
+  <a class="card panel" href="picker.html"><span class="mono kicker">5 QUESTIONS</span><h3>Pick my board →</h3><p>Eurorack, pedal, installation or kinetic sculpture? Answer 5 questions and get a match.</p></a>
+  <a class="card panel" href="compare.html"><span class="mono kicker">SPEC SHEET</span><h3>Compare specs →</h3><p>CPU, RAM, codec, channels and toolchains side by side, with every spec linked to its official source.</p></a>
+</section>
+
+</main>
+<section class="panel newsletter" id="alerts">
+  <div class="screws" aria-hidden="true"></div>
+  <h2><span class="led led-amber" aria-hidden="true"></span> Restock &amp; price alerts</h2>
+  <p>One short email when a Daisy, Teensy or Bela board comes back in stock or changes price. No spam, unsubscribe anytime.</p>
+  <form class="signup" data-placeholder="1">
+    <label class="sr" for="nl-email">Email address</label>
+    <input id="nl-email" name="email" type="email" placeholder="you@studio.edu" required autocomplete="email">
+    <select name="interest" aria-label="Board family">
+      <option value="all">All boards</option>
+      <option value="Bela">Bela</option><option value="Daisy">Daisy</option><option value="ESP32">ESP32</option><option value="Pi HAT">Pi HAT</option><option value="RP2350">RP2350</option><option value="Teensy">Teensy</option>
+    </select>
+    <button type="submit">Patch me in</button>
+  </form>
+  <p class="form-msg small" role="status" aria-live="polite"></p>
+  <p class="small dim">Signup isn't connected yet. Alerts are coming soon.</p>
+</section>
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <p class="mono small">Last check: <time>Oct 18, 2026 9:04 PM CT</time> (2026-10-19 02:04 UTC)</p>
+      <p class="small">Prices &amp; stock are read from each shop's public product data and can be wrong or stale. Always confirm on the vendor's page. Some links may become affiliate links; that never changes what we list.</p>
+    </div>
+    <div class="small">
+      <p><a href="about.html">About BoardWatch</a> · <a href="about.html#method">How we check</a> · <a href="about.html#sponsor">Sponsor</a></p>
+      <p class="mono">© 2026 BoardWatch · built by a sound art educator</p>
+    </div>
+  </div>
+</footer>
+<script src="static/app.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<section class="panel newsletter" id="alerts">
+  <div class="screws" aria-hidden="true"></div>
+  <h2><span class="led led-amber" aria-hidden="true"></span> Restock &amp; price alerts</h2>
+  <p>One short email when a Daisy, Teensy or Bela board comes back in stock or changes price. No spam, unsubscribe anytime.</p>
+  <form class="signup" {% if cfg.newsletter.form_action %}action="{{ cfg.newsletter.form_action }}" method="post"{% else %}data-placeholder="1"{% endif %}>
+    <label class="sr" for="nl-email">Email address</label>
+    <input id="nl-email" name="email" type="email" placeholder="you@studio.edu" required autocomplete="email">
+    <select name="interest" aria-label="Board family">
+      <option value="all">All boards</option>
+      {% for f in families %}<option value="{{ f }}">{{ f }}</option>{% endfor %}
+    </select>
+    <button type="submit">Patch me in</button>
+  </form>
+  <p class="form-msg small" role="status" aria-live="polite"></p>
+  {% if not cfg.newsletter.form_action %}<p class="small dim">Signup isn't connected yet. Alerts are coming soon.</p>{% endif %}
+</section>
