@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-19T16:28:50+00:00",
+ "run_at": "2026-10-19T20:25:26+00:00",
  "changes": [
   {
    "board": "daisy-seed2-dfm",
@@ -10,14 +10,14 @@
    "currency": "USD",
    "price_note": null,
    "used_market": false,
-   "checked_at": "2026-10-19T16:28:51+00:00",
+   "checked_at": "2026-10-19T20:25:27+00:00",
    "title": "Seed2 DFM",
-   "in_stock": false,
+   "in_stock": true,
    "price": 29.99,
    "source": "shopify .js",
-   "status": "out_of_stock",
+   "status": "in_stock",
    "ok": true,
-   "changed": "sold_out"
+   "changed": "restock"
   },
   {
    "board": "daisy-seed3-pedal",
@@ -28,14 +28,14 @@
    "currency": "USD",
    "price_note": null,
    "used_market": false,
-   "checked_at": "2026-10-19T16:29:06+00:00",
+   "checked_at": "2026-10-19T20:25:42+00:00",
    "title": "Seed3 Pedal Dev Kit",
-   "in_stock": false,
+   "in_stock": true,
    "price": 199.99,
    "source": "shopify .js",
-   "status": "out_of_stock",
+   "status": "in_stock",
    "ok": true,
-   "changed": "sold_out"
+   "changed": "restock"
   }
  ]
 }
