@@ -18,7 +18,7 @@
     <a href="../compare.html" >Compare</a>
     <a href="../picker.html" >Pick my board</a>
     <a href="../about.html" >About</a>
-    <a class="nav-alert" href="#alerts">Get alerts</a>
+    <a class="nav-alert" href="#alerts">Get the weekly report</a>
   </nav>
 </header>
 <main>
@@ -62,7 +62,7 @@
 <section class="panel">
   <div class="screws" aria-hidden="true"></div>
   <h2>Price history</h2>
-  <div id="history" class="history" data-points='[{&#34;vendor&#34;: &#34;SparkFun (Teensy manufacturer)&#34;, &#34;points&#34;: [{&#34;t&#34;: &#34;2026-10-19T01:58:31+00:00&#34;, &#34;board&#34;: &#34;teensy-audio-adaptor&#34;, &#34;vendor&#34;: &#34;sparkfun&#34;, &#34;url&#34;: &#34;https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html&#34;, &#34;price&#34;: 9.8, &#34;currency&#34;: &#34;USD&#34;, &#34;in_stock&#34;: true}, {&#34;t&#34;: &#34;2026-10-19T02:04:47+00:00&#34;, &#34;board&#34;: &#34;teensy-audio-adaptor&#34;, &#34;vendor&#34;: &#34;sparkfun&#34;, &#34;url&#34;: &#34;https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html&#34;, &#34;price&#34;: 9.8, &#34;currency&#34;: &#34;USD&#34;, &#34;in_stock&#34;: true}], &#34;currency&#34;: &#34;USD&#34;}]'></div>
+  <div id="history" class="history" data-points='[{&#34;vendor&#34;: &#34;SparkFun (Teensy manufacturer)&#34;, &#34;points&#34;: [{&#34;t&#34;: &#34;2026-10-19T01:58:31+00:00&#34;, &#34;board&#34;: &#34;teensy-audio-adaptor&#34;, &#34;vendor&#34;: &#34;sparkfun&#34;, &#34;url&#34;: &#34;https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html&#34;, &#34;price&#34;: 9.8, &#34;currency&#34;: &#34;USD&#34;, &#34;in_stock&#34;: true}, {&#34;t&#34;: &#34;2026-10-19T02:04:47+00:00&#34;, &#34;board&#34;: &#34;teensy-audio-adaptor&#34;, &#34;vendor&#34;: &#34;sparkfun&#34;, &#34;url&#34;: &#34;https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html&#34;, &#34;price&#34;: 9.8, &#34;currency&#34;: &#34;USD&#34;, &#34;in_stock&#34;: true}, {&#34;t&#34;: &#34;2026-10-19T02:34:59+00:00&#34;, &#34;board&#34;: &#34;teensy-audio-adaptor&#34;, &#34;vendor&#34;: &#34;sparkfun&#34;, &#34;url&#34;: &#34;https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html&#34;, &#34;price&#34;: 9.8, &#34;currency&#34;: &#34;USD&#34;, &#34;in_stock&#34;: true}, {&#34;t&#34;: &#34;2026-10-19T02:43:21+00:00&#34;, &#34;board&#34;: &#34;teensy-audio-adaptor&#34;, &#34;vendor&#34;: &#34;sparkfun&#34;, &#34;url&#34;: &#34;https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html&#34;, &#34;price&#34;: 9.8, &#34;currency&#34;: &#34;USD&#34;, &#34;in_stock&#34;: true}], &#34;currency&#34;: &#34;USD&#34;}]'></div>
   <p class="small dim">One dot per check. History grows each time the checker runs.</p>
 </section>
 
@@ -112,24 +112,18 @@
 </main>
 <section class="panel newsletter" id="alerts">
   <div class="screws" aria-hidden="true"></div>
-  <h2><span class="led led-amber" aria-hidden="true"></span> Restock &amp; price alerts</h2>
-  <p>One short email when a Daisy, Teensy or Bela board comes back in stock or changes price. No spam, unsubscribe anytime.</p>
-  <form class="signup" data-placeholder="1">
-    <label class="sr" for="nl-email">Email address</label>
-    <input id="nl-email" name="email" type="email" placeholder="you@studio.edu" required autocomplete="email">
-    <select name="interest" aria-label="Board family">
-      <option value="all">All boards</option>
-      <option value="Bela">Bela</option><option value="Daisy">Daisy</option><option value="ESP32">ESP32</option><option value="Pi HAT">Pi HAT</option><option value="RP2350">RP2350</option><option value="Teensy">Teensy</option>
-    </select>
-    <button type="submit">Patch me in</button>
-  </form>
-  <p class="form-msg small" role="status" aria-live="polite"></p>
-  <p class="small dim">Signup isn't connected yet. Alerts are coming soon.</p>
+  <h2><span class="led led-amber" aria-hidden="true"></span> Weekly stock report</h2>
+  <p>One short email a week: which Daisy, Teensy, Bela and other audio boards are back in stock, what changed price, and new boards worth knowing about. No spam, unsubscribe anytime.</p>
+  
+  <div class="beehiiv-embed">
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="a742f34b-2038-4b9c-84d8-75dfa3b94a39"></script>
+  </div>
+  
 </section>
 <footer class="foot">
   <div class="foot-grid">
     <div>
-      <p class="mono small">Last check: <time>Oct 18, 2026 9:04 PM CT</time> (2026-10-19 02:04 UTC)</p>
+      <p class="mono small">Last check: <time>Oct 18, 2026 9:43 PM CT</time> (2026-10-19 02:43 UTC)</p>
       <p class="small">Prices &amp; stock are read from each shop's public product data and can be wrong or stale. Always confirm on the vendor's page. Some links may become affiliate links; that never changes what we list.</p>
     </div>
     <div class="small">

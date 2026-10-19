@@ -7,9 +7,10 @@
   "contact_email": ""
  },
  "newsletter": {
-  "provider": null,
+  "provider": "beehiiv",
+  "beehiiv_form_id": "a742f34b-2038-4b9c-84d8-75dfa3b94a39",
   "form_action": "",
-  "note": "Placeholder: connect Buttondown / Kit / Beehiiv and paste the form action URL here."
+  "note": "Beehiiv embedded subscribe form (free Launch plan). Weekly stock roundup email, sent manually."
  },
  "sponsor": {
   "enabled": true,
