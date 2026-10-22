@@ -1,7 +1,7 @@
 {
- "_note": "method = how the checker reads stock. Blocked vendors are kept here so the report lists them; they are attempted once (single polite request) and recorded as blocked, never worked around.",
+ "_note": "method = how the checker reads stock. Blocked vendors are kept here so the report lists them; they are attempted once (single polite request) and recorded as blocked, never worked around. Shopify vendors may set markets + primary_market; the price and main in-stock flag stay on primary_market, and the other countries are availability-only.",
  "vendors": {
-  "electrosmith": {"name": "Electro-Smith (official)", "home": "https://daisy.audio", "method": "shopify", "region": "US", "currency": "USD"},
+  "electrosmith": {"name": "Electro-Smith (official)", "home": "https://daisy.audio", "method": "shopify", "region": "US", "currency": "USD", "markets": ["US", "CA", "GB", "DE", "AU"], "primary_market": "US"},
   "bela":         {"name": "Bela Shop (official)", "home": "https://shop.bela.io", "method": "shopify", "region": "UK/EU", "currency": "USD"},
   "pimoroni":     {"name": "Pimoroni", "home": "https://shop.pimoroni.com", "method": "shopify", "region": "UK", "currency": "GBP", "price_note": "ex VAT"},
   "thonk":        {"name": "Thonk", "home": "https://www.thonk.co.uk", "method": "woocommerce", "region": "UK", "currency": "GBP", "price_note": "as listed by store API (may exclude VAT)"},

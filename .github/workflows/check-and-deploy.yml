@@ -1,7 +1,7 @@
 name: Check stock & deploy
 on:
   schedule:
-    - cron: "17 */3 * * *"   # every 3 hours (UTC); keep it polite
+    - cron: "23 * * * *"   # hourly, off the top of the hour; GitHub often skips schedules, so hourly still lands inside ~3h
   workflow_dispatch:
   push:
     branches: [main]

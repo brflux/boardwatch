@@ -10,7 +10,7 @@
   <p class="lede">{{ b.blurb }}</p>
   <div class="meters">
     {% if b.discontinued %}<div class="meter"><span class="led led-off"></span>End-of-life</div>
-    {% elif b.in_stock_any %}<div class="meter"><span class="led led-on"></span>In stock somewhere</div>
+    {% elif b.in_stock_any %}<div class="meter"><span class="led led-on"></span>{{ b.stock_where }}</div>
     {% else %}<div class="meter"><span class="led led-off"></span>Not in stock at tracked shops</div>{% endif %}
     {% if b.best %}<div class="meter">Best price: <b class="mono">{{ b.best.price_fmt }}</b> at {{ b.best.vendor_name }}</div>{% endif %}
   </div>
@@ -25,7 +25,7 @@
     <thead><tr><th>Vendor</th><th>Status</th><th class="num">Price</th><th class="hide-sm">Via</th></tr></thead>
     <tbody>{% for o in b.offers %}
       <tr><td>{% if o.status in ('blocked','error') %}<span class="dim">{{ o.vendor_name }}</span>{% else %}<a href="{{ o.link }}" rel="noopener nofollow" target="_blank">{{ o.vendor_name }} ↗</a>{% endif %}{% if o.variant_label %}<span class="fam mono">{{ o.variant_label }}</span>{% endif %}</td>
-      <td><span class="status st-{{ o.status }}{% if o.used_market %} st-used{% endif %}"><span class="led"></span>{{ o.status_label }}</span>{% if o.error %}<span class="fam small">{{ o.error }}</span>{% endif %}{% if o.availability_raw and o.status=='redirect' %}<span class="fam small">{{ o.availability_raw }}</span>{% endif %}</td>
+      <td><span class="status st-{{ o.status }}{% if o.used_market %} st-used{% endif %}"><span class="led"></span>{{ o.status_label }}</span>{% if o.market_note %}<span class="fam">{{ o.market_note }}</span>{% endif %}{% if o.error %}<span class="fam small">{{ o.error }}</span>{% endif %}{% if o.availability_raw and o.status=='redirect' %}<span class="fam small">{{ o.availability_raw }}</span>{% endif %}</td>
       <td class="num mono">{{ o.price_fmt }}{% if o.price_note %}<span class="dim small" title="{{ o.price_note }}">*</span>{% endif %}</td>
       <td class="hide-sm small dim">{{ o.source or '—' }}</td></tr>
     {% endfor %}</tbody></table></div>

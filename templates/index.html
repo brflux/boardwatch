@@ -46,11 +46,11 @@
     <thead><tr><th>Board</th><th>Status</th><th class="num">Price</th><th>Vendor</th><th class="hide-sm">Checked</th></tr></thead>
     <tbody>
     {% for r in rows %}
-      <tr data-family="{{ r.b.family }}" data-vendor="{{ r.vendor }}" data-status="{{ r.status }}" data-instock="{{ 1 if r.in_stock else 0 }}" data-usd="{{ '%.2f'|format(r.usd) if r.usd is not none else '' }}" data-used="{{ 1 if r.used_market else 0 }}">
+      <tr data-family="{{ r.b.family }}" data-vendor="{{ r.vendor }}" data-status="{{ r.status }}" data-instock="{{ 1 if r.buyable else 0 }}" data-usd="{{ '%.2f'|format(r.usd) if r.usd is not none else '' }}" data-used="{{ 1 if r.used_market else 0 }}">
         <td><a class="board-link" href="boards/{{ r.b.id }}.html">{{ r.b.name }}</a>
           <span class="fam mono">{{ r.b.family }}{% if r.variant_label %} · {{ r.variant_label }}{% endif %}</span>
           {% if r.b.price_change %}<span class="tag tag-warn small" title="Price change {{ r.b.price_change.date }}">↑ Nov 1</span>{% endif %}</td>
-        <td><span class="status st-{{ r.status }}{% if r.used_market %} st-used{% endif %}"><span class="led"></span>{{ r.status_label }}</span>{% if r.changed %} <span class="tag tag-new">{{ r.changed|replace('_',' ') }}</span>{% endif %}</td>
+        <td><span class="status st-{{ r.status }}{% if r.used_market %} st-used{% endif %}"><span class="led"></span>{{ r.status_label }}</span>{% if r.market_note %}<span class="fam">{{ r.market_note }}</span>{% endif %}{% if r.changed %} <span class="tag tag-new">{{ r.changed|replace('_',' ') }}</span>{% endif %}</td>
         <td class="num mono">{{ r.price_fmt }}{% if r.price_note %}<span class="dim small" title="{{ r.price_note }}">*</span>{% endif %}{% if r.used_market and r.price is not none %}<span class="dim small"> from</span>{% endif %}</td>
         <td>{% if r.status in ('blocked','error') %}<span class="dim">{{ r.vendor_name }}</span>{% else %}<a href="{{ r.link }}" rel="noopener nofollow" target="_blank">{{ r.vendor_name }} ↗</a>{% endif %}</td>
         <td class="hide-sm mono small dim">{{ r.checked_short }}</td>

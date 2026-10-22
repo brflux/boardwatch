@@ -48,6 +48,82 @@ def fmt_time(iso):
 
 STATUS_LABEL = {"in_stock": "In stock", "out_of_stock": "Sold out", "backorder": "Backorder", "blocked": "Not checked (blocked)",
                 "error": "Check failed", "redirect": "Sold via SparkFun", "unknown": "Unknown"}
+# Buyer-facing names. DE is Daisy's EU storefront, not a Germany-only shop.
+MARKET_BUYER = {"US": "US", "CA": "Canada", "GB": "UK", "DE": "EU", "AU": "Australia"}
+MARKET_PLACE = {"US": "the US", "CA": "Canada", "GB": "the UK", "DE": "the EU", "AU": "Australia"}
+
+
+def _join_names(names):
+    names = [n for n in names if n]
+    if not names:
+        return ""
+    if len(names) == 1:
+        return names[0]
+    if len(names) == 2:
+        return f"{names[0]} and {names[1]}"
+    return ", ".join(names[:-1]) + " and " + names[-1]
+
+
+def market_note(r):
+    """Extra line when other Shopify countries disagree with the primary store."""
+    markets = r.get("markets") or {}
+    primary = r.get("market")
+    if not markets or not primary or r.get("in_stock") is None:
+        return None
+    if r.get("in_stock"):
+        differ = [c for c, ok in markets.items() if c != primary and ok is False]
+        if not differ:
+            return None
+        return f"Sold out for {_join_names(MARKET_BUYER.get(c, c) for c in differ)} buyers"
+    differ = [c for c, ok in markets.items() if c != primary and ok is True]
+    if not differ:
+        return None
+    return f"In stock for {_join_names(MARKET_BUYER.get(c, c) for c in differ)} buyers"
+
+
+def status_label(r, st):
+    if r.get("used_market"):
+        return f"{r.get('listing_count', 0)} listing(s)" if r.get("in_stock") else "No listings"
+    if r.get("market") and st in ("in_stock", "out_of_stock"):
+        word = "In stock" if st == "in_stock" else "Sold out"
+        return f"{word} ({r['market']} store)"
+    return STATUS_LABEL.get(st, st)
+
+
+def buyable(r):
+    """True when a non-used listing is in stock in the primary store or any checked country."""
+    if r.get("used_market") or r.get("status") not in ("in_stock", "out_of_stock", "backorder"):
+        return False
+    if any((r.get("markets") or {}).values()):
+        return True
+    return r.get("status") == "in_stock"
+
+
+def stock_where(offers):
+    """Hero line. 'In stock somewhere' overstated a US-only Shopify result."""
+    places, other = [], False
+    for o in offers:
+        if o.get("used_market"):
+            continue
+        markets = o.get("markets") or {}
+        if markets:
+            for code, ok in markets.items():
+                if ok:
+                    places.append(MARKET_PLACE.get(code, code))
+        elif o.get("in_stock"):
+            other = True
+    seen = []
+    for p in places:
+        if p not in seen:
+            seen.append(p)
+    if not seen and not other:
+        return None
+    if seen and not other:
+        return "In stock in " + _join_names(seen)
+    if seen and other:
+        return "In stock in " + _join_names(seen) + " and at other tracked shops"
+    return "In stock at tracked shops"
+
 
 rows = []
 for r in stock["results"]:
@@ -55,19 +131,17 @@ for r in stock["results"]:
     if not b:
         continue
     st = r.get("status", "unknown")
-    if r.get("used_market"):
-        st_label = f"{r.get('listing_count', 0)} listing(s)" if r.get("in_stock") else "No listings"
-    else:
-        st_label = STATUS_LABEL.get(st, st)
     usd = r["price"] * FX.get(r.get("currency") or "USD", 1) if r.get("price") is not None else None
-    rows.append({**r, "b": b, "status": st, "status_label": st_label, "price_fmt": money(r.get("price"), r.get("currency")),
+    rows.append({**r, "b": b, "status": st, "status_label": status_label(r, st), "market_note": market_note(r),
+                 "buyable": buyable(r), "price_fmt": money(r.get("price"), r.get("currency")),
                  "usd": usd, "checked_short": dt.datetime.fromisoformat(r["checked_at"]).astimezone(ZoneInfo("America/Chicago")).strftime("%-I:%M %p CT"), "link": aff(r["vendor"], r.get("buy_url") or r["url"])})
 order = {"in_stock": 0, "backorder": 1, "out_of_stock": 2, "redirect": 3, "unknown": 4, "error": 5, "blocked": 6}
 rows.sort(key=lambda x: (x["b"]["family"], x["b"]["name"], order.get(x["status"], 9), x.get("usd") or 9e9))
 
 for b in boards:
     b["offers"] = [r for r in rows if r["board"] == b["id"]]
-    b["in_stock_any"] = any(o.get("in_stock") and not o.get("used_market") for o in b["offers"])
+    b["in_stock_any"] = any(o.get("buyable") for o in b["offers"])
+    b["stock_where"] = stock_where(b["offers"]) if b["in_stock_any"] else None
     real = [o for o in b["offers"] if o.get("price") is not None and not o.get("used_market") and o.get("in_stock")]
     b["best"] = min(real, key=lambda o: o["usd"]) if real else None
     b["spec_rows"] = [(label, b["specs"].get(k)) for k, label in SPEC_FIELDS]
@@ -83,8 +157,8 @@ utc_s, ct_s = fmt_time(stock["run_at"])
 summary = stock["vendor_summary"]
 ok_vendors = [vendors[v]["name"] for v, s in summary.items() if s["ok"]]
 bad_vendors = [(vendors[v]["name"], s["errors"][0]) for v, s in summary.items() if not s["ok"]]
-counts = {"in": sum(1 for r in rows if r["status"] == "in_stock" and not r.get("used_market")),
-          "out": sum(1 for r in rows if r["status"] in ("out_of_stock", "backorder") and not r.get("used_market"))}
+counts = {"in": sum(1 for r in rows if r.get("buyable")),
+          "out": sum(1 for r in rows if r["status"] in ("out_of_stock", "backorder") and not r.get("used_market") and not r.get("buyable"))}
 
 env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape())
 env.filters["money"] = lambda p, c: money(p, c)
@@ -114,6 +188,7 @@ def approx_usd(b):
     m = _re.search(r"\$([0-9.]+)", (b["specs"].get("msrp") or {}).get("v", ""))
     return float(m.group(1)) if m else None
 picker_data = [{"id": b["id"], "name": b["name"], "family": b["family"], "blurb": b["blurb"], "in_stock": b["in_stock_any"],
+                "where": b.get("stock_where"),
                 "best": b["best"]["price_fmt"] + " at " + b["best"]["vendor_name"] if b["best"] else None,
                 "discontinued": b.get("discontinued", False), "usd": approx_usd(b)} for b in boards]
 render("picker.html", "picker.html", picker_json=json.dumps(picker_data))

@@ -76,13 +76,22 @@ def polite_get(url, **kw):
 
 # ---------------- parsers ----------------
 
-def p_shopify(lst, vendor):
+def _shopify_host(lst, vendor):
+    """Product JSON host. electro-smith.com 301s to daisy.audio and can drop ?country=."""
     u = urlparse(lst["url"])
-    r = polite_get(f"{u.scheme}://{u.netloc}/products/{lst['handle']}.js")
-    d = r.json()
+    host = (u.netloc or "").lower()
+    home = urlparse(vendor.get("home") or "")
+    if home.netloc and host.endswith(("electro-smith.com", "electrosmith.com")):
+        host = home.netloc
+    return u.scheme or "https", host or home.netloc
+
+
+def _shopify_pick(lst, d):
     variants = []
-    for v in d["variants"]:
+    for v in d.get("variants") or []:
         variants.append({"title": v.get("title"), "price": v["price"] / 100.0, "available": bool(v.get("available"))})
+    if not variants:
+        raise ValueError(f"no variants on {lst.get('handle')}")
     # Optional listing["variant"] pins one Shopify option (e.g. Patch Submodule "65MB")
     # so a later cheaper option on the same product is not reported in its place.
     pool = variants
@@ -93,8 +102,40 @@ def p_shopify(lst, vendor):
             raise ValueError(f"variant {lst['variant']!r} not on {lst['handle']}")
     avail = [v for v in pool if v["available"]]
     pick = min(avail or pool, key=lambda v: v["price"])
-    return {"title": d["title"], "in_stock": bool(avail), "price": pick["price"],
-            "variants": variants if len(variants) > 1 else None, "source": "shopify .js"}
+    return {"title": d.get("title"), "in_stock": bool(avail), "price": pick["price"],
+            "variants": variants if len(variants) > 1 else None}
+
+
+def _shopify_fetch(lst, vendor, country=None):
+    scheme, host = _shopify_host(lst, vendor)
+    url = f"{scheme}://{host}/products/{lst['handle']}.js"
+    if country:
+        url += "?country=" + quote_plus(country)
+    return polite_get(url).json()
+
+
+def p_shopify(lst, vendor):
+    markets = [m for m in (vendor.get("markets") or []) if m]
+    primary = vendor.get("primary_market") or (markets[0] if markets else None)
+    d = _shopify_fetch(lst, vendor, primary)
+    out = _shopify_pick(lst, d)
+    out["source"] = "shopify .js"
+    if not primary:
+        return out
+    # Price and the headline in_stock flag are the primary store. Other countries
+    # are availability only; a failed fetch is omitted instead of failing the listing.
+    found = {}
+    for code in ([primary] + [m for m in markets if m != primary]):
+        if code == primary:
+            found[code] = out["in_stock"]
+            continue
+        try:
+            found[code] = _shopify_pick(lst, _shopify_fetch(lst, vendor, code))["in_stock"]
+        except Exception:
+            continue
+    out["market"] = primary
+    out["markets"] = found
+    return out
 
 
 def p_woocommerce(lst, vendor):
@@ -233,7 +274,9 @@ def main():
             rec["changed"] = "price_up" if rec["price"] > p["price"] else "price_down"
             rec["prev_price"] = p["price"]
         results.append(rec)
-        print(f"[{rec['status']:>12}] {rec['vendor']:<12} {rec['board']:<22} {rec.get('price')} {rec.get('error','')}", flush=True)
+        mk = rec.get("markets") or {}
+        mk_s = " ".join(f"{k}{'+' if v else '-'}" for k, v in mk.items())
+        print(f"[{rec['status']:>12}] {rec['vendor']:<12} {rec['board']:<22} {rec.get('price')} {mk_s} {rec.get('error','')}", flush=True)
 
     snap = {"run_at": run_at, "user_agent": UA, "vendor_summary": vstat, "results": results}
     (DATA / "stock.json").write_text(json.dumps(snap, indent=1, ensure_ascii=False))
@@ -242,8 +285,13 @@ def main():
     hist = json.loads(hist_path.read_text()) if hist_path.exists() else {"points": []}
     for r in results:
         if r.get("ok") and (r.get("price") is not None or r.get("in_stock") is not None):
-            hist["points"].append({"t": r["checked_at"], "board": r["board"], "vendor": r["vendor"], "url": r["url"],
-                                   "price": r.get("price"), "currency": r.get("currency"), "in_stock": r.get("in_stock")})
+            point = {"t": r["checked_at"], "board": r["board"], "vendor": r["vendor"], "url": r["url"],
+                     "price": r.get("price"), "currency": r.get("currency"), "in_stock": r.get("in_stock")}
+            if r.get("market"):
+                point["market"] = r["market"]
+            if r.get("markets"):
+                point["markets"] = r["markets"]
+            hist["points"].append(point)
     hist_path.write_text(json.dumps(hist, indent=0, ensure_ascii=False))
 
     changes = [r for r in results if r.get("changed")]

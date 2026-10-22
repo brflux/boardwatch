@@ -17,7 +17,7 @@ generator/build_site.py     Jinja2 build → site/
 templates/, static/         HTML templates, CSS (analog-synth theme), JS (filters, picker, history chart)
 site/                       built output: index, compare, picker, about, boards/<id>.html, data/*.json
 screenshot.py               Playwright full-page screenshots → screenshots/
-.github/workflows/check-and-deploy.yml   scheduled check + GitHub Pages deploy (every 3 h)
+.github/workflows/check-and-deploy.yml   scheduled check + GitHub Pages deploy (hourly; GitHub may skip some runs)
 ```
 
 ## Run

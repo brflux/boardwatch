@@ -11,6 +11,7 @@
   <ul>
     <li>A small script reads each shop's <b>public, structured product data</b> (Shopify product JSON, WooCommerce Store API, schema.org JSON-LD, Reverb's public API) and only falls back to the visible page when there's nothing else.</li>
     <li>It obeys <b>robots.txt</b>, waits at least 3 seconds between requests to the same shop, and identifies itself with a clear user-agent.</li>
+    <li>Official-store stock is <b>per region</b>. When a shop publishes region-specific availability, the checker reads each store's country. The price and the In stock / Sold out label are that shop's primary store (the US shop for Electro-Smith); a note under the status names the other regions that differ.</li>
     <li>If a shop blocks automated checks, we <b>don't work around it</b>. We mark it "not checked". Right now that's: {% for n, e in bad_vendors %}{{ n }}{% if not loop.last %}, {% endif %}{% endfor %}.</li>
     <li>Specs come only from official maker pages, and each one links to its source. If we couldn't confirm a spec, we leave it blank.</li>
     <li>Currently tracking: {{ ok_vendors|join(', ') }}.</li>
