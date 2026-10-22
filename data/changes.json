@@ -1,4 +1,24 @@
 {
- "run_at": "2026-10-22T17:13:55+00:00",
- "changes": []
+ "run_at": "2026-10-22T20:37:26+00:00",
+ "changes": [
+  {
+   "board": "pico-2",
+   "vendor": "adafruit",
+   "vendor_name": "Adafruit",
+   "url": "https://www.adafruit.com/product/6006",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-10-22T20:40:45+00:00",
+   "title": "Raspberry Pi Pico 2 - RP2350",
+   "in_stock": true,
+   "price": 6.25,
+   "availability_raw": "InStock",
+   "source": "JSON-LD",
+   "status": "in_stock",
+   "ok": true,
+   "changed": "restock"
+  }
+ ]
 }
