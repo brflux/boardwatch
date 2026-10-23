@@ -65,6 +65,7 @@ const W = {
  "bela-mini":         {install:2,cpp:2,patch:2,linux:2,inout:2},
  "esp32-s3-devkitc-1":{wireless:4,install:2,cpp:2,control:2,out:1,easy:1},
  "esp32-a1s-audio-kit":{wireless:4,pedal:1,cpp:2,inout:2,out:1},
+ "wvr":               {wireless:4,install:3,pedal:1,cpp:3,beginner:2,out:3,easy:2,quality:2},
  "pico-2":            {install:3,cpp:2,python:3,beginner:2,control:3,easy:2},
  "pico-audio-pack":   {install:1,pedal:1,cpp:2,python:3,beginner:1,out:3,easy:2},
  "hifiberry-dac-adc": {install:2,pedal:1,linux:3,patch:2,python:1,inout:3,quality:2},
@@ -78,7 +79,8 @@ const NOTE = {"daisy-patch-sm":"Needs a carrier board. patch.Init() is the ready
  "teensy-41":"Add the Teensy Audio Adaptor for audio in/out.","teensy-40":"Add the Teensy Audio Adaptor for audio in/out.",
  "teensy-audio-adaptor":"Add-on: needs a Teensy 4.0 or 4.1.","pico-audio-pack":"Add-on: needs a Raspberry Pi Pico / Pico 2.","pico-2":"Add an I2S DAC like the Pico Audio Pack for sound.",
  "hifiberry-dac-adc":"Needs a Raspberry Pi.","rpi-codec-zero":"Needs a Raspberry Pi.","bela-gem-stereo":"Board-only needs a PocketBeagle 2; starter kit includes one.","bela-gem-multi":"Board-only needs a PocketBeagle 2; starter kit includes one.",
- "bela-cape":"Needs a BeagleBone Black.","esp32-s3-devkitc-1":"Add an I2S DAC or codec for audio."};
+ "bela-cape":"Needs a BeagleBone Black.","esp32-s3-devkitc-1":"Add an I2S DAC or codec for audio.",
+ "wvr":"Playback and MIDI in. A custom Arduino upload needs a USB-FTDI adapter; the web GUI can load firmware over Wi-Fi."};
 document.getElementById('quiz').addEventListener('submit', () => {
   const f = new FormData(document.getElementById('quiz'));
   const a = ['q1','q2','q3','q4','q5'].map(k => f.get(k));

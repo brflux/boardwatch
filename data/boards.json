@@ -42,7 +42,7 @@
      "src": "https://daisy.audio/products/seed3"
     },
     "io": {
-     "v": "31 GPIO, 12× 16-bit ADC, 2× 12-bit DAC",
+     "v": "31 GPIO, 12\u00d7 16-bit ADC, 2\u00d7 12-bit DAC",
      "src": "https://docs.daisy.audio/hardware/Seed3/"
     },
     "toolchains": {
@@ -282,7 +282,7 @@
      "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
     },
     "io": {
-     "v": "33 GPIO, 14× 16-bit ADC, 2× 12-bit DAC",
+     "v": "33 GPIO, 14\u00d7 16-bit ADC, 2\u00d7 12-bit DAC",
      "src": "https://docs.daisy.audio/hardware/Seed2-DFM/"
     },
     "toolchains": {
@@ -396,7 +396,7 @@
      "src": "https://docs.daisy.audio/hardware/PatchSM/"
     },
     "io": {
-     "v": "12× 16-bit ADC (bipolar CV or potentiometer), 2× 12-bit CV out, 2 gate in, 2 gate out, 12 GPIO",
+     "v": "12\u00d7 16-bit ADC (bipolar CV or potentiometer), 2\u00d7 12-bit CV out, 2 gate in, 2 gate out, 12 GPIO",
      "src": "https://docs.daisy.audio/hardware/PatchSM/"
     },
     "toolchains": {
@@ -500,7 +500,7 @@
      "src": "https://www.pjrc.com/store/teensy41.html"
     },
     "io": {
-     "v": "55 I/O, 18 analog in, 2× I2S/TDM, 1× S/PDIF",
+     "v": "55 I/O, 18 analog in, 2\u00d7 I2S/TDM, 1\u00d7 S/PDIF",
      "src": "https://www.pjrc.com/store/teensy41.html"
     },
     "toolchains": {
@@ -545,7 +545,7 @@
      "src": "https://www.pjrc.com/store/teensy40.html"
     },
     "io": {
-     "v": "40 I/O, 14 analog in, 2× I2S/TDM, 1× S/PDIF",
+     "v": "40 I/O, 14 analog in, 2\u00d7 I2S/TDM, 1\u00d7 S/PDIF",
      "src": "https://www.pjrc.com/store/teensy40.html"
     },
     "toolchains": {
@@ -712,7 +712,7 @@
      "src": "https://shop.bela.io/products/bela-cape"
     },
     "io": {
-     "v": "8× 16-bit analog in, 8× 16-bit analog out, 16 digital I/O",
+     "v": "8\u00d7 16-bit analog in, 8\u00d7 16-bit analog out, 16 digital I/O",
      "src": "https://shop.bela.io/products/bela-cape"
     },
     "latency": {
@@ -757,7 +757,7 @@
      "src": "https://bela.io/products/legacy-hardware/"
     },
     "io": {
-     "v": "8× 16-bit analog in, 16 digital I/O",
+     "v": "8\u00d7 16-bit analog in, 16 digital I/O",
      "src": "https://bela.io/products/legacy-hardware/"
     },
     "notes": {
@@ -845,6 +845,67 @@
     "notes": {
      "v": "Ai-Thinker notes the older AC101-codec version is being phased out",
      "src": "https://vdoc.ai-thinker.com/%E9%9F%B3%E9%A2%91%E5%BC%80%E5%8F%91%E6%9D%BF_esp32-audio-kit"
+    }
+   }
+  },
+  {
+   "id": "wvr",
+   "name": "WVR Audio Development Board",
+   "family": "ESP32",
+   "maker": "marchingband",
+   "kind": "Audio dev board (Wi-Fi)",
+   "blurb": "Breadboard-friendly ESP32 sample player with 8 GB of sample memory, a Wi-Fi web GUI, and optically isolated MIDI in.",
+   "specs": {
+    "cpu": {
+     "v": "ESP32-WROVER-B",
+     "src": "https://github.com/marchingband/wvr_hardware/blob/main/wvr_v.1.0/wvr_v.1.0.sch"
+    },
+    "clock": {
+     "v": "up to 240 MHz",
+     "src": "https://www.espressif.com/sites/default/files/documentation/esp32-wrover-b_datasheet_en.pdf"
+    },
+    "ram": {
+     "v": "520 KB SRAM + 8 MB PSRAM",
+     "src": "https://www.espressif.com/sites/default/files/documentation/esp32-wrover-b_datasheet_en.pdf"
+    },
+    "flash": {
+     "v": "16 MB (ESP32-WROVER-B)",
+     "src": "https://github.com/marchingband/wvr_hardware/blob/main/wvr_v.1.0/wvr_v.1.0.sch"
+    },
+    "codec": {
+     "v": "PCM5100",
+     "src": "https://github.com/marchingband/wvr_hardware/blob/main/JLC_PCB/wvr_v.1.0.csv"
+    },
+    "audio": {
+     "v": "16-bit / 44.1 kHz stereo PCM",
+     "src": "https://github.com/marchingband/wvr/blob/main/README.md"
+    },
+    "ch_out": {
+     "v": "2 (stereo playback)",
+     "src": "https://www.sparkfun.com/wvr-audio-development-board.html"
+    },
+    "io": {
+     "v": "14 GPIO (8 analog in, 4 capacitive touch), optically isolated MIDI in, Wi-Fi",
+     "src": "https://www.sparkfun.com/wvr-audio-development-board.html"
+    },
+    "latency": {
+     "v": "~1 ms",
+     "src": "https://www.sparkfun.com/wvr-audio-development-board.html"
+    },
+    "toolchains": {
+     "v": [
+      "Arduino (ESP32 core)",
+      "PlatformIO (Arduino)"
+     ],
+     "src": "https://github.com/marchingband/wvr/blob/main/README.md"
+    },
+    "msrp": {
+     "v": "$38 (regular $47.50)",
+     "src": "https://www.sparkfun.com/wvr-audio-development-board.html"
+    },
+    "notes": {
+     "v": "8 GB onboard memory for samples",
+     "src": "https://www.sparkfun.com/wvr-audio-development-board.html"
     }
    }
   },

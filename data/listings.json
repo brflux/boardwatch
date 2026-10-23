@@ -241,6 +241,11 @@
     "pcb only",
     "kit"
    ]
+  },
+  {
+   "board": "wvr",
+   "vendor": "sparkfun",
+   "url": "https://www.sparkfun.com/wvr-audio-development-board.html"
   }
  ]
 }
