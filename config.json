@@ -42,7 +42,7 @@
   }
  },
  "checker": {
-  "user_agent": "BoardWatchBot/0.1 (audio dev-board stock tracker; polite: 1 req per 3s per host; contact URL TBD)",
+  "user_agent": "BoardWatchBot/0.1 (audio dev-board stock tracker; polite: 1 req per 3s per host; contact https://boardwatch.dev/about.html)",
   "min_delay_s": 3.0,
   "timeout_s": 25
  },

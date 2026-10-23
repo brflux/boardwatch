@@ -20,20 +20,51 @@
 <section class="panel">
   <div class="screws" aria-hidden="true"></div>
   <h2>Where to buy</h2>
-  {% if b.offers %}
+  {% if b.shop_offers %}
   <div class="table-wrap"><table class="stock">
     <thead><tr><th>Vendor</th><th>Status</th><th class="num">Price</th><th class="hide-sm">Via</th></tr></thead>
-    <tbody>{% for o in b.offers %}
-      <tr><td>{% if o.status in ('blocked','error') %}<span class="dim">{{ o.vendor_name }}</span>{% else %}<a href="{{ o.link }}" rel="noopener nofollow" target="_blank">{{ o.vendor_name }} ↗</a>{% endif %}{% if o.variant_label %}<span class="fam mono">{{ o.variant_label }}</span>{% endif %}</td>
+    <tbody>{% for o in b.shop_offers %}
+      <tr><td>{% if o.status in ('blocked','error') %}<span class="dim">{{ o.vendor_name }}</span>{% else %}<a href="{{ o.link }}" rel="{{ o.link_rel }}" target="_blank">{{ o.vendor_name }} ↗</a>{% endif %}{% if o.variant_label %}<span class="fam mono">{{ o.variant_label }}</span>{% endif %}</td>
       <td><span class="status st-{{ o.status }}{% if o.used_market %} st-used{% endif %}"><span class="led"></span>{{ o.status_label }}</span>{% if o.market_note %}<span class="fam">{{ o.market_note }}</span>{% endif %}{% if o.error %}<span class="fam small">{{ o.error }}</span>{% endif %}{% if o.availability_raw and o.status=='redirect' %}<span class="fam small">{{ o.availability_raw }}</span>{% endif %}</td>
       <td class="num mono">{{ o.price_fmt }}{% if o.price_note %}<span class="dim small" title="{{ o.price_note }}">*</span>{% endif %}</td>
       <td class="hide-sm small dim">{{ o.source or '—' }}</td></tr>
     {% endfor %}</tbody></table></div>
   {% else %}<p class="dim">No tracked vendor for this board yet{% if b.id == 'esp32-a1s-audio-kit' %}. It's mostly sold on marketplaces like AliExpress and Amazon, which we don't scrape{% endif %}.</p>{% endif %}
   {% if b.variants %}{% endif %}
-  {% for o in b.offers if o.variants %}
+  {% for o in b.shop_offers if o.variants %}
     <details class="small"><summary>{{ o.vendor_name }} variants</summary><ul>{% for v in o.variants %}<li>{{ v.title }}: {{ v.price|money(o.currency) }} · {{ 'in stock' if v.available else 'sold out' }}</li>{% endfor %}</ul></details>
   {% endfor %}
+</section>
+
+<section class="panel" id="reverb">
+  <div class="screws" aria-hidden="true"></div>
+  <h2>Used &amp; marketplace (Reverb)</h2>
+  {% if b.reverb and b.reverb.count %}
+  <p>{{ b.reverb.count }} listing{{ '' if b.reverb.count == 1 else 's' }} on Reverb from {{ b.reverb.from_fmt }}{% if b.reverb.head and b.reverb.head.qty > 1 %} ({{ b.reverb.head.unit_fmt }}/board in a lot of {{ b.reverb.head.qty }}){% endif %}.</p>
+  <ul class="used-list">
+    {% for it in b.reverb.hits %}
+    <li>
+      <a href="{{ it.link }}" rel="{{ b.reverb.rel }}" target="_blank">{{ it.title }}</a>
+      <span class="used-meta">
+        {% if it.condition %}<span>{{ it.condition }}</span>{% endif %}
+        <span class="used-price">{{ it.price_fmt }}</span>
+        {% if it.ship_fmt %}<span>+{{ it.ship_fmt }} US shipping</span>{% endif %}
+        {% if it.qty > 1 %}<span>lot of {{ it.qty }} at {{ it.unit_fmt }} each</span>{% endif %}
+        {% if it.offers_enabled %}<span>offers accepted</span>{% endif %}
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% elif b.reverb and b.reverb.status in ('blocked', 'error') %}
+  <p>Reverb check failed this hour{% if b.reverb.error %} ({{ b.reverb.error }}){% endif %}.</p>
+  <p><a href="{{ b.reverb.search }}" rel="{{ b.reverb.rel }}" target="_blank">Search Reverb yourself</a></p>
+  {% elif b.reverb %}
+  <p>No used listings on Reverb right now. We check every hour.</p>
+  <p><a href="{{ b.reverb.search }}" rel="{{ b.reverb.rel }}" target="_blank">Search Reverb yourself</a></p>
+  {% else %}
+  <p class="dim">No Reverb search is configured for this board yet.</p>
+  {% endif %}
+  {% if b.reverb %}<p class="small dim">Checked hourly via Reverb's public API. Used listings are individual sellers, so check condition and shipping before buying.</p>{% endif %}
 </section>
 
 <section class="panel">

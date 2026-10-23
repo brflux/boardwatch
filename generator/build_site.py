@@ -34,6 +34,15 @@ def aff(vendor, url):
     return url
 
 
+def aff_rel(vendor):
+    """noopener nofollow, plus sponsored only once an affiliate template and id are set."""
+    a = cfg.get("affiliates", {}).get(vendor) or {}
+    rel = "noopener nofollow"
+    if (a.get("template") or "").strip() and (a.get("id") or "").strip():
+        rel += " sponsored"
+    return rel
+
+
 def money(price, cur):
     if price is None:
         return "—"
@@ -83,7 +92,12 @@ def market_note(r):
 
 def status_label(r, st):
     if r.get("used_market"):
-        return f"{r.get('listing_count', 0)} listing(s)" if r.get("in_stock") else "No listings"
+        n = r.get("listing_count") or 0
+        if n and r.get("price") is not None:
+            return f"{n} used from {money(r.get('price'), r.get('currency'))}"
+        if st in ("blocked", "error"):
+            return STATUS_LABEL.get(st, st)
+        return "No used listings"
     if r.get("market") and st in ("in_stock", "out_of_stock"):
         word = "In stock" if st == "in_stock" else "Sold out"
         return f"{word} ({r['market']} store)"
@@ -134,12 +148,36 @@ for r in stock["results"]:
     usd = r["price"] * FX.get(r.get("currency") or "USD", 1) if r.get("price") is not None else None
     rows.append({**r, "b": b, "status": st, "status_label": status_label(r, st), "market_note": market_note(r),
                  "buyable": buyable(r), "price_fmt": money(r.get("price"), r.get("currency")),
-                 "usd": usd, "checked_short": dt.datetime.fromisoformat(r["checked_at"]).astimezone(ZoneInfo("America/Chicago")).strftime("%-I:%M %p CT"), "link": aff(r["vendor"], r.get("buy_url") or r["url"])})
-order = {"in_stock": 0, "backorder": 1, "out_of_stock": 2, "redirect": 3, "unknown": 4, "error": 5, "blocked": 6}
+                 "usd": usd, "checked_short": dt.datetime.fromisoformat(r["checked_at"]).astimezone(ZoneInfo("America/Chicago")).strftime("%-I:%M %p CT"),
+                 "link": aff(r["vendor"], r.get("buy_url") or r["url"]), "link_rel": aff_rel(r["vendor"])})
+order = {"in_stock": 0, "backorder": 1, "out_of_stock": 2, "redirect": 3, "unknown": 4, "error": 5, "blocked": 6,
+         "used_listings": 7, "no_listings": 8}
 rows.sort(key=lambda x: (x["b"]["family"], x["b"]["name"], order.get(x["status"], 9), x.get("usd") or 9e9))
+
+def reverb_panel(o):
+    if not o:
+        return None
+    cur = o.get("currency") or "USD"
+    items = []
+    for it in o.get("listings") or []:
+        icur = it.get("currency") or cur
+        ship = it.get("shipping_us")
+        items.append({**it,
+                      "price_fmt": money(it.get("price"), icur),
+                      "unit_fmt": money(it.get("unit_price"), icur),
+                      "ship_fmt": money(ship, "USD") if ship is not None else None,
+                      "link": aff("reverb", it.get("url") or o["url"])})
+    return {"status": o.get("status"), "error": o.get("error"), "ok": o.get("ok"),
+            "count": o.get("listing_count") or 0,
+            "from_fmt": money(o.get("price"), cur) if o.get("price") is not None else None,
+            "head": items[0] if items else None, "hits": items,
+            "search": aff("reverb", o["url"]), "rel": aff_rel("reverb")}
+
 
 for b in boards:
     b["offers"] = [r for r in rows if r["board"] == b["id"]]
+    b["shop_offers"] = [o for o in b["offers"] if not o.get("used_market")]
+    b["reverb"] = reverb_panel(next((o for o in b["offers"] if o.get("used_market")), None))
     b["in_stock_any"] = any(o.get("buyable") for o in b["offers"])
     b["stock_where"] = stock_where(b["offers"]) if b["in_stock_any"] else None
     real = [o for o in b["offers"] if o.get("price") is not None and not o.get("used_market") and o.get("in_stock")]

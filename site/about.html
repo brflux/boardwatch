@@ -32,6 +32,7 @@
   <h2 id="method">How we check</h2>
   <ul>
     <li>A small script reads each shop's <b>public, structured product data</b> (Shopify product JSON, WooCommerce Store API, schema.org JSON-LD, Reverb's public API) and only falls back to the visible page when there's nothing else.</li>
+    <li>Used listings come from <b>Reverb's public API</b>. Reverb links may be affiliate links.</li>
     <li>It obeys <b>robots.txt</b>, waits at least 3 seconds between requests to the same shop, and identifies itself with a clear user-agent.</li>
     <li>Official-store stock is <b>per region</b>. When a shop publishes region-specific availability, the checker reads each store's country. The price and the In stock / Sold out label are that shop's primary store (the US shop for Electro-Smith); a note under the status names the other regions that differ.</li>
     <li>If a shop blocks automated checks, we <b>don't work around it</b>. We mark it "not checked". Right now that's: DigiKey, Mouser, Sweetwater.</li>
@@ -59,7 +60,7 @@
 <footer class="foot">
   <div class="foot-grid">
     <div>
-      <p class="mono small">Last check: <time>Oct 23, 2026 12:53 AM CT</time> (2026-10-23 05:53 UTC)</p>
+      <p class="mono small">Last check: <time>Oct 23, 2026 2:22 PM CT</time> (2026-10-23 19:22 UTC)</p>
       <p class="small">Prices &amp; stock are read from each shop's public product data and can be wrong or stale. Always confirm on the vendor's page. Some links may become affiliate links; that never changes what we list.</p>
     </div>
     <div class="small">

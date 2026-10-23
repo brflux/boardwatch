@@ -8,7 +8,7 @@ Static site, no paid services. Data → JSON → static HTML.
 config.json                 site settings, sponsor slot, affiliate IDs (empty), newsletter form action (empty), checker UA/rate limit, FX for filters
 data/boards.json            22 boards; every spec = {"v": value, "src": official URL}; unknowns omitted
 data/vendors.json           12 vendors + how each is read (shopify / woocommerce / jsonld / sparkfun / reverb / pjrc / probe)
-data/listings.json          35 board↔vendor product links
+data/listings.json          53 board↔vendor product links
 data/stock.json             latest snapshot (written by checker)
 data/history.json           append-only price/stock points (price-change detection + charts)
 data/changes.json           restocks / sold-outs / price moves since previous run (feed this to alert emails later)
@@ -30,7 +30,7 @@ python3 -m http.server 8080 --directory site
 
 ## Add a board / vendor
 Add the board to data/boards.json (specs only from official pages, with `src`), then a row in data/listings.json.
-Shopify shops need `handle`; WooCommerce needs `product_id`; Reverb needs `query`/`must`/`exclude`.
+Shopify shops need `handle`; WooCommerce needs `product_id`; Reverb needs `queries` (legacy `query` still works), `must`, and optional `any` / `exclude` / `make`.
 
 ## Affiliates & sponsor
 Fill `config.json → affiliates.<vendor>.id` (+ `param` or `template`) and rebuild; links rewrite automatically.

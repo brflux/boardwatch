@@ -1,5 +1,5 @@
 {
- "_note": "method = how the checker reads stock. Blocked vendors are kept here so the report lists them; they are attempted once (single polite request) and recorded as blocked, never worked around. Shopify vendors may set markets + primary_market; the price and main in-stock flag stay on primary_market, and the other countries are availability-only.",
+ "_note": "method = how the checker reads stock. Blocked vendors are kept here so the report lists them; they are attempted once (single polite request) and recorded as blocked, never worked around. Shopify vendors may set markets + primary_market; the price and main in-stock flag stay on primary_market, and the other countries are availability-only. reverb.exclude_default is dropped for kit boards ('pedal kit') and for an Eurorack kit ('module', 'eurorack').",
  "vendors": {
   "electrosmith": {"name": "Electro-Smith (official)", "home": "https://daisy.audio", "method": "shopify", "region": "US", "currency": "USD", "markets": ["US", "CA", "GB", "DE", "AU"], "primary_market": "US"},
   "bela":         {"name": "Bela Shop (official)", "home": "https://shop.bela.io", "method": "shopify", "region": "UK/EU", "currency": "USD"},
@@ -8,7 +8,7 @@
   "sparkfun":     {"name": "SparkFun (Teensy manufacturer)", "home": "https://www.sparkfun.com", "method": "sparkfun", "region": "US", "currency": "USD"},
   "adafruit":     {"name": "Adafruit", "home": "https://www.adafruit.com", "method": "jsonld", "region": "US", "currency": "USD"},
   "hifiberry":    {"name": "HiFiBerry (official)", "home": "https://www.hifiberry.com", "method": "jsonld", "region": "EU/US", "currency": "USD"},
-  "reverb":       {"name": "Reverb (used market)", "home": "https://reverb.com", "method": "reverb", "region": "Global", "currency": "USD", "used": true},
+  "reverb":       {"name": "Reverb (used market)", "home": "https://reverb.com", "method": "reverb", "region": "Global", "currency": "USD", "used": true, "exclude_default": ["case", "enclosure", "panel", "faceplate", "pcb only", "bare pcb", "without", "w/o", "knob", "cable", "pedal kit", "module", "eurorack", "ornament", "onament", "and crime", "o_c", "uo_c", "o&c", "hemispheres", "squares and circles", "built with", "powered by"]},
   "pjrc":         {"name": "PJRC (Teensy designer)", "home": "https://www.pjrc.com", "method": "pjrc", "region": "US", "currency": "USD"},
   "digikey":      {"name": "DigiKey", "home": "https://www.digikey.com", "method": "probe", "region": "US", "currency": "USD"},
   "mouser":       {"name": "Mouser", "home": "https://www.mouser.com", "method": "probe", "region": "US", "currency": "USD"},

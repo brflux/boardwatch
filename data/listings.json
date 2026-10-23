@@ -51,38 +51,6 @@
    "variant_label": "65MB"
   },
   {
-   "board": "daisy-pod",
-   "vendor": "reverb",
-   "url": "https://reverb.com/marketplace?query=daisy%20pod",
-   "query": "electrosmith daisy pod",
-   "must": [
-    "daisy",
-    "pod"
-   ],
-   "exclude": [
-    "case",
-    "panel",
-    "faceplate",
-    "pcb only"
-   ]
-  },
-  {
-   "board": "daisy-patch-init",
-   "vendor": "reverb",
-   "url": "https://reverb.com/marketplace?query=patch.init",
-   "query": "patch.init",
-   "must": [
-    "patch",
-    "init"
-   ],
-   "exclude": [
-    "case",
-    "panel",
-    "faceplate",
-    "pcb only"
-   ]
-  },
-  {
    "board": "teensy-41",
    "vendor": "sparkfun",
    "url": "https://www.sparkfun.com/teensy-4-1.html"
@@ -160,22 +128,6 @@
    "variant_label": "Board only"
   },
   {
-   "board": "bela-mini",
-   "vendor": "reverb",
-   "url": "https://reverb.com/marketplace?query=bela%20mini",
-   "query": "bela mini",
-   "must": [
-    "bela",
-    "mini"
-   ],
-   "exclude": [
-    "case",
-    "panel",
-    "faceplate",
-    "pcb only"
-   ]
-  },
-  {
    "board": "esp32-s3-devkitc-1",
    "vendor": "adafruit",
    "url": "https://www.adafruit.com/product/5312",
@@ -221,31 +173,412 @@
    "url": "https://www.hifiberry.com/shop/boards/dacplus-adc/"
   },
   {
+   "board": "wvr",
+   "vendor": "sparkfun",
+   "url": "https://www.sparkfun.com/wvr-audio-development-board.html"
+  },
+  {
+   "board": "daisy-seed2-dfm",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=daisy%20seed%202%20dfm",
+   "queries": [
+    "daisy seed 2 dfm",
+    "seed2 dfm"
+   ],
+   "must": [
+    "daisy",
+    "dfm"
+   ],
+   "any": [],
+   "exclude": [],
+   "make": [
+    "electrosmith",
+    "electro-smith"
+   ]
+  },
+  {
+   "board": "daisy-seed3",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=daisy%20seed3",
+   "queries": [
+    "daisy seed3",
+    "daisy seed 3"
+   ],
+   "must": [
+    "daisy"
+   ],
+   "any": [
+    "seed3",
+    "seed 3"
+   ],
+   "exclude": [
+    "dev kit"
+   ],
+   "make": []
+  },
+  {
+   "board": "daisy-seed3-pedal",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=daisy%20seed3%20pedal",
+   "queries": [
+    "daisy seed3 pedal"
+   ],
+   "must": [
+    "daisy",
+    "pedal"
+   ],
+   "any": [
+    "seed3",
+    "seed 3"
+   ],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "daisy-seed3-eurorack",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=daisy%20seed3%20eurorack",
+   "queries": [
+    "daisy seed3 eurorack"
+   ],
+   "must": [
+    "daisy",
+    "eurorack"
+   ],
+   "any": [
+    "seed3",
+    "seed 3"
+   ],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "daisy-seed3-desktop",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=daisy%20seed3%20desktop",
+   "queries": [
+    "daisy seed3 desktop"
+   ],
+   "must": [
+    "daisy",
+    "desktop"
+   ],
+   "any": [
+    "seed3",
+    "seed 3"
+   ],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "daisy-pod",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=daisy%20pod",
+   "queries": [
+    "daisy pod"
+   ],
+   "must": [
+    "daisy",
+    "pod"
+   ],
+   "any": [],
+   "exclude": [
+    "row power",
+    "chain"
+   ],
+   "make": []
+  },
+  {
+   "board": "daisy-patch-sm",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=patch%20submodule",
+   "queries": [
+    "patch submodule",
+    "patch sm daisy"
+   ],
+   "must": [
+    "daisy",
+    "patch"
+   ],
+   "any": [
+    "sm",
+    "submodule"
+   ],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "daisy-patch-init",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=patch.init",
+   "queries": [
+    "patch.init",
+    "patch init electrosmith"
+   ],
+   "must": [
+    "patch"
+   ],
+   "any": [
+    "init"
+   ],
+   "exclude": [],
+   "make": []
+  },
+  {
    "board": "teensy-41",
    "vendor": "reverb",
    "url": "https://reverb.com/marketplace?query=teensy%204.1",
-   "query": "teensy 4.1",
+   "queries": [
+    "teensy 4.1"
+   ],
    "must": [
     "teensy",
     "4.1"
    ],
+   "any": [],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "teensy-40",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=teensy%204.0",
+   "queries": [
+    "teensy 4.0"
+   ],
+   "must": [
+    "teensy",
+    "4.0"
+   ],
+   "any": [],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "teensy-audio-adaptor",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=teensy%20audio%20adaptor",
+   "queries": [
+    "teensy audio adaptor",
+    "teensy audio board"
+   ],
+   "must": [
+    "teensy",
+    "audio"
+   ],
+   "any": [],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "bela-gem-stereo",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=bela%20gem",
+   "queries": [
+    "bela gem"
+   ],
+   "must": [
+    "bela",
+    "gem",
+    "stereo"
+   ],
+   "any": [],
    "exclude": [
-    "ornament",
-    "o_c",
-    "o&c",
-    "module",
-    "eurorack",
-    "case",
-    "panel",
-    "faceplate",
-    "pcb only",
-    "kit"
-   ]
+    "gliss",
+    "trill",
+    "pepper",
+    "lugosi",
+    "fleck",
+    "bartok"
+   ],
+   "make": []
+  },
+  {
+   "board": "bela-gem-multi",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=bela%20gem",
+   "queries": [
+    "bela gem"
+   ],
+   "must": [
+    "bela",
+    "gem",
+    "multi"
+   ],
+   "any": [],
+   "exclude": [
+    "gliss",
+    "trill",
+    "pepper",
+    "lugosi",
+    "fleck",
+    "bartok"
+   ],
+   "make": []
+  },
+  {
+   "board": "bela-cape",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=bela%20cape",
+   "queries": [
+    "bela cape",
+    "bela beaglebone"
+   ],
+   "must": [
+    "bela",
+    "cape"
+   ],
+   "any": [],
+   "exclude": [
+    "gliss",
+    "trill",
+    "pepper",
+    "lugosi",
+    "fleck",
+    "bartok"
+   ],
+   "make": []
+  },
+  {
+   "board": "bela-mini",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=bela%20mini",
+   "queries": [
+    "bela mini"
+   ],
+   "must": [
+    "bela",
+    "mini"
+   ],
+   "any": [],
+   "exclude": [
+    "gliss",
+    "trill",
+    "pepper",
+    "lugosi",
+    "fleck",
+    "bartok"
+   ],
+   "make": []
+  },
+  {
+   "board": "esp32-s3-devkitc-1",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=esp32-s3-devkitc",
+   "queries": [
+    "esp32-s3-devkitc",
+    "esp32-s3 devkitc"
+   ],
+   "must": [
+    "esp32-s3",
+    "devkitc"
+   ],
+   "any": [],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "esp32-a1s-audio-kit",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=esp32-a1s%20audio%20kit",
+   "queries": [
+    "esp32-a1s audio kit",
+    "esp32 a1s audio"
+   ],
+   "must": [
+    "esp32",
+    "a1s",
+    "audio"
+   ],
+   "any": [],
+   "exclude": [],
+   "make": []
   },
   {
    "board": "wvr",
-   "vendor": "sparkfun",
-   "url": "https://www.sparkfun.com/wvr-audio-development-board.html"
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=wvr%20audio%20development%20board",
+   "queries": [
+    "wvr audio development board",
+    "wvr sparkfun"
+   ],
+   "must": [
+    "wvr"
+   ],
+   "any": [
+    "audio",
+    "sparkfun",
+    "esp32"
+   ],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "pico-2",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=raspberry%20pi%20pico%202",
+   "queries": [
+    "raspberry pi pico 2"
+   ],
+   "must": [
+    "raspberry",
+    "pico 2"
+   ],
+   "any": [],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "pico-audio-pack",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=pimoroni%20pico%20audio%20pack",
+   "queries": [
+    "pimoroni pico audio pack",
+    "pico audio pack"
+   ],
+   "must": [
+    "pimoroni",
+    "pico audio"
+   ],
+   "any": [],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "hifiberry-dac-adc",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=hifiberry%20dac%2B%20adc",
+   "queries": [
+    "hifiberry dac+ adc",
+    "hifiberry dac adc"
+   ],
+   "must": [
+    "hifiberry"
+   ],
+   "any": [
+    "dac+ adc",
+    "dac+adc",
+    "dac + adc",
+    "dac plus adc"
+   ],
+   "exclude": [],
+   "make": []
+  },
+  {
+   "board": "rpi-codec-zero",
+   "vendor": "reverb",
+   "url": "https://reverb.com/marketplace?query=raspberry%20pi%20codec%20zero",
+   "queries": [
+    "raspberry pi codec zero",
+    "iqaudio codec zero"
+   ],
+   "must": [
+    "codec zero",
+    "raspberry"
+   ],
+   "any": [],
+   "exclude": [],
+   "make": []
   }
  ]
 }

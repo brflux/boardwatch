@@ -46,11 +46,16 @@ main{max-width:1180px;margin:0 auto;padding:0 16px}
 .led-off,.st-out_of_stock .led{background:var(--red);box-shadow:0 0 6px rgba(239,91,76,.7)}
 .led-amber,.st-backorder .led,.st-redirect .led{background:var(--amber);box-shadow:0 0 7px var(--amber)}
 .st-blocked .led,.st-error .led,.st-unknown .led{background:#6b6555}
-.st-used.st-in_stock .led{background:var(--teal);box-shadow:0 0 7px var(--teal)}
-.st-used.st-out_of_stock .led{background:#6b6555;box-shadow:none}
+.st-used.st-in_stock .led,.st-used_listings .led{background:var(--teal);box-shadow:0 0 7px var(--teal)}
+.st-used.st-out_of_stock .led,.st-no_listings .led{background:#6b6555;box-shadow:none}
 .status{display:inline-flex;align-items:center;gap:8px;font:600 .9rem var(--mono);white-space:nowrap}
 .st-in_stock{color:var(--green)} .st-out_of_stock{color:#f08a7e} .st-backorder,.st-redirect{color:var(--amber2)}
-.st-blocked,.st-error,.st-unknown{color:var(--dim)} .st-used.st-in_stock{color:var(--teal)} .st-used.st-out_of_stock{color:var(--dim)}
+.st-blocked,.st-error,.st-unknown,.st-no_listings{color:var(--dim)} .st-used.st-in_stock,.st-used_listings{color:var(--teal)} .st-used.st-out_of_stock{color:var(--dim)}
+.used-list{list-style:none;margin:8px 0 0;padding:0}
+.used-list li{padding:10px 0;border-bottom:1px dashed var(--line)}
+.used-list li:last-child{border-bottom:0}
+.used-meta{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--dim);font-size:.88rem;margin-top:2px}
+.used-price{color:var(--cream);font-family:var(--mono)}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center;padding:30px 28px}

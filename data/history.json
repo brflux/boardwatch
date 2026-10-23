@@ -8298,6 +8298,195 @@
 "price": 38.0,
 "currency": "USD",
 "in_stock": true
+},
+{
+"t": "2026-10-23T19:25:46+00:00",
+"board": "daisy-seed2-dfm",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed%202%20dfm",
+"price": 108.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:25:49+00:00",
+"board": "daisy-seed3",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed3",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:25:55+00:00",
+"board": "daisy-seed3-pedal",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed3%20pedal",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:25:58+00:00",
+"board": "daisy-seed3-eurorack",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed3%20eurorack",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:01+00:00",
+"board": "daisy-seed3-desktop",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed3%20desktop",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:04+00:00",
+"board": "daisy-pod",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20pod",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:07+00:00",
+"board": "daisy-patch-sm",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=patch%20submodule",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:13+00:00",
+"board": "daisy-patch-init",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=patch.init",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:19+00:00",
+"board": "teensy-41",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=teensy%204.1",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:25+00:00",
+"board": "teensy-audio-adaptor",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=teensy%20audio%20adaptor",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:31+00:00",
+"board": "bela-gem-stereo",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20gem",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:34+00:00",
+"board": "bela-gem-multi",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20gem",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:37+00:00",
+"board": "bela-cape",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20cape",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:43+00:00",
+"board": "bela-mini",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20mini",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:46+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=esp32-s3-devkitc",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:52+00:00",
+"board": "esp32-a1s-audio-kit",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=esp32-a1s%20audio%20kit",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:58+00:00",
+"board": "wvr",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=wvr%20audio%20development%20board",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:27:04+00:00",
+"board": "pico-2",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=raspberry%20pi%20pico%202",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:27:07+00:00",
+"board": "pico-audio-pack",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=pimoroni%20pico%20audio%20pack",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:27:13+00:00",
+"board": "hifiberry-dac-adc",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=hifiberry%20dac%2B%20adc",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:27:19+00:00",
+"board": "rpi-codec-zero",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=raspberry%20pi%20codec%20zero",
+"price": null,
+"currency": "USD",
+"in_stock": false
 }
 ]
 }

@@ -6998,6 +6998,1495 @@
 "price": 38.0,
 "currency": "USD",
 "in_stock": true
+},
+{
+"t": "2026-10-23T05:57:12+00:00",
+"board": "daisy-seed3",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed3",
+"price": 29.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T05:57:25+00:00",
+"board": "daisy-seed2-dfm",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/daisy-seed2-dfm",
+"price": 29.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T05:57:40+00:00",
+"board": "daisy-pod",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/pod",
+"price": 79.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T05:57:55+00:00",
+"board": "daisy-patch-init",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/patch-init",
+"price": 249.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T05:58:10+00:00",
+"board": "daisy-seed3-desktop",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed-3-desktop-dev-kit",
+"price": 349.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": true,
+"GB": true,
+"DE": true,
+"AU": true
+}
+},
+{
+"t": "2026-10-23T05:58:25+00:00",
+"board": "daisy-seed3-eurorack",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed-3-eurorack-dev-kit",
+"price": 299.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": true,
+"GB": true,
+"DE": true,
+"AU": true
+}
+},
+{
+"t": "2026-10-23T05:58:40+00:00",
+"board": "daisy-seed3-pedal",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed3-development-kit-pedal",
+"price": 199.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T05:58:55+00:00",
+"board": "daisy-patch-sm",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/patch-submodule",
+"price": 39.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T05:59:10+00:00",
+"board": "daisy-pod",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20pod",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T05:59:10+00:00",
+"board": "daisy-patch-init",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=patch.init",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T05:59:13+00:00",
+"board": "teensy-41",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-1.html",
+"price": 31.5,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T05:59:13+00:00",
+"board": "teensy-40",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-0.html",
+"price": 23.8,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T05:59:16+00:00",
+"board": "teensy-audio-adaptor",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html",
+"price": 9.8,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:17+00:00",
+"board": "bela-gem-stereo",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-gem-stereo",
+"price": 75.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:17+00:00",
+"board": "bela-gem-multi",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-gem-multi",
+"price": 175.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:20+00:00",
+"board": "bela-cape",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-cape",
+"price": 119.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:23+00:00",
+"board": "bela-gem-stereo",
+"vendor": "thonk",
+"url": "https://www.thonk.co.uk/shop/board-only-bela-gem-stereo/",
+"price": 52.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:25+00:00",
+"board": "bela-gem-multi",
+"vendor": "thonk",
+"url": "https://www.thonk.co.uk/shop/board-only-bela-gem-multi/",
+"price": 118.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:27+00:00",
+"board": "bela-mini",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20mini",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T06:00:28+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/5312",
+"price": 15.95,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T06:00:28+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/5336",
+"price": 19.95,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T06:00:31+00:00",
+"board": "pico-2",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/6006",
+"price": 6.25,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:34+00:00",
+"board": "pico-2",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/raspberry-pi-pico-2.html",
+"price": 5.75,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:34+00:00",
+"board": "pico-2",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/raspberry-pi-pico-2",
+"price": 4.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:35+00:00",
+"board": "pico-audio-pack",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/pico-audio-pack",
+"price": 10.0,
+"currency": "GBP",
+"in_stock": false
+},
+{
+"t": "2026-10-23T06:00:38+00:00",
+"board": "rpi-codec-zero",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/iqaudio-codec-zero",
+"price": 19.0,
+"currency": "GBP",
+"in_stock": false
+},
+{
+"t": "2026-10-23T06:00:41+00:00",
+"board": "hifiberry-dac-adc",
+"vendor": "hifiberry",
+"url": "https://www.hifiberry.com/shop/boards/dacplus-adc/",
+"price": 49.9,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T06:00:42+00:00",
+"board": "teensy-41",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=teensy%204.1",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T06:00:43+00:00",
+"board": "wvr",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/wvr-audio-development-board.html",
+"price": 38.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:13:39+00:00",
+"board": "daisy-seed3",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed3",
+"price": 29.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T10:13:51+00:00",
+"board": "daisy-seed2-dfm",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/daisy-seed2-dfm",
+"price": 29.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T10:14:06+00:00",
+"board": "daisy-pod",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/pod",
+"price": 79.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T10:14:21+00:00",
+"board": "daisy-patch-init",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/patch-init",
+"price": 249.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T10:14:36+00:00",
+"board": "daisy-seed3-desktop",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed-3-desktop-dev-kit",
+"price": 349.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": true,
+"GB": true,
+"DE": true,
+"AU": true
+}
+},
+{
+"t": "2026-10-23T10:14:51+00:00",
+"board": "daisy-seed3-eurorack",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed-3-eurorack-dev-kit",
+"price": 299.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": true,
+"GB": true,
+"DE": true,
+"AU": true
+}
+},
+{
+"t": "2026-10-23T10:15:06+00:00",
+"board": "daisy-seed3-pedal",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed3-development-kit-pedal",
+"price": 199.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T10:15:21+00:00",
+"board": "daisy-patch-sm",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/patch-submodule",
+"price": 39.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T10:15:36+00:00",
+"board": "daisy-pod",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20pod",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T10:15:36+00:00",
+"board": "daisy-patch-init",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=patch.init",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T10:15:39+00:00",
+"board": "teensy-41",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-1.html",
+"price": 31.5,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:15:41+00:00",
+"board": "teensy-40",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-0.html",
+"price": 23.8,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:15:43+00:00",
+"board": "teensy-audio-adaptor",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html",
+"price": 9.8,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:16:43+00:00",
+"board": "bela-gem-stereo",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-gem-stereo",
+"price": 75.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:16:44+00:00",
+"board": "bela-gem-multi",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-gem-multi",
+"price": 175.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:16:47+00:00",
+"board": "bela-cape",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-cape",
+"price": 119.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:16:50+00:00",
+"board": "bela-gem-stereo",
+"vendor": "thonk",
+"url": "https://www.thonk.co.uk/shop/board-only-bela-gem-stereo/",
+"price": 52.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:16:50+00:00",
+"board": "bela-gem-multi",
+"vendor": "thonk",
+"url": "https://www.thonk.co.uk/shop/board-only-bela-gem-multi/",
+"price": 118.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:16:53+00:00",
+"board": "bela-mini",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20mini",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T10:16:53+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/5312",
+"price": 15.95,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T10:16:53+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/5336",
+"price": 19.95,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T10:16:56+00:00",
+"board": "pico-2",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/6006",
+"price": 6.25,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:16:59+00:00",
+"board": "pico-2",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/raspberry-pi-pico-2.html",
+"price": 5.75,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:17:00+00:00",
+"board": "pico-2",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/raspberry-pi-pico-2",
+"price": 4.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:17:01+00:00",
+"board": "pico-audio-pack",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/pico-audio-pack",
+"price": 10.0,
+"currency": "GBP",
+"in_stock": false
+},
+{
+"t": "2026-10-23T10:17:04+00:00",
+"board": "rpi-codec-zero",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/iqaudio-codec-zero",
+"price": 19.0,
+"currency": "GBP",
+"in_stock": false
+},
+{
+"t": "2026-10-23T10:17:07+00:00",
+"board": "hifiberry-dac-adc",
+"vendor": "hifiberry",
+"url": "https://www.hifiberry.com/shop/boards/dacplus-adc/",
+"price": 49.9,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T10:17:08+00:00",
+"board": "teensy-41",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=teensy%204.1",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T10:17:08+00:00",
+"board": "wvr",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/wvr-audio-development-board.html",
+"price": 38.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:12:16+00:00",
+"board": "daisy-seed3",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed3",
+"price": 29.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T15:12:29+00:00",
+"board": "daisy-seed2-dfm",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/daisy-seed2-dfm",
+"price": 29.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T15:12:44+00:00",
+"board": "daisy-pod",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/pod",
+"price": 79.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T15:12:59+00:00",
+"board": "daisy-patch-init",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/patch-init",
+"price": 249.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T15:13:14+00:00",
+"board": "daisy-seed3-desktop",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed-3-desktop-dev-kit",
+"price": 349.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": true,
+"GB": true,
+"DE": true,
+"AU": true
+}
+},
+{
+"t": "2026-10-23T15:13:29+00:00",
+"board": "daisy-seed3-eurorack",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed-3-eurorack-dev-kit",
+"price": 299.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": true,
+"GB": true,
+"DE": true,
+"AU": true
+}
+},
+{
+"t": "2026-10-23T15:13:44+00:00",
+"board": "daisy-seed3-pedal",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed3-development-kit-pedal",
+"price": 199.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T15:13:59+00:00",
+"board": "daisy-patch-sm",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/patch-submodule",
+"price": 39.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T15:14:14+00:00",
+"board": "daisy-pod",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20pod",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T15:14:15+00:00",
+"board": "daisy-patch-init",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=patch.init",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T15:14:18+00:00",
+"board": "teensy-41",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-1.html",
+"price": 31.5,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:14:19+00:00",
+"board": "teensy-40",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-0.html",
+"price": 23.8,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:14:22+00:00",
+"board": "teensy-audio-adaptor",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html",
+"price": 9.8,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:22+00:00",
+"board": "bela-gem-stereo",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-gem-stereo",
+"price": 75.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:23+00:00",
+"board": "bela-gem-multi",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-gem-multi",
+"price": 175.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:26+00:00",
+"board": "bela-cape",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-cape",
+"price": 119.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:29+00:00",
+"board": "bela-gem-stereo",
+"vendor": "thonk",
+"url": "https://www.thonk.co.uk/shop/board-only-bela-gem-stereo/",
+"price": 52.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:30+00:00",
+"board": "bela-gem-multi",
+"vendor": "thonk",
+"url": "https://www.thonk.co.uk/shop/board-only-bela-gem-multi/",
+"price": 118.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:33+00:00",
+"board": "bela-mini",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20mini",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T15:15:33+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/5312",
+"price": 15.95,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T15:15:34+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/5336",
+"price": 19.95,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T15:15:37+00:00",
+"board": "pico-2",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/6006",
+"price": 6.25,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:40+00:00",
+"board": "pico-2",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/raspberry-pi-pico-2.html",
+"price": 5.75,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:40+00:00",
+"board": "pico-2",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/raspberry-pi-pico-2",
+"price": 4.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:40+00:00",
+"board": "pico-audio-pack",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/pico-audio-pack",
+"price": 10.0,
+"currency": "GBP",
+"in_stock": false
+},
+{
+"t": "2026-10-23T15:15:43+00:00",
+"board": "rpi-codec-zero",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/iqaudio-codec-zero",
+"price": 19.0,
+"currency": "GBP",
+"in_stock": false
+},
+{
+"t": "2026-10-23T15:15:46+00:00",
+"board": "hifiberry-dac-adc",
+"vendor": "hifiberry",
+"url": "https://www.hifiberry.com/shop/boards/dacplus-adc/",
+"price": 49.9,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T15:15:48+00:00",
+"board": "teensy-41",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=teensy%204.1",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T15:15:48+00:00",
+"board": "wvr",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/wvr-audio-development-board.html",
+"price": 38.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:21:07+00:00",
+"board": "daisy-seed3",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed3",
+"price": 29.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T19:21:19+00:00",
+"board": "daisy-seed2-dfm",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/daisy-seed2-dfm",
+"price": 29.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T19:21:34+00:00",
+"board": "daisy-pod",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/pod",
+"price": 79.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T19:21:49+00:00",
+"board": "daisy-patch-init",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/patch-init",
+"price": 249.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T19:22:04+00:00",
+"board": "daisy-seed3-desktop",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed-3-desktop-dev-kit",
+"price": 349.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": true,
+"GB": true,
+"DE": true,
+"AU": true
+}
+},
+{
+"t": "2026-10-23T19:22:19+00:00",
+"board": "daisy-seed3-eurorack",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed-3-eurorack-dev-kit",
+"price": 299.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": true,
+"GB": true,
+"DE": true,
+"AU": true
+}
+},
+{
+"t": "2026-10-23T19:22:34+00:00",
+"board": "daisy-seed3-pedal",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/seed3-development-kit-pedal",
+"price": 199.99,
+"currency": "USD",
+"in_stock": true,
+"market": "US",
+"markets": {
+"US": true,
+"CA": false,
+"GB": false,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T19:22:49+00:00",
+"board": "daisy-patch-sm",
+"vendor": "electrosmith",
+"url": "https://daisy.audio/products/patch-submodule",
+"price": 39.99,
+"currency": "USD",
+"in_stock": false,
+"market": "US",
+"markets": {
+"US": false,
+"CA": false,
+"GB": true,
+"DE": false,
+"AU": false
+}
+},
+{
+"t": "2026-10-23T19:23:04+00:00",
+"board": "daisy-pod",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20pod",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:23:05+00:00",
+"board": "daisy-patch-init",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=patch.init",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:23:08+00:00",
+"board": "teensy-41",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-1.html",
+"price": 31.5,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:23:08+00:00",
+"board": "teensy-40",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-0.html",
+"price": 23.8,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:23:11+00:00",
+"board": "teensy-audio-adaptor",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/teensy-4-audio-shield-rev-d.html",
+"price": 9.8,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:11+00:00",
+"board": "bela-gem-stereo",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-gem-stereo",
+"price": 75.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:12+00:00",
+"board": "bela-gem-multi",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-gem-multi",
+"price": 175.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:15+00:00",
+"board": "bela-cape",
+"vendor": "bela",
+"url": "https://shop.bela.io/products/bela-cape",
+"price": 119.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:18+00:00",
+"board": "bela-gem-stereo",
+"vendor": "thonk",
+"url": "https://www.thonk.co.uk/shop/board-only-bela-gem-stereo/",
+"price": 52.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:19+00:00",
+"board": "bela-gem-multi",
+"vendor": "thonk",
+"url": "https://www.thonk.co.uk/shop/board-only-bela-gem-multi/",
+"price": 118.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:22+00:00",
+"board": "bela-mini",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20mini",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:24:22+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/5312",
+"price": 15.95,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:24:22+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/5336",
+"price": 19.95,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:24:25+00:00",
+"board": "pico-2",
+"vendor": "adafruit",
+"url": "https://www.adafruit.com/product/6006",
+"price": 6.25,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:28+00:00",
+"board": "pico-2",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/raspberry-pi-pico-2.html",
+"price": 5.75,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:29+00:00",
+"board": "pico-2",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/raspberry-pi-pico-2",
+"price": 4.0,
+"currency": "GBP",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:29+00:00",
+"board": "pico-audio-pack",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/pico-audio-pack",
+"price": 10.0,
+"currency": "GBP",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:24:33+00:00",
+"board": "rpi-codec-zero",
+"vendor": "pimoroni",
+"url": "https://shop.pimoroni.com/products/iqaudio-codec-zero",
+"price": 19.0,
+"currency": "GBP",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:24:36+00:00",
+"board": "hifiberry-dac-adc",
+"vendor": "hifiberry",
+"url": "https://www.hifiberry.com/shop/boards/dacplus-adc/",
+"price": 49.9,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:24:37+00:00",
+"board": "teensy-41",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=teensy%204.1",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:24:37+00:00",
+"board": "wvr",
+"vendor": "sparkfun",
+"url": "https://www.sparkfun.com/wvr-audio-development-board.html",
+"price": 38.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:25:46+00:00",
+"board": "daisy-seed2-dfm",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed%202%20dfm",
+"price": 108.0,
+"currency": "USD",
+"in_stock": true
+},
+{
+"t": "2026-10-23T19:25:49+00:00",
+"board": "daisy-seed3",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed3",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:25:55+00:00",
+"board": "daisy-seed3-pedal",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed3%20pedal",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:25:58+00:00",
+"board": "daisy-seed3-eurorack",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed3%20eurorack",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:01+00:00",
+"board": "daisy-seed3-desktop",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20seed3%20desktop",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:04+00:00",
+"board": "daisy-pod",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=daisy%20pod",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:07+00:00",
+"board": "daisy-patch-sm",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=patch%20submodule",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:13+00:00",
+"board": "daisy-patch-init",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=patch.init",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:19+00:00",
+"board": "teensy-41",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=teensy%204.1",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:25+00:00",
+"board": "teensy-audio-adaptor",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=teensy%20audio%20adaptor",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:31+00:00",
+"board": "bela-gem-stereo",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20gem",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:34+00:00",
+"board": "bela-gem-multi",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20gem",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:37+00:00",
+"board": "bela-cape",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20cape",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:43+00:00",
+"board": "bela-mini",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=bela%20mini",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:46+00:00",
+"board": "esp32-s3-devkitc-1",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=esp32-s3-devkitc",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:52+00:00",
+"board": "esp32-a1s-audio-kit",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=esp32-a1s%20audio%20kit",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:26:58+00:00",
+"board": "wvr",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=wvr%20audio%20development%20board",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:27:04+00:00",
+"board": "pico-2",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=raspberry%20pi%20pico%202",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:27:07+00:00",
+"board": "pico-audio-pack",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=pimoroni%20pico%20audio%20pack",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:27:13+00:00",
+"board": "hifiberry-dac-adc",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=hifiberry%20dac%2B%20adc",
+"price": null,
+"currency": "USD",
+"in_stock": false
+},
+{
+"t": "2026-10-23T19:27:19+00:00",
+"board": "rpi-codec-zero",
+"vendor": "reverb",
+"url": "https://reverb.com/marketplace?query=raspberry%20pi%20codec%20zero",
+"price": null,
+"currency": "USD",
+"in_stock": false
 }
 ]
 }

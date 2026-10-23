@@ -9,7 +9,7 @@ Reverb API, HTML fallback), honours robots.txt, rate-limits per host, and writes
   data/changes.json  restocks / price changes since the previous run
 Never bypasses blocks: a 403/429/challenge is recorded as "blocked".
 """
-import json, re, time, html, sys, datetime as dt
+import json, os, re, time, html, sys, datetime as dt
 import urllib.robotparser as robotparser
 from urllib.parse import urlparse, quote_plus
 from pathlib import Path
@@ -210,24 +210,171 @@ def p_pjrc(lst, vendor):
     return {"in_stock": None, "price": None, "status": "unknown", "source": "page text"}
 
 
+_BOARDS = None
+# Reverb publishes continental-US shipping as US_CON. The header value "US" drops
+# listings that only have a US_CON rate, including live board lots.
+_REVERB_HEADERS = {"Accept": "application/hal+json", "Accept-Version": "3.0",
+                   "X-Display-Currency": "USD", "X-Shipping-Region": "US_CON"}
+_QTY_RES = (
+    re.compile(r"(?<![a-z0-9])(?:lot|pack|set|bundle)\s+of\s+(\d+)(?![a-z0-9])", re.I),
+    re.compile(r"(?<![a-z0-9])(\d+)\s*pcs(?![a-z0-9])", re.I),
+    re.compile(r"(?<![a-z0-9])(\d+)\s*-?\s*pack(?![a-z0-9])", re.I),
+    re.compile(r"(?<![a-z0-9])x\s*(\d+)(?![a-z0-9])", re.I),
+)
+
+
+def _boards():
+    global _BOARDS
+    if _BOARDS is None:
+        _BOARDS = {b["id"]: b for b in json.loads((DATA / "boards.json").read_text())["boards"]}
+    return _BOARDS
+
+
+def _term_in(hay, term):
+    term = (term or "").lower().strip()
+    if not term:
+        return False
+    return re.search(r"(?<![a-z0-9])" + re.escape(term) + r"(?![a-z0-9])", hay) is not None
+
+
+def _norm_make(s):
+    return re.sub(r"[^a-z0-9]+", "", (s or "").lower())
+
+
+def _money_amount(obj):
+    if not isinstance(obj, dict) or obj.get("amount") is None:
+        return None, None
+    try:
+        return float(obj["amount"]), obj.get("currency")
+    except (TypeError, ValueError):
+        return None, None
+
+
+def _pack_qty(title):
+    for rx in _QTY_RES:
+        m = rx.search(title or "")
+        if not m:
+            continue
+        n = int(m.group(1))
+        if 2 <= n <= 100:
+            return n
+    return 1
+
+
+def _reverb_excludes(lst, vendor):
+    b = _boards().get(lst.get("board")) or {}
+    kind = (b.get("kind") or "").lower()
+    name = (b.get("name") or "").lower()
+    is_kit = "kit" in kind or "kit" in name
+    is_euro_kit = is_kit and "eurorack" in name
+    skip = set()
+    if is_kit:
+        skip.add("pedal kit")
+    if is_euro_kit:
+        skip.update(("module", "eurorack"))
+    out = []
+    for term in list(vendor.get("exclude_default") or []) + list(lst.get("exclude") or []):
+        if (term or "").lower() in skip:
+            continue
+        out.append(term)
+    return out
+
+
+def _reverb_keep(lst, vendor, raw):
+    """Live listings only. Haystack is title + make + model."""
+    state = ((raw.get("state") or {}).get("slug") or "").lower()
+    if raw.get("draft") is True or (state and state != "live") or raw.get("live") is False:
+        return None
+    title = raw.get("title") or ""
+    make = raw.get("make") or ""
+    model = raw.get("model") or ""
+    hay = f"{title} {make} {model}".lower()
+    must = lst.get("must") or []
+    any_of = lst.get("any") or []
+    if any(not _term_in(hay, t) for t in must):
+        return None
+    if any_of and not any(_term_in(hay, t) for t in any_of):
+        return None
+    if any(_term_in(hay, t) for t in _reverb_excludes(lst, vendor)):
+        return None
+    allowed = [_norm_make(m) for m in (lst.get("make") or []) if _norm_make(m)]
+    if allowed and _norm_make(make) not in allowed:
+        return None
+    price, cur = _money_amount(raw.get("buyer_price"))
+    if price is None:
+        price, cur = _money_amount(raw.get("price"))
+    if price is None:
+        return None
+    qty = _pack_qty(title)
+    unit = round(price / qty, 2)
+    ship = None
+    for rate in ((raw.get("shipping") or {}).get("rates") or []):
+        if rate.get("region_code") == "US_CON":
+            ship, _cur = _money_amount(rate.get("rate"))
+            break
+    photo = None
+    photos = raw.get("photos") or []
+    if photos:
+        links = photos[0].get("_links") or {}
+        for key in ("small_crop", "thumbnail", "large_crop", "full"):
+            href = (links.get(key) or {}).get("href")
+            if href:
+                photo = href
+                break
+    if not photo:
+        photo = ((raw.get("_links") or {}).get("photo") or {}).get("href")
+    web = ((raw.get("_links") or {}).get("web") or {}).get("href")
+    return {"id": raw.get("id"), "title": title, "url": web, "condition": (raw.get("condition") or {}).get("display_name"),
+            "price": price, "currency": cur or "USD", "shipping_us": ship, "qty": qty, "unit_price": unit,
+            "offers_enabled": bool(raw.get("offers_enabled")), "shop_name": raw.get("shop_name"),
+            "photo": photo, "published_at": raw.get("published_at")}
+
+
+def _reverb_queries(lst):
+    queries = [q for q in (lst.get("queries") or []) if q]
+    if not queries and lst.get("query"):
+        queries = [lst["query"]]
+    return queries
+
+
 def p_reverb(lst, vendor):
-    url = f"https://api.reverb.com/api/listings?query={quote_plus(lst['query'])}&per_page=50"
-    r = polite_get(url, headers={"Accept": "application/hal+json", "Accept-Version": "3.0"})
-    d = r.json()
-    must = [m.lower() for m in lst.get("must", [])]
-    excl = [x.lower() for x in lst.get("exclude", [])]
-    hits = []
-    for l in d.get("listings", []):
-        title = l.get("title", "")
-        tl = title.lower()
-        if all(m in tl for m in must) and not any(x in tl for x in excl):
-            hits.append({"title": title, "price": float(l["price"]["amount"]), "currency": l["price"]["currency"],
-                         "condition": (l.get("condition") or {}).get("display_name"), "url": l["_links"]["web"]["href"]})
-    hits.sort(key=lambda h: h["price"])
-    res = {"in_stock": bool(hits), "price": hits[0]["price"] if hits else None, "currency": hits[0]["currency"] if hits else "USD",
-           "listing_count": len(hits), "cheapest": hits[0] if hits else None, "source": "Reverb public API (used/new marketplace)"}
-    if hits:
-        res["buy_url"] = hits[0]["url"]
+    queries = _reverb_queries(lst)
+    if not queries:
+        raise ValueError("reverb listing has no queries")
+    headers = dict(_REVERB_HEADERS)
+    token = (os.environ.get("REVERB_API_TOKEN") or "").strip()
+    if token:
+        headers["Authorization"] = "Bearer " + token
+    found, errors = {}, []
+    for q in queries:
+        try:
+            d = polite_get("https://api.reverb.com/api/listings", params={"query": q, "per_page": 50}, headers=headers).json()
+        except Exception as e:
+            errors.append(str(e))
+            continue
+        for raw in d.get("listings") or []:
+            rid = raw.get("id")
+            if rid is None or rid in found:
+                continue
+            hit = _reverb_keep(lst, vendor, raw)
+            if hit:
+                found[rid] = hit
+    if not found and errors:
+        msg = errors[0]
+        if msg.startswith(("disallowed", "timed out", "HTTP ", "network error")):
+            raise Blocked(msg)
+        raise ValueError(msg)
+    hits = sorted(found.values(), key=lambda h: (h["unit_price"], h["price"], h.get("id") or 0))
+    head = hits[0] if hits else None
+    res = {"in_stock": bool(hits), "price": head["price"] if head else None,
+           "currency": head["currency"] if head else "USD", "listing_count": len(hits),
+           "listings": hits[:5], "listing_ids": [h["id"] for h in hits],
+           "min_price": min((h["price"] for h in hits), default=None),
+           "min_unit_price": min((h["unit_price"] for h in hits), default=None),
+           "status": "used_listings" if hits else "no_listings",
+           "source": "Reverb public API", "_matches": hits}
+    if head and head.get("url"):
+        res["buy_url"] = head["url"]
     return res
 
 
@@ -268,7 +415,25 @@ def main():
             rec.update(ok=False, status="error", error=f"{e.__class__.__name__}: {e}"[:200], in_stock=None, price=None)
             vs = vstat.setdefault(lst["vendor"], {"ok": 0, "fail": 0, "errors": []}); vs["fail"] += 1; vs["errors"].append(rec["error"])
         p = prev.get((rec["board"], rec["vendor"], rec["url"]))
-        if p and p.get("in_stock") is not None and rec.get("in_stock") is not None and p["in_stock"] != rec["in_stock"]:
+        matches = rec.pop("_matches", None)
+        if rec.get("used_market"):
+            # Used rows never raise restock / price_down. A new listing id is the only alert.
+            prev_ids = set()
+            if p:
+                prev_ids = set(p.get("listing_ids") or [])
+                if not prev_ids:
+                    prev_ids = {x.get("id") for x in (p.get("listings") or []) if x.get("id") is not None}
+            fresh = [m for m in (matches or []) if m.get("id") not in prev_ids]
+            if fresh:
+                rec["changed"] = "new_used_listing"
+                lines = []
+                for m in fresh:
+                    amt, cur = m.get("price"), m.get("currency") or "USD"
+                    shown = f"${amt:,.2f}" if cur == "USD" and amt is not None else (f"{cur} {amt:.2f}" if amt is not None else "")
+                    lines.append(f"New on Reverb: {m.get('title')} for {shown}".rstrip())
+                rec["report_lines"] = lines
+                rec["report_line"] = lines[0]
+        elif p and p.get("in_stock") is not None and rec.get("in_stock") is not None and p["in_stock"] != rec["in_stock"]:
             rec["changed"] = "restock" if rec["in_stock"] else "sold_out"
         elif p and p.get("price") and rec.get("price") and abs(p["price"] - rec["price"]) > 0.005:
             rec["changed"] = "price_up" if rec["price"] > p["price"] else "price_down"
@@ -276,7 +441,8 @@ def main():
         results.append(rec)
         mk = rec.get("markets") or {}
         mk_s = " ".join(f"{k}{'+' if v else '-'}" for k, v in mk.items())
-        print(f"[{rec['status']:>12}] {rec['vendor']:<12} {rec['board']:<22} {rec.get('price')} {mk_s} {rec.get('error','')}", flush=True)
+        used_n = f"n={rec.get('listing_count')}" if rec.get("used_market") else ""
+        print(f"[{rec['status']:>14}] {rec['vendor']:<12} {rec['board']:<22} {rec.get('price')} {mk_s} {used_n} {rec.get('error','')}", flush=True)
 
     snap = {"run_at": run_at, "user_agent": UA, "vendor_summary": vstat, "results": results}
     (DATA / "stock.json").write_text(json.dumps(snap, indent=1, ensure_ascii=False))
