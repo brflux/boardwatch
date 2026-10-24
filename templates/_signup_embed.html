@@ -1,0 +1,14 @@
+{% if cfg.newsletter.beehiiv_form_id %}
+<div class="beehiiv-embed">
+  <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="{{ cfg.newsletter.beehiiv_form_id }}"></script>
+  <p class="embed-fallback small">Form not showing? Your ad blocker may be hiding it. Try disabling it for this page.</p>
+</div>
+{% else %}
+<form class="signup" {% if cfg.newsletter.form_action %}action="{{ cfg.newsletter.form_action }}" method="post"{% else %}data-placeholder="1"{% endif %}>
+  <label class="sr" for="nl-email">Email address</label>
+  <input id="nl-email" name="email" type="email" placeholder="you@studio.edu" required autocomplete="email">
+  <button type="submit">Patch me in</button>
+</form>
+<p class="form-msg small" role="status" aria-live="polite"></p>
+{% if not cfg.newsletter.form_action %}<p class="small dim">Signup isn't connected yet. Coming soon.</p>{% endif %}
+{% endif %}

@@ -6,6 +6,10 @@
   <p class="mono kicker">SPEC SHEET</p>
   <h1>Compare boards</h1>
   <p class="lede">Every value links to the official page it came from. Blank = not stated officially.</p>
+</section>
+{% with anchor=true, compact=true %}{% include "_newsletter.html" %}{% endwith %}
+<section class="panel">
+  <div class="screws" aria-hidden="true"></div>
   <form class="filters" onsubmit="return false">
     <label><span class="sr">Family</span><select id="c-family"><option value="">All families</option>{% for f in families %}<option>{{ f }}</option>{% endfor %}</select></label>
     <label class="toggle"><input type="checkbox" id="c-instock"> <span>In stock only</span></label>
@@ -27,4 +31,7 @@
   </table>
   </div>
 </section>
+{% endblock %}
+{% block newsletter %}
+{% with foot=true, anchor=false %}{% include "_newsletter.html" %}{% endwith %}
 {% endblock %}

@@ -15,6 +15,8 @@
   <svg class="scope" viewBox="0 0 300 120" aria-hidden="true"><defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#3b4a3a" stroke-width=".6"/></pattern></defs><rect width="300" height="120" fill="url(#g)"/><path class="trace" d="M0 60 Q 18 10 37 60 T 75 60 T 112 60 T 150 60 Q 160 20 170 60 L 180 95 L 190 25 L 200 60 T 237 60 T 275 60 T 300 60"/></svg>
 </section>
 
+{% with anchor=true %}{% include "_newsletter.html" %}{% endwith %}
+
 <section class="news" aria-label="Supply news">
   <h2 class="mono">// SUPPLY NEWS</h2>
   <ul>
@@ -67,4 +69,7 @@
   <a class="card panel" href="picker.html"><span class="mono kicker">5 QUESTIONS</span><h3>Pick my board →</h3><p>Eurorack, pedal, installation or kinetic sculpture? Answer 5 questions and get a match.</p></a>
   <a class="card panel" href="compare.html"><span class="mono kicker">SPEC SHEET</span><h3>Compare specs →</h3><p>CPU, RAM, codec, channels and toolchains side by side, with every spec linked to its official source.</p></a>
 </section>
+{% endblock %}
+{% block newsletter %}
+{% with foot=true, anchor=false %}{% include "_newsletter.html" %}{% endwith %}
 {% endblock %}

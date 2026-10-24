@@ -18,13 +18,15 @@
     <a href="{{ root }}compare.html" {% if page=='compare.html' %}aria-current="page"{% endif %}>Compare</a>
     <a href="{{ root }}picker.html" {% if page=='picker.html' %}aria-current="page"{% endif %}>Pick my board</a>
     <a href="{{ root }}about.html" {% if page=='about.html' %}aria-current="page"{% endif %}>About</a>
-    <a class="nav-alert" href="#alerts">Get the weekly report</a>
+    <a class="nav-alert" href="#signup">Newsletter</a>
   </nav>
 </header>
 <main>
 {% block main %}{% endblock %}
 </main>
-{% include "_newsletter.html" %}
+{% block newsletter %}
+{% with foot=true, anchor=true %}{% include "_newsletter.html" %}{% endwith %}
+{% endblock %}
 <footer class="foot">
   <div class="foot-grid">
     <div>

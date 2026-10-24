@@ -43,6 +43,10 @@
   </form>
   <div id="results" class="results" aria-live="polite"></div>
 </section>
+{% with anchor=true, compact=true %}{% include "_newsletter.html" %}{% endwith %}
+{% endblock %}
+{% block newsletter %}
+{% with foot=true, anchor=false %}{% include "_newsletter.html" %}{% endwith %}
 {% endblock %}
 {% block scripts %}
 <script>
@@ -102,7 +106,7 @@ document.getElementById('quiz').addEventListener('submit', () => {
       <p>${b.blurb}</p>
       ${b.why.length ? '<p class="small">Why: ' + [...new Set(b.why)].slice(0,3).join(' · ') + '</p>' : ''}
       ${NOTE[b.id] ? '<p class="small dim">' + NOTE[b.id] + '</p>' : ''}
-      <p class="status ${b.in_stock ? 'st-in_stock' : 'st-out_of_stock'}"><span class="led"></span>${b.discontinued ? 'End-of-life' : b.in_stock ? (b.where || 'In stock') + (b.best ? ': ' + b.best : '') : 'Sold out at tracked shops. The weekly report below tracks restocks'}</p>
+      <p class="status ${b.in_stock ? 'st-in_stock' : 'st-out_of_stock'}"><span class="led"></span>${b.discontinued ? 'End-of-life' : b.in_stock ? (b.where || 'In stock') + (b.best ? ': ' + b.best : '') : 'Sold out at tracked shops. The newsletter below tracks restocks'}</p>
     </article>`).join('');
   document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
 });

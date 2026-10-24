@@ -36,6 +36,8 @@
   {% endfor %}
 </section>
 
+{% with anchor=true, compact=true %}{% include "_newsletter.html" %}{% endwith %}
+
 <section class="panel" id="reverb">
   <div class="screws" aria-hidden="true"></div>
   <h2>Used &amp; marketplace (Reverb)</h2>
@@ -85,4 +87,7 @@
   <p class="small dim">Specs come only from official maker pages. Blank means we couldn't confirm it there, so we didn't guess.</p>
 </section>
 {% include "_sponsor.html" %}
+{% endblock %}
+{% block newsletter %}
+{% with foot=true, anchor=false %}{% include "_newsletter.html" %}{% endwith %}
 {% endblock %}
