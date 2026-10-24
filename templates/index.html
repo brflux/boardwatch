@@ -15,18 +15,10 @@
   <svg class="scope" viewBox="0 0 300 120" aria-hidden="true"><defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#3b4a3a" stroke-width=".6"/></pattern></defs><rect width="300" height="120" fill="url(#g)"/><path class="trace" d="M0 60 Q 18 10 37 60 T 75 60 T 112 60 T 150 60 Q 160 20 170 60 L 180 95 L 190 25 L 200 60 T 237 60 T 275 60 T 300 60"/></svg>
 </section>
 
-{% with anchor=true %}{% include "_newsletter.html" %}{% endwith %}
-
-<section class="news" aria-label="Supply news">
-  <h2 class="mono">// SUPPLY NEWS</h2>
-  <ul>
-    <li><span class="tag tag-warn">PRICE</span> Daisy <b>Seed2 DFM, Seed3 &amp; Pod prices go up on Nov 1, 2026</b> (Pod → $99, 65MB Seeds → $34.99; 1MB Seed variants return at $29.99). <a href="https://daisy.audio/blogs/seeds-n-circuits/an-update-on-pricing" rel="noopener">Electro-Smith post</a></li>
-    <li><span class="tag tag-warn">SUPPLY</span> The memory-chip shortage hit the SDRAM used on every Daisy. Electro-Smith says a big shipment lands in October, with steady supply through 2027. <a href="https://community.daisy.audio/t/memory-market-update/9689" rel="noopener">Daisy forum, Sep 1</a></li>
-    <li><span class="tag">TEENSY</span> Adafruit discontinued Teensy; SparkFun now manufactures Teensy and PJRC's store points buyers there. <a href="https://blog.adafruit.com/2026/01/12/discontinuing-the-teensy-at-adafruit/" rel="noopener">Adafruit blog</a></li>
-  </ul>
-</section>
-
-{% include "_sponsor.html" %}
+<aside class="signup-bar">
+  <p><span class="led led-amber" aria-hidden="true"></span> Get the weekly stock email</p>
+  <a class="btn btn-sm" href="#signup">Sign up</a>
+</aside>
 
 <section class="panel table-panel" id="stock">
   <div class="screws" aria-hidden="true"></div>
@@ -65,11 +57,22 @@
   <p class="small dim">* Pimoroni prices are ex VAT; Thonk prices are as listed by the store API (may exclude VAT). The price filter converts GBP roughly to USD. Not checked: {% for n, e in bad_vendors %}{{ n }} ({{ e }}){% if not loop.last %}, {% endif %}{% endfor %}.</p>
 </section>
 
+<section class="news" aria-label="Supply news">
+  <h2 class="mono">// SUPPLY NEWS</h2>
+  <ul>
+    <li><span class="tag tag-warn">PRICE</span> Daisy <b>Seed2 DFM, Seed3 &amp; Pod prices go up on Nov 1, 2026</b> (Pod → $99, 65MB Seeds → $34.99; 1MB Seed variants return at $29.99). <a href="https://daisy.audio/blogs/seeds-n-circuits/an-update-on-pricing" rel="noopener">Electro-Smith post</a></li>
+    <li><span class="tag tag-warn">SUPPLY</span> The memory-chip shortage hit the SDRAM used on every Daisy. Electro-Smith says a big shipment lands in October, with steady supply through 2027. <a href="https://community.daisy.audio/t/memory-market-update/9689" rel="noopener">Daisy forum, Sep 1</a></li>
+    <li><span class="tag">TEENSY</span> Adafruit discontinued Teensy; SparkFun now manufactures Teensy and PJRC's store points buyers there. <a href="https://blog.adafruit.com/2026/01/12/discontinuing-the-teensy-at-adafruit/" rel="noopener">Adafruit blog</a></li>
+  </ul>
+</section>
+
+{% include "_sponsor.html" %}
+
 <section class="cards">
   <a class="card panel" href="picker.html"><span class="mono kicker">5 QUESTIONS</span><h3>Pick my board →</h3><p>Eurorack, pedal, installation or kinetic sculpture? Answer 5 questions and get a match.</p></a>
   <a class="card panel" href="compare.html"><span class="mono kicker">SPEC SHEET</span><h3>Compare specs →</h3><p>CPU, RAM, codec, channels and toolchains side by side, with every spec linked to its official source.</p></a>
 </section>
 {% endblock %}
 {% block newsletter %}
-{% with foot=true, anchor=false %}{% include "_newsletter.html" %}{% endwith %}
+{% with foot=true, anchor=true %}{% include "_newsletter.html" %}{% endwith %}
 {% endblock %}
