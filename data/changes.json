@@ -1,4 +1,50 @@
 {
- "run_at": "2026-10-29T01:52:32+00:00",
- "changes": []
+ "run_at": "2026-10-29T08:39:28+00:00",
+ "changes": [
+  {
+   "board": "daisy-seed2-dfm",
+   "vendor": "reverb",
+   "vendor_name": "Reverb (used market)",
+   "url": "https://reverb.com/marketplace?query=daisy%20seed%202%20dfm",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": true,
+   "checked_at": "2026-10-29T08:42:56+00:00",
+   "in_stock": true,
+   "price": 62.57,
+   "listing_count": 1,
+   "listings": [
+    {
+     "id": 95173837,
+     "title": "Electro-Smith Daisy Seed2 DFM Professional Sound Computer",
+     "url": "https://reverb.com/item/95173837-electro-smith-daisy-seed2-dfm-professional-sound-computer",
+     "condition": "Brand New",
+     "price": 62.57,
+     "currency": "USD",
+     "shipping_us": null,
+     "qty": 1,
+     "unit_price": 62.57,
+     "offers_enabled": true,
+     "shop_name": "Found Sound",
+     "photo": "https://rvb-img.reverb.com/i/s--5DjO2GW8--/quality=medium-low,height=400,width=400,fit=cover,gravity=bottom/eb56b626-5527-4c88-abfd-a0becd4eef61.jpg",
+     "published_at": "2026-03-18T19:15:27-05:00"
+    }
+   ],
+   "listing_ids": [
+    95173837
+   ],
+   "min_price": 62.57,
+   "min_unit_price": 62.57,
+   "status": "used_listings",
+   "source": "Reverb public API",
+   "buy_url": "https://reverb.com/item/95173837-electro-smith-daisy-seed2-dfm-professional-sound-computer",
+   "ok": true,
+   "changed": "new_used_listing",
+   "report_lines": [
+    "New on Reverb: Electro-Smith Daisy Seed2 DFM Professional Sound Computer for $62.57"
+   ],
+   "report_line": "New on Reverb: Electro-Smith Daisy Seed2 DFM Professional Sound Computer for $62.57"
+  }
+ ]
 }
