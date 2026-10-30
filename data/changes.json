@@ -1,32 +1,4 @@
 {
- "run_at": "2026-10-30T19:30:23+00:00",
- "changes": [
-  {
-   "board": "daisy-seed3",
-   "vendor": "electrosmith",
-   "vendor_name": "Electro-Smith (official)",
-   "url": "https://daisy.audio/products/seed3",
-   "variant_label": null,
-   "currency": "USD",
-   "price_note": null,
-   "used_market": false,
-   "checked_at": "2026-10-30T19:30:23+00:00",
-   "title": "Seed3",
-   "in_stock": false,
-   "price": 34.99,
-   "source": "shopify .js",
-   "market": "US",
-   "markets": {
-    "US": false,
-    "CA": false,
-    "GB": true,
-    "DE": false,
-    "AU": false
-   },
-   "status": "out_of_stock",
-   "ok": true,
-   "changed": "price_up",
-   "prev_price": 29.99
-  }
- ]
+ "run_at": "2026-10-30T23:54:08+00:00",
+ "changes": []
 }
