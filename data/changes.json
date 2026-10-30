@@ -1,31 +1,32 @@
 {
- "run_at": "2026-10-30T07:17:10+00:00",
+ "run_at": "2026-10-30T19:30:23+00:00",
  "changes": [
   {
-   "board": "daisy-seed3-pedal",
+   "board": "daisy-seed3",
    "vendor": "electrosmith",
    "vendor_name": "Electro-Smith (official)",
-   "url": "https://daisy.audio/products/seed3-development-kit-pedal",
+   "url": "https://daisy.audio/products/seed3",
    "variant_label": null,
    "currency": "USD",
    "price_note": null,
    "used_market": false,
-   "checked_at": "2026-10-30T07:18:38+00:00",
-   "title": "Seed3 Pedal Dev Kit",
+   "checked_at": "2026-10-30T19:30:23+00:00",
+   "title": "Seed3",
    "in_stock": false,
-   "price": 199.99,
+   "price": 34.99,
    "source": "shopify .js",
    "market": "US",
    "markets": {
     "US": false,
     "CA": false,
-    "GB": false,
+    "GB": true,
     "DE": false,
     "AU": false
    },
    "status": "out_of_stock",
    "ok": true,
-   "changed": "sold_out"
+   "changed": "price_up",
+   "prev_price": 29.99
   }
  ]
 }
