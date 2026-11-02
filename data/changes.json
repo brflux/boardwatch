@@ -1,31 +1,4 @@
 {
- "run_at": "2026-11-01T23:42:19+00:00",
- "changes": [
-  {
-   "board": "daisy-seed3-desktop",
-   "vendor": "electrosmith",
-   "vendor_name": "Electro-Smith (official)",
-   "url": "https://daisy.audio/products/seed-3-desktop-dev-kit",
-   "variant_label": null,
-   "currency": "USD",
-   "price_note": null,
-   "used_market": false,
-   "checked_at": "2026-11-01T23:43:17+00:00",
-   "title": "Seed3 Desktop Dev Kit",
-   "in_stock": false,
-   "price": 349.99,
-   "source": "shopify .js",
-   "market": "US",
-   "markets": {
-    "US": false,
-    "CA": true,
-    "GB": true,
-    "DE": true,
-    "AU": true
-   },
-   "status": "out_of_stock",
-   "ok": true,
-   "changed": "sold_out"
-  }
- ]
+ "run_at": "2026-11-02T06:26:29+00:00",
+ "changes": []
 }
