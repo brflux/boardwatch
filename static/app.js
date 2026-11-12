@@ -12,15 +12,19 @@
       const max = +f.price.value, anyPrice = max >= +f.price.max;
       f.out.textContent = anyPrice ? 'any' : '$' + max;
       let shown = 0;
-      t.querySelectorAll('tbody tr').forEach(tr => {
+      t.querySelectorAll('tbody tr.stock-row').forEach(tr => {
         const d = tr.dataset, usd = d.usd === '' ? null : +d.usd;
         let ok = true;
         if (f.inst.checked && d.instock !== '1') ok = false;
         if (f.fam.value && d.family !== f.fam.value) ok = false;
         if (f.ven.value && d.vendor !== f.ven.value) ok = false;
-        if (!f.used.checked && d.used === '1') ok = false;
+        if (f.used && !f.used.checked && d.used === '1') ok = false;
         if (!anyPrice && (usd === null || usd > max)) ok = false;
         tr.hidden = !ok; if (ok) shown++;
+      });
+      t.querySelectorAll('tr.also-sold').forEach(note => {
+        const any = [...t.querySelectorAll('tr.stock-row')].some(tr => tr.dataset.board === note.dataset.board && !tr.hidden);
+        note.hidden = !any;
       });
       $('#empty-msg').hidden = shown > 0;
     };

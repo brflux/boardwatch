@@ -32,29 +32,45 @@
         <select id="f-vendor"><option value="">All vendors</option>{% for v, n in vendor_list %}<option value="{{ v }}">{{ n }}</option>{% endfor %}</select></label>
       <label class="range">Max <output id="f-price-out">any</output>
         <input type="range" id="f-price" min="5" max="260" step="5" value="260" aria-label="Maximum price (approx. USD)"></label>
-      <label class="toggle"><input type="checkbox" id="f-used" checked> <span>Show used market</span></label>
     </form>
   </div>
   <div class="table-wrap">
   <table class="stock" id="stock-table">
     <thead><tr><th>Board</th><th>Status</th><th class="num">Price</th><th>Vendor</th><th class="hide-sm">Checked</th></tr></thead>
     <tbody>
-    {% for r in rows %}
-      <tr data-family="{{ r.b.family }}" data-vendor="{{ r.vendor }}" data-status="{{ r.status }}" data-instock="{{ 1 if r.buyable else 0 }}" data-usd="{{ '%.2f'|format(r.usd) if r.usd is not none else '' }}" data-used="{{ 1 if r.used_market else 0 }}">
+    {% for g in board_groups %}
+      {% for r in g.rows %}
+      <tr class="stock-row" data-board="{{ r.b.id }}" data-family="{{ r.b.family }}" data-vendor="{{ r.vendor }}" data-status="{{ r.status }}" data-instock="{{ 1 if r.buyable else 0 }}" data-usd="{{ '%.2f'|format(r.usd) if r.usd is not none else '' }}" data-used="0">
         <td><a class="board-link" href="boards/{{ r.b.id }}.html">{{ r.b.name }}</a>
           <span class="fam mono">{{ r.b.family }}{% if r.variant_label %} · {{ r.variant_label }}{% endif %}</span>
           {% if r.b.price_change %}<span class="tag tag-warn small" title="Price change {{ r.b.price_change.date }}">↑ Nov 1</span>{% endif %}</td>
-        <td><span class="status st-{{ r.status }}{% if r.used_market %} st-used{% endif %}"><span class="led"></span>{{ r.status_label }}</span>{% if r.market_note %}<span class="fam">{{ r.market_note }}</span>{% endif %}{% if r.changed %} <span class="tag tag-new">{{ r.changed|replace('_',' ') }}</span>{% endif %}</td>
+        <td><span class="status st-{{ r.status }}"><span class="led"></span>{{ r.status_label }}</span>{% if r.market_note %}<span class="fam">{{ r.market_note }}</span>{% endif %}{% if r.changed %} <span class="tag tag-new">{{ r.changed|replace('_',' ') }}</span>{% endif %}</td>
         <td class="num mono">{{ r.price_fmt }}{% if r.price_note %}<span class="dim small" title="{{ r.price_note }}">*</span>{% endif %}</td>
-        <td>{% if r.status in ('blocked','error') %}<span class="dim">{{ r.vendor_name }}</span>{% else %}<a href="{{ r.link }}" rel="{{ r.link_rel }}" target="_blank">{{ r.vendor_name }} ↗</a>{% endif %}</td>
+        <td>{% if r.status == 'error' %}<span class="dim">{{ r.vendor_name }}</span>{% else %}<a href="{{ r.link }}" rel="{{ r.link_rel }}" target="_blank">{{ r.vendor_name }} ↗</a>{% endif %}</td>
         <td class="hide-sm mono small dim">{{ r.checked_short }}</td>
       </tr>
+      {% endfor %}
+      {% if not g.rows and g.b.reverb %}
+      <tr class="stock-row" data-board="{{ g.b.id }}" data-family="{{ g.b.family }}" data-vendor="" data-status="" data-instock="0" data-usd="" data-used="0">
+        <td><a class="board-link" href="boards/{{ g.b.id }}.html">{{ g.b.name }}</a>
+          <span class="fam mono">{{ g.b.family }}</span></td>
+        <td class="dim small">Used market</td>
+        <td></td>
+        <td><a href="{{ g.b.reverb.search }}" rel="{{ g.b.reverb.rel }}" target="_blank">Find used on Reverb →</a></td>
+        <td></td>
+      </tr>
+      {% endif %}
+      {% if g.b.blocked_shops and g.rows %}
+      <tr class="also-sold" data-board="{{ g.b.id }}" data-family="{{ g.b.family }}">
+        <td colspan="5"><p class="also-sold-line">Also sold at: {% for s in g.b.blocked_shops %}<a href="{{ s.link }}" rel="{{ s.link_rel }}" target="_blank">{{ s.vendor_name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p></td>
+      </tr>
+      {% endif %}
     {% endfor %}
     </tbody>
   </table>
   <p class="empty" id="empty-msg" hidden>No listings match those filters. Turn a knob back.</p>
   </div>
-  <p class="small dim">* Pimoroni prices are ex VAT; Thonk prices are as listed by the store API (may exclude VAT). The price filter converts GBP roughly to USD. Not checked: {% for n, e in bad_vendors %}{{ n }} ({{ e }}){% if not loop.last %}, {% endif %}{% endfor %}.</p>
+  <p class="small dim">* Pimoroni prices are ex VAT; Thonk prices are as listed by the store API (may exclude VAT). The price filter converts GBP roughly to USD.{% if unchecked_shops %} Not checked: {% for n, e in unchecked_shops %}{{ n }} ({{ e }}){% if not loop.last %}, {% endif %}{% endfor %}.{% endif %}</p>
 </section>
 
 <section class="news" aria-label="Supply news">

@@ -51,6 +51,11 @@ main{max-width:1180px;margin:0 auto;padding:0 16px}
 .status{display:inline-flex;align-items:center;gap:8px;font:600 .9rem var(--mono);white-space:nowrap}
 .st-in_stock{color:var(--green)} .st-out_of_stock{color:#f08a7e} .st-backorder,.st-redirect{color:var(--amber2)}
 .st-blocked,.st-error,.st-unknown,.st-no_listings{color:var(--dim)} .st-used.st-in_stock,.st-used_listings{color:var(--teal)} .st-used.st-out_of_stock{color:var(--dim)}
+.also-sold td{padding-top:2px;padding-bottom:12px}
+tr.also-sold:hover{background:transparent}
+.also-sold-line{margin:.55em 0 0;color:var(--dim);font-size:.85rem;line-height:1.45}
+.also-sold-line a{color:var(--dim);text-decoration:none}
+.also-sold-line a:hover{color:var(--amber2);text-decoration:underline}
 .used-list{list-style:none;margin:8px 0 0;padding:0}
 .used-list li{padding:10px 0;border-bottom:1px dashed var(--line)}
 .used-list li:last-child{border-bottom:0}

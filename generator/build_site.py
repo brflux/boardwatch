@@ -176,7 +176,9 @@ def reverb_panel(o):
 
 for b in boards:
     b["offers"] = [r for r in rows if r["board"] == b["id"]]
-    b["shop_offers"] = [o for o in b["offers"] if not o.get("used_market")]
+    # Blocked shops stay in the data, but they are not stock rows. Reverb is the used panel.
+    b["shop_offers"] = [o for o in b["offers"] if not o.get("used_market") and o.get("status") != "blocked"]
+    b["blocked_shops"] = [o for o in b["offers"] if o.get("status") == "blocked" and not o.get("used_market")]
     b["reverb"] = reverb_panel(next((o for o in b["offers"] if o.get("used_market")), None))
     b["in_stock_any"] = any(o.get("buyable") for o in b["offers"])
     b["stock_where"] = stock_where(b["offers"]) if b["in_stock_any"] else None
@@ -190,18 +192,35 @@ for b in boards:
     b["history"] = [{"vendor": vendors[k[0]]["name"], "points": v, "currency": v[-1].get("currency")} for k, v in series.items()]
 
 families = sorted({b["family"] for b in boards})
-vendor_list = sorted({(r["vendor"], r["vendor_name"]) for r in rows}, key=lambda x: x[1])
+# Home table rows are listings we actually checked. Used rows live on the board page.
+table_rows = [r for r in rows if not r.get("used_market") and r.get("status") != "blocked"]
+board_groups = []
+for r in table_rows:
+    if not board_groups or board_groups[-1]["id"] != r["board"]:
+        board_groups.append({"id": r["board"], "b": r["b"], "rows": [r]})
+    else:
+        board_groups[-1]["rows"].append(r)
+shown_boards = {g["id"] for g in board_groups}
+for b in boards:
+    if b["id"] not in shown_boards and b.get("reverb"):
+        board_groups.append({"id": b["id"], "b": b, "rows": []})
+board_groups.sort(key=lambda g: (g["b"]["family"], g["b"]["name"]))
+vendor_list = sorted({(r["vendor"], r["vendor_name"]) for r in table_rows}, key=lambda x: x[1])
 utc_s, ct_s = fmt_time(stock["run_at"])
 summary = stock["vendor_summary"]
 ok_vendors = [vendors[v]["name"] for v, s in summary.items() if s["ok"]]
 bad_vendors = [(vendors[v]["name"], s["errors"][0]) for v, s in summary.items() if not s["ok"]]
+# Footnote names shops we cannot read. Reverb is a link on the board page, not a failed row.
+unchecked_shops = [(vendors[v]["name"], s["errors"][0]) for v, s in summary.items()
+                   if not s["ok"] and not vendors[v].get("used")]
 counts = {"in": sum(1 for r in rows if r.get("buyable")),
           "out": sum(1 for r in rows if r["status"] in ("out_of_stock", "backorder") and not r.get("used_market") and not r.get("buyable"))}
 
 env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape())
 env.filters["money"] = lambda p, c: money(p, c)
 common = dict(cfg=cfg, site=cfg["site"], checked_utc=utc_s, checked_ct=ct_s, families=families, vendor_list=vendor_list,
-              boards=boards, ok_vendors=ok_vendors, bad_vendors=bad_vendors, year=dt.date.today().year, counts=counts)
+              boards=boards, ok_vendors=ok_vendors, bad_vendors=bad_vendors, unchecked_shops=unchecked_shops,
+              year=dt.date.today().year, counts=counts)
 
 if OUT.exists():
     shutil.rmtree(OUT)
@@ -217,7 +236,7 @@ def render(tpl, path, depth=0, **kw):
     (OUT / path).write_text(html)
 
 
-render("index.html", "index.html", rows=rows)
+render("index.html", "index.html", rows=table_rows, board_groups=board_groups)
 render("compare.html", "compare.html", fields=SPEC_FIELDS)
 import re as _re
 def approx_usd(b):
