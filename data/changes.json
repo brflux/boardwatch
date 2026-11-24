@@ -1,4 +1,212 @@
 {
- "run_at": "2026-11-23T14:56:51+00:00",
- "changes": []
+ "run_at": "2026-11-24T02:21:40+00:00",
+ "changes": [
+  {
+   "board": "daisy-seed3",
+   "vendor": "electrosmith",
+   "vendor_name": "Electro-Smith (official)",
+   "url": "https://daisy.audio/products/seed3",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-11-24T02:21:40+00:00",
+   "title": "Seed3",
+   "in_stock": true,
+   "price": 29.99,
+   "variants": [
+    {
+     "title": "65MB",
+     "price": 34.99,
+     "available": true
+    },
+    {
+     "title": "1MB",
+     "price": 29.99,
+     "available": true
+    }
+   ],
+   "source": "shopify .js",
+   "market": "US",
+   "markets": {
+    "US": true,
+    "CA": true,
+    "GB": true,
+    "DE": true,
+    "AU": true
+   },
+   "status": "in_stock",
+   "ok": true,
+   "changed": "price_down",
+   "prev_price": 34.99
+  },
+  {
+   "board": "daisy-pod",
+   "vendor": "electrosmith",
+   "vendor_name": "Electro-Smith (official)",
+   "url": "https://daisy.audio/products/pod",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-11-24T02:22:07+00:00",
+   "title": "Pod",
+   "in_stock": true,
+   "price": 99.99,
+   "source": "shopify .js",
+   "market": "US",
+   "markets": {
+    "US": true,
+    "CA": true,
+    "GB": true,
+    "DE": true,
+    "AU": true
+   },
+   "status": "in_stock",
+   "ok": true,
+   "changed": "restock"
+  },
+  {
+   "board": "daisy-patch-init",
+   "vendor": "electrosmith",
+   "vendor_name": "Electro-Smith (official)",
+   "url": "https://daisy.audio/products/patch-init",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-11-24T02:22:22+00:00",
+   "title": "patch.Init()",
+   "in_stock": true,
+   "price": 249.99,
+   "source": "shopify .js",
+   "market": "US",
+   "markets": {
+    "US": true,
+    "CA": true,
+    "GB": true,
+    "DE": true,
+    "AU": true
+   },
+   "status": "in_stock",
+   "ok": true,
+   "changed": "restock"
+  },
+  {
+   "board": "daisy-seed3-desktop",
+   "vendor": "electrosmith",
+   "vendor_name": "Electro-Smith (official)",
+   "url": "https://daisy.audio/products/seed-3-desktop-dev-kit",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-11-24T02:22:37+00:00",
+   "title": "Seed3 Desktop Dev Kit",
+   "in_stock": true,
+   "price": 349.99,
+   "source": "shopify .js",
+   "market": "US",
+   "markets": {
+    "US": true,
+    "CA": true,
+    "GB": true,
+    "DE": true,
+    "AU": true
+   },
+   "status": "in_stock",
+   "ok": true,
+   "changed": "restock"
+  },
+  {
+   "board": "daisy-seed3-eurorack",
+   "vendor": "electrosmith",
+   "vendor_name": "Electro-Smith (official)",
+   "url": "https://daisy.audio/products/seed-3-eurorack-dev-kit",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-11-24T02:22:52+00:00",
+   "title": "Seed3 Eurorack Dev Kit",
+   "in_stock": true,
+   "price": 299.99,
+   "source": "shopify .js",
+   "market": "US",
+   "markets": {
+    "US": true,
+    "CA": true,
+    "GB": true,
+    "DE": true,
+    "AU": true
+   },
+   "status": "in_stock",
+   "ok": true,
+   "changed": "restock"
+  },
+  {
+   "board": "daisy-seed3-pedal",
+   "vendor": "electrosmith",
+   "vendor_name": "Electro-Smith (official)",
+   "url": "https://daisy.audio/products/seed3-development-kit-pedal",
+   "variant_label": null,
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-11-24T02:23:07+00:00",
+   "title": "Seed3 Pedal Dev Kit",
+   "in_stock": true,
+   "price": 199.99,
+   "source": "shopify .js",
+   "market": "US",
+   "markets": {
+    "US": true,
+    "CA": true,
+    "GB": true,
+    "DE": true,
+    "AU": true
+   },
+   "status": "in_stock",
+   "ok": true,
+   "changed": "restock"
+  },
+  {
+   "board": "daisy-patch-sm",
+   "vendor": "electrosmith",
+   "vendor_name": "Electro-Smith (official)",
+   "url": "https://daisy.audio/products/patch-submodule",
+   "variant_label": "65MB",
+   "currency": "USD",
+   "price_note": null,
+   "used_market": false,
+   "checked_at": "2026-11-24T02:23:22+00:00",
+   "title": "Patch Submodule",
+   "in_stock": true,
+   "price": 39.99,
+   "variants": [
+    {
+     "title": "65MB",
+     "price": 39.99,
+     "available": true
+    },
+    {
+     "title": "1MB",
+     "price": 34.99,
+     "available": true
+    }
+   ],
+   "source": "shopify .js",
+   "market": "US",
+   "markets": {
+    "US": true,
+    "CA": true,
+    "GB": true,
+    "DE": true,
+    "AU": true
+   },
+   "status": "in_stock",
+   "ok": true,
+   "changed": "restock"
+  }
+ ]
 }
