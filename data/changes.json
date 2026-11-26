@@ -1,4 +1,36 @@
 {
- "run_at": "2026-11-26T01:51:35+00:00",
- "changes": []
+ "run_at": "2026-11-26T11:05:59+00:00",
+ "changes": [
+  {
+   "board": "pico-2",
+   "vendor": "pimoroni",
+   "vendor_name": "Pimoroni",
+   "url": "https://shop.pimoroni.com/products/raspberry-pi-pico-2",
+   "variant_label": null,
+   "currency": "GBP",
+   "price_note": "ex VAT",
+   "used_market": false,
+   "checked_at": "2026-11-26T11:09:13+00:00",
+   "title": "Raspberry Pi Pico 2",
+   "in_stock": true,
+   "price": 3.58,
+   "variants": [
+    {
+     "title": "Without Headers",
+     "price": 3.58,
+     "available": true
+    },
+    {
+     "title": "With Headers",
+     "price": 4.25,
+     "available": false
+    }
+   ],
+   "source": "shopify .js",
+   "status": "in_stock",
+   "ok": true,
+   "changed": "price_down",
+   "prev_price": 4.0
+  }
+ ]
 }
